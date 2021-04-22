@@ -5,17 +5,22 @@
  */
 package view;
 
+import controller.HomeController;
+
 /**
  *
  * @author alych
  */
 public class Home extends javax.swing.JFrame {
+    
+    private final HomeController controller;
 
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
+        controller = new HomeController(this);
     }
 
     /**
@@ -40,9 +45,11 @@ public class Home extends javax.swing.JFrame {
         messageLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setBackground(new java.awt.Color(40, 40, 40));
+        background.setPreferredSize(new java.awt.Dimension(1200, 800));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/xtra-vision_700.jpg"))); // NOI18N
 
@@ -71,6 +78,11 @@ public class Home extends javax.swing.JFrame {
         rentLabel.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
         rentLabel.setForeground(new java.awt.Color(255, 255, 0));
         rentLabel.setText("<html>\nCLICK<br>\nTO RENT\n<html>");
+        rentLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rentLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout rentPanelLayout = new javax.swing.GroupLayout(rentPanel);
         rentPanel.setLayout(rentPanelLayout);
@@ -133,7 +145,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(messageLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(messageLabel1)
@@ -144,7 +156,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(140, 140, 140))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addGap(0, 264, Short.MAX_VALUE)
+                .addGap(0, 250, Short.MAX_VALUE)
                 .addComponent(logo)
                 .addGap(250, 250, 250))
         );
@@ -168,13 +180,18 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(0, 322, Short.MAX_VALUE))
+                .addGap(0, 60, Short.MAX_VALUE))
         );
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rentLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentLabelMouseClicked
+        // TODO add your handling code here:
+      this.controller.goMain();
+    }//GEN-LAST:event_rentLabelMouseClicked
 
     /**
      * @param args the command line arguments
