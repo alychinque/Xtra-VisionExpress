@@ -63,7 +63,7 @@
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="backButton" min="-2" pref="149" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="rentButton" min="-2" pref="149" max="-2" attributes="0"/>
+                          <Component id="payButton" min="-2" pref="149" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -80,7 +80,7 @@
                   <Component id="panel" pref="591" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="rentButton" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="payButton" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="backButton" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
@@ -371,12 +371,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="rentButton">
+        <Component class="javax.swing.JButton" name="payButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="PAY"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rentButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="payButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="backButton">
