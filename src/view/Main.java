@@ -39,30 +39,46 @@ public class Main extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jPanel2 = new javax.swing.JPanel();
+        moviePanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        titleMovie1 = new javax.swing.JLabel();
+        subTitleMovie1 = new javax.swing.JLabel();
+        moviePanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        titleMovie2 = new javax.swing.JLabel();
+        subTitleMovie2 = new javax.swing.JLabel();
+        moviePanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
+        titleMovie3 = new javax.swing.JLabel();
+        subTitleMovie3 = new javax.swing.JLabel();
+        moviePanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
+        titleMovie4 = new javax.swing.JLabel();
+        subTitleMovie4 = new javax.swing.JLabel();
+        moviePanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        titleMovie5 = new javax.swing.JLabel();
+        subTitleMovie5 = new javax.swing.JLabel();
+        moviePanel6 = new javax.swing.JPanel();
+        imageMovie6 = new javax.swing.JLabel();
+        titleMovie6 = new javax.swing.JLabel();
+        subTitleMovie6 = new javax.swing.JLabel();
+        moviePanel7 = new javax.swing.JPanel();
+        imageMovie7 = new javax.swing.JLabel();
+        titleMovie7 = new javax.swing.JLabel();
+        subTitleMovie7 = new javax.swing.JLabel();
+        moviePanel8 = new javax.swing.JPanel();
+        imagemMovie8 = new javax.swing.JLabel();
+        titleMovie8 = new javax.swing.JLabel();
+        subTitleMovie8 = new javax.swing.JLabel();
+        moviePanel9 = new javax.swing.JPanel();
+        imageMovie9 = new javax.swing.JLabel();
+        titleMovie9 = new javax.swing.JLabel();
+        subTitleMovie9 = new javax.swing.JLabel();
+        moviePanel10 = new javax.swing.JPanel();
+        imageMovie10 = new javax.swing.JLabel();
+        titleMovie10 = new javax.swing.JLabel();
+        subTitleMovie10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,159 +108,379 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setText("GENRE");
 
-        jPanel2.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel2.setPreferredSize(new java.awt.Dimension(170, 255));
+        moviePanel1.setBackground(new java.awt.Color(100, 240, 240));
+        moviePanel1.setMaximumSize(new java.awt.Dimension(170, 303));
+        moviePanel1.setMinimumSize(new java.awt.Dimension(170, 303));
+        moviePanel1.setPreferredSize(new java.awt.Dimension(170, 303));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test170255.jpg"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        titleMovie1.setText("Star Wars: Episode VI");
+        titleMovie1.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie1.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie1.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie1.setText("The Return of the Jedi");
+        subTitleMovie1.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie1.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie1.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel1Layout = new javax.swing.GroupLayout(moviePanel1);
+        moviePanel1.setLayout(moviePanel1Layout);
+        moviePanel1Layout.setHorizontalGroup(
+            moviePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel1Layout.createSequentialGroup()
+                .addComponent(jLabel13)
+                .addGap(12, 12, 12))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel1Layout.createSequentialGroup()
+                .addGroup(moviePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleMovie1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleMovie1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        moviePanel1Layout.setVerticalGroup(
+            moviePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel1Layout.createSequentialGroup()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel3.setPreferredSize(new java.awt.Dimension(170, 255));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-        );
-
-        jPanel5.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel5.setPreferredSize(new java.awt.Dimension(170, 255));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-        );
-
-        jPanel4.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel4.setPreferredSize(new java.awt.Dimension(170, 255));
+        moviePanel2.setBackground(new java.awt.Color(100, 240, 240));
+        moviePanel2.setMaximumSize(new java.awt.Dimension(170, 303));
+        moviePanel2.setMinimumSize(new java.awt.Dimension(170, 303));
+        moviePanel2.setPreferredSize(new java.awt.Dimension(170, 303));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/mortalkombat-2021-newposter-blue.jpeg"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        titleMovie2.setText("Star Wars: Episode VI");
+        titleMovie2.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie2.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie2.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie2.setText("The Return of the Jedi");
+        subTitleMovie2.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie2.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie2.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel2Layout = new javax.swing.GroupLayout(moviePanel2);
+        moviePanel2.setLayout(moviePanel2Layout);
+        moviePanel2Layout.setHorizontalGroup(
+            moviePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel2Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(12, 12, 12))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel2Layout.createSequentialGroup()
+                .addGroup(moviePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleMovie2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleMovie2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        moviePanel2Layout.setVerticalGroup(
+            moviePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel2Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel6.setPreferredSize(new java.awt.Dimension(170, 255));
+        moviePanel3.setBackground(new java.awt.Color(100, 240, 240));
+        moviePanel3.setMaximumSize(new java.awt.Dimension(170, 303));
+        moviePanel3.setMinimumSize(new java.awt.Dimension(170, 303));
+        moviePanel3.setPreferredSize(new java.awt.Dimension(170, 303));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/return-of-the-jedi-poster-big.jpg"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        titleMovie3.setText("Star Wars: Episode VI");
+        titleMovie3.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie3.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie3.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        jPanel7.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel7.setPreferredSize(new java.awt.Dimension(170, 255));
+        subTitleMovie3.setText("The Return of the Jedi");
+        subTitleMovie3.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie3.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie3.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout moviePanel3Layout = new javax.swing.GroupLayout(moviePanel3);
+        moviePanel3.setLayout(moviePanel3Layout);
+        moviePanel3Layout.setHorizontalGroup(
+            moviePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel3Layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel3Layout.createSequentialGroup()
+                .addGroup(moviePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleMovie3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleMovie3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-        );
-
-        jPanel8.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel8.setPreferredSize(new java.awt.Dimension(170, 255));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+        moviePanel3Layout.setVerticalGroup(
+            moviePanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel3Layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel9.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel9.setPreferredSize(new java.awt.Dimension(170, 255));
+        moviePanel4.setBackground(new java.awt.Color(100, 240, 240));
+        moviePanel4.setMaximumSize(new java.awt.Dimension(170, 303));
+        moviePanel4.setMinimumSize(new java.awt.Dimension(170, 303));
+        moviePanel4.setName(""); // NOI18N
+        moviePanel4.setPreferredSize(new java.awt.Dimension(170, 303));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-        );
+        titleMovie4.setText("Star Wars: Episode VI");
+        titleMovie4.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie4.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie4.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        jPanel10.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel10.setPreferredSize(new java.awt.Dimension(170, 255));
+        subTitleMovie4.setText("The Return of the Jedi");
+        subTitleMovie4.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie4.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie4.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+        javax.swing.GroupLayout moviePanel4Layout = new javax.swing.GroupLayout(moviePanel4);
+        moviePanel4.setLayout(moviePanel4Layout);
+        moviePanel4Layout.setHorizontalGroup(
+            moviePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(moviePanel4Layout.createSequentialGroup()
+                .addGroup(moviePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleMovie4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleMovie4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-        );
-
-        jPanel11.setBackground(new java.awt.Color(100, 240, 240));
-        jPanel11.setPreferredSize(new java.awt.Dimension(170, 255));
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+        moviePanel4Layout.setVerticalGroup(
+            moviePanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel4Layout.createSequentialGroup()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        jLabel12.setText("jLabel12");
+        moviePanel5.setBackground(new java.awt.Color(100, 240, 240));
+        moviePanel5.setMaximumSize(new java.awt.Dimension(170, 303));
+        moviePanel5.setMinimumSize(new java.awt.Dimension(170, 303));
+        moviePanel5.setPreferredSize(new java.awt.Dimension(170, 303));
 
-        jLabel14.setText("jLabel14");
+        titleMovie5.setText("Star Wars: Episode VI");
+        titleMovie5.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie5.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie5.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        jLabel15.setText("Star Wars: Episode VI");
+        subTitleMovie5.setText("The Return of the Jedi");
+        subTitleMovie5.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie5.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie5.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        jLabel16.setText("The Return of the Jedi");
+        javax.swing.GroupLayout moviePanel5Layout = new javax.swing.GroupLayout(moviePanel5);
+        moviePanel5.setLayout(moviePanel5Layout);
+        moviePanel5Layout.setHorizontalGroup(
+            moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel5Layout.createSequentialGroup()
+                .addGroup(moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleMovie5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleMovie5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        moviePanel5Layout.setVerticalGroup(
+            moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        moviePanel6.setBackground(new java.awt.Color(100, 240, 240));
+
+        imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/2.jpg"))); // NOI18N
+        imageMovie6.setPreferredSize(new java.awt.Dimension(170, 255));
+
+        titleMovie6.setText("Star Wars: Episode VI");
+        titleMovie6.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie6.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie6.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie6.setText("The Return of the Jedi");
+        subTitleMovie6.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie6.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie6.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel6Layout = new javax.swing.GroupLayout(moviePanel6);
+        moviePanel6.setLayout(moviePanel6Layout);
+        moviePanel6Layout.setHorizontalGroup(
+            moviePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageMovie6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(moviePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(titleMovie6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(subTitleMovie6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        moviePanel6Layout.setVerticalGroup(
+            moviePanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel6Layout.createSequentialGroup()
+                .addComponent(imageMovie6, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        moviePanel7.setBackground(new java.awt.Color(100, 240, 240));
+
+        imageMovie7.setMaximumSize(new java.awt.Dimension(170, 255));
+        imageMovie7.setMinimumSize(new java.awt.Dimension(170, 255));
+        imageMovie7.setPreferredSize(new java.awt.Dimension(170, 255));
+
+        titleMovie7.setText("Star Wars: Episode VI");
+        titleMovie7.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie7.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie7.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie7.setText("The Return of the Jedi");
+        subTitleMovie7.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie7.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie7.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel7Layout = new javax.swing.GroupLayout(moviePanel7);
+        moviePanel7.setLayout(moviePanel7Layout);
+        moviePanel7Layout.setHorizontalGroup(
+            moviePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageMovie7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(titleMovie7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(subTitleMovie7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        moviePanel7Layout.setVerticalGroup(
+            moviePanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel7Layout.createSequentialGroup()
+                .addComponent(imageMovie7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        moviePanel8.setBackground(new java.awt.Color(100, 240, 240));
+
+        imagemMovie8.setMaximumSize(new java.awt.Dimension(170, 255));
+        imagemMovie8.setMinimumSize(new java.awt.Dimension(170, 255));
+        imagemMovie8.setPreferredSize(new java.awt.Dimension(170, 255));
+
+        titleMovie8.setText("Star Wars: Episode VI");
+        titleMovie8.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie8.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie8.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie8.setText("The Return of the Jedi");
+        subTitleMovie8.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie8.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie8.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel8Layout = new javax.swing.GroupLayout(moviePanel8);
+        moviePanel8.setLayout(moviePanel8Layout);
+        moviePanel8Layout.setHorizontalGroup(
+            moviePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imagemMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(titleMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(subTitleMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        moviePanel8Layout.setVerticalGroup(
+            moviePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel8Layout.createSequentialGroup()
+                .addComponent(imagemMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        moviePanel9.setBackground(new java.awt.Color(100, 240, 240));
+        moviePanel9.setMaximumSize(new java.awt.Dimension(170, 303));
+        moviePanel9.setMinimumSize(new java.awt.Dimension(170, 303));
+        moviePanel9.setPreferredSize(new java.awt.Dimension(170, 303));
+
+        imageMovie9.setMaximumSize(new java.awt.Dimension(170, 255));
+        imageMovie9.setMinimumSize(new java.awt.Dimension(170, 255));
+        imageMovie9.setPreferredSize(new java.awt.Dimension(170, 255));
+
+        titleMovie9.setText("Star Wars: Episode VI");
+        titleMovie9.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie9.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie9.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie9.setText("The Return of the Jedi");
+        subTitleMovie9.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie9.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie9.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel9Layout = new javax.swing.GroupLayout(moviePanel9);
+        moviePanel9.setLayout(moviePanel9Layout);
+        moviePanel9Layout.setHorizontalGroup(
+            moviePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel9Layout.createSequentialGroup()
+                .addGroup(moviePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleMovie9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleMovie9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(imageMovie9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2))
+        );
+        moviePanel9Layout.setVerticalGroup(
+            moviePanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel9Layout.createSequentialGroup()
+                .addComponent(imageMovie9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleMovie9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        moviePanel10.setBackground(new java.awt.Color(100, 240, 240));
+
+        imageMovie10.setMaximumSize(new java.awt.Dimension(170, 255));
+        imageMovie10.setMinimumSize(new java.awt.Dimension(170, 255));
+        imageMovie10.setPreferredSize(new java.awt.Dimension(170, 255));
+
+        titleMovie10.setText("Star Wars: Episode VI");
+        titleMovie10.setMaximumSize(new java.awt.Dimension(170, 16));
+        titleMovie10.setMinimumSize(new java.awt.Dimension(170, 16));
+        titleMovie10.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        subTitleMovie10.setText("The Return of the Jedi");
+        subTitleMovie10.setMaximumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie10.setMinimumSize(new java.awt.Dimension(170, 16));
+        subTitleMovie10.setPreferredSize(new java.awt.Dimension(170, 16));
+
+        javax.swing.GroupLayout moviePanel10Layout = new javax.swing.GroupLayout(moviePanel10);
+        moviePanel10.setLayout(moviePanel10Layout);
+        moviePanel10Layout.setHorizontalGroup(
+            moviePanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageMovie10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(titleMovie10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(subTitleMovie10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        moviePanel10Layout.setVerticalGroup(
+            moviePanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanel10Layout.createSequentialGroup()
+                .addComponent(imageMovie10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleMovie10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(subTitleMovie10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -264,28 +500,24 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(moviePanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(moviePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14))
+                            .addComponent(moviePanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moviePanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(moviePanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(moviePanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(moviePanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moviePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(moviePanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moviePanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -304,37 +536,27 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel14)
-                            .addGap(16, 16, 16)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel15)
-                            .addGap(4, 4, 4)
-                            .addComponent(jLabel16)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(50, 50, 50))
+                        .addComponent(moviePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(moviePanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(moviePanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(moviePanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(moviePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(moviePanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(moviePanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(moviePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, 0)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(moviePanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                            .addComponent(moviePanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -379,14 +601,14 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         controller.backMain();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,36 +647,52 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JLabel imageMovie10;
+    private javax.swing.JLabel imageMovie6;
+    private javax.swing.JLabel imageMovie7;
+    private javax.swing.JLabel imageMovie9;
+    private javax.swing.JLabel imagemMovie8;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logo;
+    private javax.swing.JPanel moviePanel1;
+    private javax.swing.JPanel moviePanel10;
+    private javax.swing.JPanel moviePanel2;
+    private javax.swing.JPanel moviePanel3;
+    private javax.swing.JPanel moviePanel4;
+    private javax.swing.JPanel moviePanel5;
+    private javax.swing.JPanel moviePanel6;
+    private javax.swing.JPanel moviePanel7;
+    private javax.swing.JPanel moviePanel8;
+    private javax.swing.JPanel moviePanel9;
+    private javax.swing.JLabel subTitleMovie1;
+    private javax.swing.JLabel subTitleMovie10;
+    private javax.swing.JLabel subTitleMovie2;
+    private javax.swing.JLabel subTitleMovie3;
+    private javax.swing.JLabel subTitleMovie4;
+    private javax.swing.JLabel subTitleMovie5;
+    private javax.swing.JLabel subTitleMovie6;
+    private javax.swing.JLabel subTitleMovie7;
+    private javax.swing.JLabel subTitleMovie8;
+    private javax.swing.JLabel subTitleMovie9;
+    private javax.swing.JLabel titleMovie1;
+    private javax.swing.JLabel titleMovie10;
+    private javax.swing.JLabel titleMovie2;
+    private javax.swing.JLabel titleMovie3;
+    private javax.swing.JLabel titleMovie4;
+    private javax.swing.JLabel titleMovie5;
+    private javax.swing.JLabel titleMovie6;
+    private javax.swing.JLabel titleMovie7;
+    private javax.swing.JLabel titleMovie8;
+    private javax.swing.JLabel titleMovie9;
     // End of variables declaration//GEN-END:variables
 }
