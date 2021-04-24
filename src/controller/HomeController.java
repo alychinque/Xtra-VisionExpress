@@ -7,6 +7,7 @@ package controller;
 
 import view.Home;
 import view.Main;
+import view.Return;
 
 /**
  *
@@ -25,6 +26,12 @@ public class HomeController {
         main.setVisible(true);
         this.view.dispose();
         
+    }
+
+    public void goReturn() {
+        Return returnS = new Return();
+        returnS.setVisible(true);
+        this.view.dispose();
     }
     
 }
