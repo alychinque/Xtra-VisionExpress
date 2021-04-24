@@ -5,19 +5,22 @@
  */
 package view;
 
-import javax.swing.JComboBox;
+import controller.ReturnController;
 
 /**
  *
  * @author alych
  */
 public class Return extends javax.swing.JFrame {
+    
+    private final ReturnController controller;
 
     /**
      * Creates new form Return
      */
     public Return() {
         initComponents();
+        controller = new ReturnController(this);
         String[] option = {"TITANIC", "STAR WARS"};
         movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(option));
     }
@@ -174,6 +177,7 @@ public class Return extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        controller.backMain();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
