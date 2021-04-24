@@ -34,18 +34,23 @@ public class MovieDescription extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         titleMovie = new javax.swing.JLabel();
         imageMovie = new javax.swing.JLabel();
-        subTitleMovie = new javax.swing.JLabel();
+        category = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionMovie = new javax.swing.JTextArea();
+        duration = new javax.swing.JLabel();
+        categogy = new javax.swing.JLabel();
+        separator = new javax.swing.JLabel();
         rentButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         background.setBackground(new java.awt.Color(40, 40, 40));
+        background.setMaximumSize(new java.awt.Dimension(1200, 800));
+        background.setMinimumSize(new java.awt.Dimension(1200, 800));
         background.setPreferredSize(new java.awt.Dimension(1200, 800));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/xtra-vision_400.jpg"))); // NOI18N
@@ -64,12 +69,12 @@ public class MovieDescription extends javax.swing.JFrame {
         imageMovie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         imageMovie.setPreferredSize(new java.awt.Dimension(170, 255));
 
-        subTitleMovie.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
-        subTitleMovie.setText("jLabel1");
-        subTitleMovie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        subTitleMovie.setMaximumSize(new java.awt.Dimension(510, 20));
-        subTitleMovie.setMinimumSize(new java.awt.Dimension(510, 20));
-        subTitleMovie.setPreferredSize(new java.awt.Dimension(510, 20));
+        category.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        category.setText("subTitle");
+        category.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        category.setMaximumSize(new java.awt.Dimension(510, 20));
+        category.setMinimumSize(new java.awt.Dimension(510, 20));
+        category.setPreferredSize(new java.awt.Dimension(510, 20));
 
         descriptionLabel.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         descriptionLabel.setText("Description");
@@ -77,9 +82,15 @@ public class MovieDescription extends javax.swing.JFrame {
         descriptionMovie.setEditable(false);
         descriptionMovie.setColumns(10);
         descriptionMovie.setLineWrap(true);
-        descriptionMovie.setRows(8);
+        descriptionMovie.setRows(15);
         descriptionMovie.setWrapStyleWord(true);
         jScrollPane1.setViewportView(descriptionMovie);
+
+        duration.setText("Duration");
+
+        categogy.setText("jLabel2");
+
+        separator.setText("/");
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -87,16 +98,26 @@ public class MovieDescription extends javax.swing.JFrame {
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
-                .addComponent(imageMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(subTitleMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(titleMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(descriptionLabel)
-                    .addComponent(jSeparator1)
-                    .addComponent(jSeparator2)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 898, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addComponent(imageMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(category, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(titleMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(descriptionLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(categogy)
+                                .addGap(83, 83, 83)
+                                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(duration)
+                                .addGap(13, 13, 13))
+                            .addComponent(jSeparator1)
+                            .addComponent(jScrollPane1))))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,20 +125,24 @@ public class MovieDescription extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(titleMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(subTitleMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(duration)
+                            .addComponent(categogy)
+                            .addComponent(separator))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(imageMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
 
         rentButton.setText("RENT");
@@ -160,12 +185,12 @@ public class MovieDescription extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,7 +201,9 @@ public class MovieDescription extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 872, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,8 +255,11 @@ public class MovieDescription extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel background;
+    private javax.swing.JLabel categogy;
+    private javax.swing.JLabel category;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextArea descriptionMovie;
+    private javax.swing.JLabel duration;
     private javax.swing.JLabel imageMovie;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -237,7 +267,7 @@ public class MovieDescription extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JPanel panel;
     private javax.swing.JButton rentButton;
-    private javax.swing.JLabel subTitleMovie;
+    private javax.swing.JLabel separator;
     private javax.swing.JLabel titleMovie;
     // End of variables declaration//GEN-END:variables
 }
