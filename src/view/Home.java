@@ -109,6 +109,11 @@ public class Home extends javax.swing.JFrame {
         returnLabel.setForeground(new java.awt.Color(255, 255, 0));
         returnLabel.setText("<html> CLICK<br> TO RETURN <html>");
         returnLabel.setAlignmentX(0.5F);
+        returnLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnLabelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout retutnPanelLayout = new javax.swing.GroupLayout(retutnPanel);
         retutnPanel.setLayout(retutnPanelLayout);
@@ -190,8 +195,13 @@ public class Home extends javax.swing.JFrame {
 
     private void rentLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentLabelMouseClicked
         // TODO add your handling code here:
-      this.controller.goMain();
+        this.controller.goMain();
     }//GEN-LAST:event_rentLabelMouseClicked
+
+    private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
+        // TODO add your handling code here:
+        this.controller.goReturn();
+    }//GEN-LAST:event_returnLabelMouseClicked
 
     /**
      * @param args the command line arguments
