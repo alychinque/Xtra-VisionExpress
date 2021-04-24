@@ -17,6 +17,12 @@ public class Movie {
     private String description;
     private int duration;
 
+    public Movie(int idMovie, String title, String subTitle) {
+        this.idMovie = idMovie;
+        this.title = title;
+        this.subTitle = subTitle;
+    }
+
     public Movie(int idMovie, String title, String subTitle, int idGenre, String description, int duration) {
         this.idMovie = idMovie;
         this.title = title;
