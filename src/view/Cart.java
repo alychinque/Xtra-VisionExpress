@@ -16,6 +16,8 @@ public class Cart extends javax.swing.JFrame {
      */
     public Cart() {
         initComponents();
+        movie1.setVisible(false);
+        movie3.setVisible(false);
     }
 
     /**
@@ -27,21 +29,438 @@ public class Cart extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        panel = new javax.swing.JPanel();
+        titleLabel = new javax.swing.JLabel();
+        subTitleLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        movie1 = new javax.swing.JPanel();
+        imageMovie1 = new javax.swing.JLabel();
+        titleMovie1 = new javax.swing.JLabel();
+        subTitle1 = new javax.swing.JLabel();
+        price1 = new javax.swing.JLabel();
+        deleteMovie1 = new javax.swing.JButton();
+        movie2 = new javax.swing.JPanel();
+        imageMovie2 = new javax.swing.JLabel();
+        titleMovie2 = new javax.swing.JLabel();
+        subTitle2 = new javax.swing.JLabel();
+        price2 = new javax.swing.JLabel();
+        deleteMovie2 = new javax.swing.JButton();
+        movie3 = new javax.swing.JPanel();
+        imageMovie3 = new javax.swing.JLabel();
+        titleMovie3 = new javax.swing.JLabel();
+        subTitle3 = new javax.swing.JLabel();
+        price3 = new javax.swing.JLabel();
+        deleteMovie3 = new javax.swing.JButton();
+        movie4 = new javax.swing.JPanel();
+        imageMovie4 = new javax.swing.JLabel();
+        titleMovie4 = new javax.swing.JLabel();
+        subTitle4 = new javax.swing.JLabel();
+        price4 = new javax.swing.JLabel();
+        deleteMovie4 = new javax.swing.JButton();
+        totalLabel = new javax.swing.JLabel();
+        priceTotalLabel = new javax.swing.JLabel();
+        checkoutButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        background.setBackground(new java.awt.Color(40, 40, 40));
+        background.setMaximumSize(new java.awt.Dimension(1200, 800));
+        background.setMinimumSize(new java.awt.Dimension(1200, 800));
+        background.setPreferredSize(new java.awt.Dimension(1200, 800));
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/xtra-vision_400.jpg"))); // NOI18N
+
+        panel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panel.setPreferredSize(new java.awt.Dimension(1100, 650));
+
+        titleLabel.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
+        titleLabel.setText("TITLE");
+        titleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        titleLabel.setMaximumSize(new java.awt.Dimension(80, 30));
+        titleLabel.setMinimumSize(new java.awt.Dimension(80, 30));
+        titleLabel.setName(""); // NOI18N
+        titleLabel.setPreferredSize(new java.awt.Dimension(80, 30));
+
+        subTitleLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitleLabel.setText("SubTitle");
+        subTitleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subTitleLabel.setMaximumSize(new java.awt.Dimension(100, 30));
+        subTitleLabel.setMinimumSize(new java.awt.Dimension(100, 30));
+        subTitleLabel.setPreferredSize(new java.awt.Dimension(100, 30));
+
+        priceLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        priceLabel.setText("price");
+        priceLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        priceLabel.setMaximumSize(new java.awt.Dimension(510, 20));
+        priceLabel.setMinimumSize(new java.awt.Dimension(510, 20));
+        priceLabel.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg"))); // NOI18N
+        imageMovie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageMovie1.setPreferredSize(new java.awt.Dimension(80, 120));
+
+        titleMovie1.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
+        titleMovie1.setText("title");
+        titleMovie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        titleMovie1.setMaximumSize(new java.awt.Dimension(510, 30));
+        titleMovie1.setMinimumSize(new java.awt.Dimension(510, 30));
+        titleMovie1.setName(""); // NOI18N
+        titleMovie1.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        subTitle1.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitle1.setText("subTitle");
+        subTitle1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subTitle1.setMaximumSize(new java.awt.Dimension(510, 20));
+        subTitle1.setMinimumSize(new java.awt.Dimension(510, 20));
+        subTitle1.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        price1.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        price1.setText("price");
+        price1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        price1.setMaximumSize(new java.awt.Dimension(510, 20));
+        price1.setMinimumSize(new java.awt.Dimension(510, 20));
+        price1.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        deleteMovie1.setText("DELETE");
+
+        javax.swing.GroupLayout movie1Layout = new javax.swing.GroupLayout(movie1);
+        movie1.setLayout(movie1Layout);
+        movie1Layout.setHorizontalGroup(
+            movie1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(movie1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imageMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(subTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(price1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(deleteMovie1)
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        movie1Layout.setVerticalGroup(
+            movie1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(movie1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(movie1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(price1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteMovie1)))
+        );
+
+        imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg"))); // NOI18N
+        imageMovie2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageMovie2.setPreferredSize(new java.awt.Dimension(80, 120));
+
+        titleMovie2.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
+        titleMovie2.setText("title");
+        titleMovie2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        titleMovie2.setMaximumSize(new java.awt.Dimension(510, 30));
+        titleMovie2.setMinimumSize(new java.awt.Dimension(510, 30));
+        titleMovie2.setName(""); // NOI18N
+        titleMovie2.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        subTitle2.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitle2.setText("subTitle");
+        subTitle2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subTitle2.setMaximumSize(new java.awt.Dimension(510, 20));
+        subTitle2.setMinimumSize(new java.awt.Dimension(510, 20));
+        subTitle2.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        price2.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        price2.setText("price");
+        price2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        price2.setMaximumSize(new java.awt.Dimension(510, 20));
+        price2.setMinimumSize(new java.awt.Dimension(510, 20));
+        price2.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        deleteMovie2.setText("DELETE");
+
+        javax.swing.GroupLayout movie2Layout = new javax.swing.GroupLayout(movie2);
+        movie2.setLayout(movie2Layout);
+        movie2Layout.setHorizontalGroup(
+            movie2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(movie2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imageMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(subTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(price2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(deleteMovie2)
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        movie2Layout.setVerticalGroup(
+            movie2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(movie2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(movie2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(price2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteMovie2)))
+        );
+
+        imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg"))); // NOI18N
+        imageMovie3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageMovie3.setPreferredSize(new java.awt.Dimension(80, 120));
+
+        titleMovie3.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
+        titleMovie3.setText("title");
+        titleMovie3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        titleMovie3.setMaximumSize(new java.awt.Dimension(510, 30));
+        titleMovie3.setMinimumSize(new java.awt.Dimension(510, 30));
+        titleMovie3.setName(""); // NOI18N
+        titleMovie3.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        subTitle3.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitle3.setText("subTitle");
+        subTitle3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subTitle3.setMaximumSize(new java.awt.Dimension(510, 20));
+        subTitle3.setMinimumSize(new java.awt.Dimension(510, 20));
+        subTitle3.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        price3.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        price3.setText("price");
+        price3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        price3.setMaximumSize(new java.awt.Dimension(510, 20));
+        price3.setMinimumSize(new java.awt.Dimension(510, 20));
+        price3.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        deleteMovie3.setText("DELETE");
+
+        javax.swing.GroupLayout movie3Layout = new javax.swing.GroupLayout(movie3);
+        movie3.setLayout(movie3Layout);
+        movie3Layout.setHorizontalGroup(
+            movie3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(movie3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imageMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(subTitle3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(price3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(deleteMovie3)
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        movie3Layout.setVerticalGroup(
+            movie3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imageMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(movie3Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(movie3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitle3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(price3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteMovie3)))
+        );
+
+        imageMovie4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg"))); // NOI18N
+        imageMovie4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageMovie4.setPreferredSize(new java.awt.Dimension(80, 120));
+
+        titleMovie4.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
+        titleMovie4.setText("title");
+        titleMovie4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        titleMovie4.setMaximumSize(new java.awt.Dimension(510, 30));
+        titleMovie4.setMinimumSize(new java.awt.Dimension(510, 30));
+        titleMovie4.setName(""); // NOI18N
+        titleMovie4.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        subTitle4.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitle4.setText("subTitle");
+        subTitle4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subTitle4.setMaximumSize(new java.awt.Dimension(510, 20));
+        subTitle4.setMinimumSize(new java.awt.Dimension(510, 20));
+        subTitle4.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        price4.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        price4.setText("price");
+        price4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        price4.setMaximumSize(new java.awt.Dimension(510, 20));
+        price4.setMinimumSize(new java.awt.Dimension(510, 20));
+        price4.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        deleteMovie4.setText("DELETE");
+
+        javax.swing.GroupLayout movie4Layout = new javax.swing.GroupLayout(movie4);
+        movie4.setLayout(movie4Layout);
+        movie4Layout.setHorizontalGroup(
+            movie4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(movie4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imageMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(titleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(subTitle4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(price4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(deleteMovie4)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        movie4Layout.setVerticalGroup(
+            movie4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(movie4Layout.createSequentialGroup()
+                .addGroup(movie4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imageMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(movie4Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(movie4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(titleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subTitle4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(price4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteMovie4))))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        totalLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        totalLabel.setText("TOTAL");
+        totalLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        totalLabel.setMaximumSize(new java.awt.Dimension(510, 20));
+        totalLabel.setMinimumSize(new java.awt.Dimension(510, 20));
+        totalLabel.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        priceTotalLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        priceTotalLabel.setText("€€€€€€");
+        priceTotalLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        priceTotalLabel.setMaximumSize(new java.awt.Dimension(510, 20));
+        priceTotalLabel.setMinimumSize(new java.awt.Dimension(510, 20));
+        priceTotalLabel.setPreferredSize(new java.awt.Dimension(510, 20));
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(187, 187, 187)
+                        .addComponent(subTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(movie2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(movie1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 45, Short.MAX_VALUE))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(445, 445, 445)
+                .addComponent(totalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(priceTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(subTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addComponent(movie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(movie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        checkoutButton.setText("CHECKOUT");
+        checkoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkoutButtonActionPerformed(evt);
+            }
+        });
+
+        backButton.setText("BACK TO MOVIES");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(checkoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(399, 399, 399)
+                        .addComponent(logo))
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addComponent(logo)
+                .addGap(5, 5, 5)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkoutButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +498,39 @@ public class Cart extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JPanel background;
+    private javax.swing.JButton checkoutButton;
+    private javax.swing.JButton deleteMovie1;
+    private javax.swing.JButton deleteMovie2;
+    private javax.swing.JButton deleteMovie3;
+    private javax.swing.JButton deleteMovie4;
+    private javax.swing.JLabel imageMovie1;
+    private javax.swing.JLabel imageMovie2;
+    private javax.swing.JLabel imageMovie3;
+    private javax.swing.JLabel imageMovie4;
+    private javax.swing.JLabel logo;
+    private javax.swing.JPanel movie1;
+    private javax.swing.JPanel movie2;
+    private javax.swing.JPanel movie3;
+    private javax.swing.JPanel movie4;
+    private javax.swing.JPanel panel;
+    private javax.swing.JLabel price1;
+    private javax.swing.JLabel price2;
+    private javax.swing.JLabel price3;
+    private javax.swing.JLabel price4;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel priceTotalLabel;
+    private javax.swing.JLabel subTitle1;
+    private javax.swing.JLabel subTitle2;
+    private javax.swing.JLabel subTitle3;
+    private javax.swing.JLabel subTitle4;
+    private javax.swing.JLabel subTitleLabel;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel titleMovie1;
+    private javax.swing.JLabel titleMovie2;
+    private javax.swing.JLabel titleMovie3;
+    private javax.swing.JLabel titleMovie4;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }
