@@ -20,7 +20,6 @@ public class Return extends javax.swing.JFrame {
         initComponents();
         String[] option = {"TITANIC", "STAR WARS"};
         movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(option));
-        System.out.println("vem aqui?");
     }
 
     /**
@@ -40,6 +39,7 @@ public class Return extends javax.swing.JFrame {
         returnLabel = new javax.swing.JLabel();
         movieComboBox = new javax.swing.JComboBox();
         numberComboBox = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,7 +85,14 @@ public class Return extends javax.swing.JFrame {
         movieComboBox.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         numberComboBox.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        numberComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -104,7 +111,9 @@ public class Return extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(474, 474, 474)
+                        .addGap(95, 95, 95)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(278, 278, 278)
                         .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(194, 194, 194)
@@ -130,9 +139,14 @@ public class Return extends javax.swing.JFrame {
                             .addComponent(movieLabel))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(movieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112)
-                .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(248, 248, 248)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(83, 83, 83))
             .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(backgroundLayout.createSequentialGroup()
                     .addGap(371, 371, 371)
@@ -144,25 +158,23 @@ public class Return extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +213,7 @@ public class Return extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel logo;
     private javax.swing.JComboBox movieComboBox;
     private javax.swing.JLabel movieLabel;
