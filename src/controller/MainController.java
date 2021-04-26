@@ -10,7 +10,7 @@ import view.Main;
 
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class MainController {
     private final Main view;
