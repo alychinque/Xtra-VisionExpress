@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import model.DAO.ConnectionDB;
 import model.DAO.MovieDAO;
 import model.Movie;
+import view.Cart;
 import view.Main;
 import view.MovieDescription;
 
@@ -50,7 +51,9 @@ public class MovieDescriptionController {
     }
 
     public void goCart(ArrayList<Movie> movieDescription) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.view.dispose();
+        Cart cart = new Cart(movieDescription);
+        cart.setVisible(true);
     }
     
 }
