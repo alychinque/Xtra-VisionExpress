@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.CartController;
 import java.util.ArrayList;
 import model.Movie;
 
@@ -13,17 +14,17 @@ import model.Movie;
  * @author alych
  */
 public class Cart extends javax.swing.JFrame {
+    
+    private final CartController controller;
 
     /**
      * Creates new form Cart
      */
-    public Cart() {
-        initComponents();
-        movie1.setVisible(false);
-        movie3.setVisible(false);
-    }
+    
+ 
 
     public Cart(ArrayList<Movie> movieDescription) {
+        controller = new CartController(this);
         initComponents();
         movie1.setVisible(false);
         movie2.setVisible(false);
@@ -31,6 +32,11 @@ public class Cart extends javax.swing.JFrame {
         movie4.setVisible(false);
         addMovieCart(movieDescription);
     }
+
+    private Cart() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     public void addMovieCart(ArrayList<Movie> movie){
         if(movieBoolean1 == false){
@@ -490,6 +496,9 @@ public class Cart extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+        session++;
+        controller.backMain(session);
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
@@ -530,6 +539,8 @@ public class Cart extends javax.swing.JFrame {
     private boolean movieBoolean2 = false;
     private boolean movieBoolean3 = false;
     private boolean movieBoolean4 = false;
+    
+    int session = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
