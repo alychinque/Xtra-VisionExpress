@@ -22,15 +22,11 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Main(ArrayList<Movie> moviesArray, int session) {
         initComponents();
         this.controller = new MainController(this);
-//        int test = moviesArray.get(0).getIdMovie();
-//        String title1 = moviesArray.get(0).getTitle();
-//        String subTitle1 = moviesArray.get(0).getSubTitle();
-//        imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/"+test+"test170255.jpg")));
-//        titleMovie10.setText(title1);
-//        subTitleMovie10.setText(subTitle1);
+        fillMovies(moviesArray);
+        this.session = session;
     }
 
     public Main(ArrayList<Movie> moviesArray) {
@@ -38,7 +34,10 @@ public class Main extends javax.swing.JFrame {
         moviesShowed = moviesArray;
         initComponents();
         this.controller = new MainController(this);
+        fillMovies(moviesArray);
+    }
 
+    public void fillMovies(ArrayList<Movie> moviesArray){
         for (int i = 0; i < 10; i++) {
             if (i == 0) {
                 this.imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
@@ -82,32 +81,7 @@ public class Main extends javax.swing.JFrame {
                 this.subTitleMovie10.setText(moviesArray.get(i).getSubTitle());
             }
         }
-
-//        int test = moviesArray.get(0).getIdMovie();
-//        String title1 = moviesArray.get(0).getTitle();
-//        String subTitle1 = moviesArray.get(0).getSubTitle();
-//        this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/" + test + ".jpg")));
-//        this.titleMovie10.setText(title1);
-//        this.subTitleMovie10.setText(subTitle1);
-//        JLabel[] image = new JLabel[10];
-//        JLabel[] title = new JLabel[10];
-//        JLabel[] subTitle = new JLabel[10];
-//        image[0] = new JLabel();
-//        image[0].setBounds(45, 53, 170, 255);
-//        image[0].setBackground(Color.red);
-//        title[0] = new JLabel();
-//        title[0].setBounds(45, 260, 170, 16);
-//        title[0].setBackground(Color.green);
-//        subTitle[0] = new JLabel();
-//        subTitle[0].setBounds(45, 280, 170, 16);
-//        subTitle[0].setBackground(Color.blue);
-//        panel.add(image[0]);
-//        panel.add(title[0]);
-//        panel.add(subTitle[0]);
-//        background.add(panel);
-//        this.add(background);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -833,11 +807,11 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
             }
         });
     }
-
+    int session;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel background;
