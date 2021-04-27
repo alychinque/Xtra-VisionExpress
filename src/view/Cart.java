@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.util.ArrayList;
+import model.Movie;
+
 /**
  *
  * @author alych
@@ -18,6 +21,51 @@ public class Cart extends javax.swing.JFrame {
         initComponents();
         movie1.setVisible(false);
         movie3.setVisible(false);
+    }
+
+    public Cart(ArrayList<Movie> movieDescription) {
+        initComponents();
+        movie1.setVisible(false);
+        movie2.setVisible(false);
+        movie3.setVisible(false);
+        movie4.setVisible(false);
+        addMovieCart(movieDescription);
+    }
+    
+    public void addMovieCart(ArrayList<Movie> movie){
+        if(movieBoolean1 == false){
+            movieBoolean1 = true;
+            movie1.setVisible(true);
+            imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg")));
+            titleMovie1.setText(movie.get(0).getTitle());
+            subTitle1.setText(movie.get(0).getSubTitle());
+            price1.setText("2.99");
+                      
+        }else if(movieBoolean2 == false){
+            movieBoolean1 = true;
+            movie1.setVisible(true);
+            imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg")));
+            titleMovie1.setText(movie.get(0).getTitle());
+            subTitle1.setText(movie.get(0).getSubTitle());
+            price1.setText("2.99");
+                      
+        }else if(movieBoolean3 == false){
+            movieBoolean1 = true;
+            movie1.setVisible(true);
+            imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg")));
+            titleMovie1.setText(movie.get(0).getTitle());
+            subTitle1.setText(movie.get(0).getSubTitle());
+            price1.setText("2.99");
+                      
+        }else if(movieBoolean4 == false){
+            movieBoolean1 = true;
+            movie1.setVisible(true);
+            imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test80by120.jpg")));
+            titleMovie1.setText(movie.get(0).getTitle());
+            subTitle1.setText(movie.get(0).getSubTitle());
+            price1.setText("2.99");
+                      
+        }
     }
 
     /**
@@ -78,7 +126,6 @@ public class Cart extends javax.swing.JFrame {
 
         titleLabel.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
         titleLabel.setText("TITLE");
-        titleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         titleLabel.setMaximumSize(new java.awt.Dimension(80, 30));
         titleLabel.setMinimumSize(new java.awt.Dimension(80, 30));
         titleLabel.setName(""); // NOI18N
@@ -86,14 +133,12 @@ public class Cart extends javax.swing.JFrame {
 
         subTitleLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         subTitleLabel.setText("SubTitle");
-        subTitleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         subTitleLabel.setMaximumSize(new java.awt.Dimension(100, 30));
         subTitleLabel.setMinimumSize(new java.awt.Dimension(100, 30));
         subTitleLabel.setPreferredSize(new java.awt.Dimension(100, 30));
 
         priceLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         priceLabel.setText("price");
-        priceLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         priceLabel.setMaximumSize(new java.awt.Dimension(510, 20));
         priceLabel.setMinimumSize(new java.awt.Dimension(510, 20));
         priceLabel.setPreferredSize(new java.awt.Dimension(510, 20));
@@ -102,24 +147,21 @@ public class Cart extends javax.swing.JFrame {
         imageMovie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         imageMovie1.setPreferredSize(new java.awt.Dimension(80, 120));
 
-        titleMovie1.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
+        titleMovie1.setFont(new java.awt.Font("Lucida Console", 1, 20)); // NOI18N
         titleMovie1.setText("title");
-        titleMovie1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         titleMovie1.setMaximumSize(new java.awt.Dimension(510, 30));
         titleMovie1.setMinimumSize(new java.awt.Dimension(510, 30));
         titleMovie1.setName(""); // NOI18N
         titleMovie1.setPreferredSize(new java.awt.Dimension(250, 30));
 
-        subTitle1.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitle1.setFont(new java.awt.Font("Lucida Console", 1, 16)); // NOI18N
         subTitle1.setText("subTitle");
-        subTitle1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         subTitle1.setMaximumSize(new java.awt.Dimension(510, 20));
         subTitle1.setMinimumSize(new java.awt.Dimension(510, 20));
         subTitle1.setPreferredSize(new java.awt.Dimension(510, 20));
 
         price1.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         price1.setText("price");
-        price1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         price1.setMaximumSize(new java.awt.Dimension(510, 20));
         price1.setMinimumSize(new java.awt.Dimension(510, 20));
         price1.setPreferredSize(new java.awt.Dimension(510, 20));
@@ -134,14 +176,14 @@ public class Cart extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(imageMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(titleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(subTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(subTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(price1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(price1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
                 .addComponent(deleteMovie1)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap())
         );
         movie1Layout.setVerticalGroup(
             movie1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +203,6 @@ public class Cart extends javax.swing.JFrame {
 
         titleMovie2.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
         titleMovie2.setText("title");
-        titleMovie2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         titleMovie2.setMaximumSize(new java.awt.Dimension(510, 30));
         titleMovie2.setMinimumSize(new java.awt.Dimension(510, 30));
         titleMovie2.setName(""); // NOI18N
@@ -169,14 +210,12 @@ public class Cart extends javax.swing.JFrame {
 
         subTitle2.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         subTitle2.setText("subTitle");
-        subTitle2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         subTitle2.setMaximumSize(new java.awt.Dimension(510, 20));
         subTitle2.setMinimumSize(new java.awt.Dimension(510, 20));
         subTitle2.setPreferredSize(new java.awt.Dimension(510, 20));
 
         price2.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         price2.setText("price");
-        price2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         price2.setMaximumSize(new java.awt.Dimension(510, 20));
         price2.setMinimumSize(new java.awt.Dimension(510, 20));
         price2.setPreferredSize(new java.awt.Dimension(510, 20));
@@ -218,7 +257,6 @@ public class Cart extends javax.swing.JFrame {
 
         titleMovie3.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
         titleMovie3.setText("title");
-        titleMovie3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         titleMovie3.setMaximumSize(new java.awt.Dimension(510, 30));
         titleMovie3.setMinimumSize(new java.awt.Dimension(510, 30));
         titleMovie3.setName(""); // NOI18N
@@ -226,14 +264,12 @@ public class Cart extends javax.swing.JFrame {
 
         subTitle3.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         subTitle3.setText("subTitle");
-        subTitle3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         subTitle3.setMaximumSize(new java.awt.Dimension(510, 20));
         subTitle3.setMinimumSize(new java.awt.Dimension(510, 20));
         subTitle3.setPreferredSize(new java.awt.Dimension(510, 20));
 
         price3.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         price3.setText("price");
-        price3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         price3.setMaximumSize(new java.awt.Dimension(510, 20));
         price3.setMinimumSize(new java.awt.Dimension(510, 20));
         price3.setPreferredSize(new java.awt.Dimension(510, 20));
@@ -275,7 +311,6 @@ public class Cart extends javax.swing.JFrame {
 
         titleMovie4.setFont(new java.awt.Font("Lucida Console", 1, 24)); // NOI18N
         titleMovie4.setText("title");
-        titleMovie4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         titleMovie4.setMaximumSize(new java.awt.Dimension(510, 30));
         titleMovie4.setMinimumSize(new java.awt.Dimension(510, 30));
         titleMovie4.setName(""); // NOI18N
@@ -283,14 +318,12 @@ public class Cart extends javax.swing.JFrame {
 
         subTitle4.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         subTitle4.setText("subTitle");
-        subTitle4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         subTitle4.setMaximumSize(new java.awt.Dimension(510, 20));
         subTitle4.setMinimumSize(new java.awt.Dimension(510, 20));
         subTitle4.setPreferredSize(new java.awt.Dimension(510, 20));
 
         price4.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         price4.setText("price");
-        price4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         price4.setMaximumSize(new java.awt.Dimension(510, 20));
         price4.setMinimumSize(new java.awt.Dimension(510, 20));
         price4.setPreferredSize(new java.awt.Dimension(510, 20));
@@ -331,14 +364,12 @@ public class Cart extends javax.swing.JFrame {
 
         totalLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         totalLabel.setText("TOTAL");
-        totalLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         totalLabel.setMaximumSize(new java.awt.Dimension(510, 20));
         totalLabel.setMinimumSize(new java.awt.Dimension(510, 20));
         totalLabel.setPreferredSize(new java.awt.Dimension(510, 20));
 
         priceTotalLabel.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
         priceTotalLabel.setText("€€€€€€");
-        priceTotalLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         priceTotalLabel.setMaximumSize(new java.awt.Dimension(510, 20));
         priceTotalLabel.setMinimumSize(new java.awt.Dimension(510, 20));
         priceTotalLabel.setPreferredSize(new java.awt.Dimension(510, 20));
@@ -348,28 +379,27 @@ public class Cart extends javax.swing.JFrame {
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(187, 187, 187)
-                        .addComponent(subTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(movie2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(movie1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 45, Short.MAX_VALUE))
+                    .addComponent(movie1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 27, Short.MAX_VALUE))
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(445, 445, 445)
                 .addComponent(totalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(priceTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(188, 188, 188)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(subTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(178, 178, 178)
+                .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +462,7 @@ public class Cart extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(logo)
                 .addGap(5, 5, 5)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -496,6 +526,10 @@ public class Cart extends javax.swing.JFrame {
             }
         });
     }
+    private boolean movieBoolean1 = false;
+    private boolean movieBoolean2 = false;
+    private boolean movieBoolean3 = false;
+    private boolean movieBoolean4 = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
