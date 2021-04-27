@@ -81,7 +81,7 @@
                   <Component id="panel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="backButton" min="-2" pref="39" max="-2" attributes="0"/>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -281,6 +281,9 @@
                       <Image iconType="3" name="/view/images/test170255.jpg"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie1MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie1">
                   <Properties>
@@ -363,6 +366,9 @@
                       <Image iconType="3" name="/view/images/mortalkombat-2021-newposter-blue.jpeg"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie2MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie2">
                   <Properties>
@@ -445,6 +451,9 @@
                       <Image iconType="3" name="/view/images/return-of-the-jedi-poster-big.jpg"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie3MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie3">
                   <Properties>
@@ -521,6 +530,9 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="imageMovie4">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie4MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie4">
                   <Properties>
@@ -575,7 +587,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="titleMovie5" alignment="0" max="32767" attributes="0"/>
                               <Component id="subTitleMovie5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="imageMovie8" alignment="0" max="-2" attributes="0"/>
+                              <Component id="imageMovie5" alignment="0" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -584,7 +596,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="imageMovie8" min="-2" max="-2" attributes="0"/>
+                          <Component id="imageMovie5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="7" max="32767" attributes="0"/>
                           <Component id="titleMovie5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -623,7 +635,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="imageMovie8">
+                <Component class="javax.swing.JLabel" name="imageMovie5">
                   <Properties>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 255]"/>
@@ -635,6 +647,9 @@
                       <Dimension value="[170, 255]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie5MouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -673,6 +688,9 @@
                       <Image iconType="3" name="/view/movies/2.jpg"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie6MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie6">
                   <Properties>
@@ -744,6 +762,9 @@
                       <Dimension value="[170, 255]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie7MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie7">
                   <Properties>
@@ -785,7 +806,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="imagemMovie8" max="-2" attributes="0"/>
+                      <Component id="imageMovie8" max="-2" attributes="0"/>
                       <Component id="titleMovie8" alignment="0" max="-2" attributes="0"/>
                       <Component id="subTitleMovie8" alignment="0" max="-2" attributes="0"/>
                   </Group>
@@ -793,7 +814,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="imagemMovie8" max="-2" attributes="0"/>
+                          <Component id="imageMovie8" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="titleMovie8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -803,7 +824,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="imagemMovie8">
+                <Component class="javax.swing.JLabel" name="imageMovie8">
                   <Properties>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 255]"/>
@@ -815,6 +836,9 @@
                       <Dimension value="[170, 255]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie8MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie8">
                   <Properties>
@@ -901,6 +925,9 @@
                       <Dimension value="[170, 255]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie9MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie9">
                   <Properties>
@@ -951,11 +978,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="imageMovie10" alignment="0" max="-2" attributes="0"/>
-                          <EmptySpace pref="7" max="32767" attributes="0"/>
-                          <Component id="titleMovie10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="subTitleMovie10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="titleMovie10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="subTitleMovie10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -973,6 +1000,9 @@
                       <Dimension value="[170, 255]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie10MouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie10">
                   <Properties>

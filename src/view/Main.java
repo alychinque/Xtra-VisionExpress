@@ -6,9 +6,7 @@
 package view;
 
 import controller.MainController;
-import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import model.Movie;
 
 /**
@@ -16,22 +14,17 @@ import model.Movie;
  * @author Maicon
  */
 public class Main extends javax.swing.JFrame {
-    
+
     private final MainController controller;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
-
-    public void setMoviesArray(ArrayList<Movie> moviesArray) {
-        this.moviesArray = moviesArray;
-        System.out.println(moviesArray);
-        System.out.println(moviesArray.get(0).getTitle());
-    }
+    public static ArrayList<Movie> moviesShowed = new ArrayList<>();
 
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
-        this.controller = new MainController(this);        
+        this.controller = new MainController(this);
 //        int test = moviesArray.get(0).getIdMovie();
 //        String title1 = moviesArray.get(0).getTitle();
 //        String subTitle1 = moviesArray.get(0).getSubTitle();
@@ -39,17 +32,63 @@ public class Main extends javax.swing.JFrame {
 //        titleMovie10.setText(title1);
 //        subTitleMovie10.setText(subTitle1);
     }
-    
+
     public Main(ArrayList<Movie> moviesArray) {
         this.moviesArray = moviesArray;
+        moviesShowed = moviesArray;
         initComponents();
         this.controller = new MainController(this);
-        int test = moviesArray.get(0).getIdMovie();
-        String title1 = moviesArray.get(0).getTitle();
-        String subTitle1 = moviesArray.get(0).getSubTitle();
-        this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/"+test+".jpg")));
-        this.titleMovie10.setText(title1);
-        this.subTitleMovie10.setText(subTitle1);
+
+        for (int i = 0; i < 10; i++) {
+            if (i == 0) {
+                this.imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie1.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie1.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 1) {
+                this.imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie2.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie2.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 2) {
+                this.imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie3.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie3.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 3) {
+                this.imageMovie4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie4.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie4.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 4) {
+                this.imageMovie5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie5.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie5.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 5) {
+                this.imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie6.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie6.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 6) {
+                this.imageMovie7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie7.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie7.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 7) {
+                this.imageMovie8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie8.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie8.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 8) {
+                this.imageMovie9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie9.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie9.setText(moviesArray.get(i).getSubTitle());
+            } else if (i == 9) {
+                this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
+                this.titleMovie10.setText(moviesArray.get(i).getTitle());
+                this.subTitleMovie10.setText(moviesArray.get(i).getSubTitle());
+            }
+        }
+
+//        int test = moviesArray.get(0).getIdMovie();
+//        String title1 = moviesArray.get(0).getTitle();
+//        String subTitle1 = moviesArray.get(0).getSubTitle();
+//        this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/" + test + ".jpg")));
+//        this.titleMovie10.setText(title1);
+//        this.subTitleMovie10.setText(subTitle1);
 //        JLabel[] image = new JLabel[10];
 //        JLabel[] title = new JLabel[10];
 //        JLabel[] subTitle = new JLabel[10];
@@ -104,7 +143,7 @@ public class Main extends javax.swing.JFrame {
         moviePanel5 = new javax.swing.JPanel();
         titleMovie5 = new javax.swing.JLabel();
         subTitleMovie5 = new javax.swing.JLabel();
-        imageMovie8 = new javax.swing.JLabel();
+        imageMovie5 = new javax.swing.JLabel();
         moviePanel6 = new javax.swing.JPanel();
         imageMovie6 = new javax.swing.JLabel();
         titleMovie6 = new javax.swing.JLabel();
@@ -114,7 +153,7 @@ public class Main extends javax.swing.JFrame {
         titleMovie7 = new javax.swing.JLabel();
         subTitleMovie7 = new javax.swing.JLabel();
         moviePanel8 = new javax.swing.JPanel();
-        imagemMovie8 = new javax.swing.JLabel();
+        imageMovie8 = new javax.swing.JLabel();
         titleMovie8 = new javax.swing.JLabel();
         subTitleMovie8 = new javax.swing.JLabel();
         moviePanel9 = new javax.swing.JPanel();
@@ -159,6 +198,11 @@ public class Main extends javax.swing.JFrame {
         moviePanel1.setPreferredSize(new java.awt.Dimension(170, 303));
 
         imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test170255.jpg"))); // NOI18N
+        imageMovie1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie1MouseClicked(evt);
+            }
+        });
 
         titleMovie1.setText("Star Wars: Episode VI");
         titleMovie1.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -199,6 +243,11 @@ public class Main extends javax.swing.JFrame {
         moviePanel2.setPreferredSize(new java.awt.Dimension(170, 303));
 
         imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/mortalkombat-2021-newposter-blue.jpeg"))); // NOI18N
+        imageMovie2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie2MouseClicked(evt);
+            }
+        });
 
         titleMovie2.setText("Star Wars: Episode VI");
         titleMovie2.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -239,6 +288,11 @@ public class Main extends javax.swing.JFrame {
         moviePanel3.setPreferredSize(new java.awt.Dimension(170, 303));
 
         imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/return-of-the-jedi-poster-big.jpg"))); // NOI18N
+        imageMovie3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie3MouseClicked(evt);
+            }
+        });
 
         titleMovie3.setText("Star Wars: Episode VI");
         titleMovie3.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -278,6 +332,12 @@ public class Main extends javax.swing.JFrame {
         moviePanel4.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel4.setName(""); // NOI18N
         moviePanel4.setPreferredSize(new java.awt.Dimension(170, 303));
+
+        imageMovie4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie4MouseClicked(evt);
+            }
+        });
 
         titleMovie4.setText("Star Wars: Episode VI");
         titleMovie4.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -326,9 +386,14 @@ public class Main extends javax.swing.JFrame {
         subTitleMovie5.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie5.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        imageMovie8.setMaximumSize(new java.awt.Dimension(170, 255));
-        imageMovie8.setMinimumSize(new java.awt.Dimension(170, 255));
-        imageMovie8.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie5.setMaximumSize(new java.awt.Dimension(170, 255));
+        imageMovie5.setMinimumSize(new java.awt.Dimension(170, 255));
+        imageMovie5.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout moviePanel5Layout = new javax.swing.GroupLayout(moviePanel5);
         moviePanel5.setLayout(moviePanel5Layout);
@@ -338,13 +403,13 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(titleMovie5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(subTitleMovie5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(imageMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(imageMovie5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         moviePanel5Layout.setVerticalGroup(
             moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel5Layout.createSequentialGroup()
-                .addComponent(imageMovie8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(imageMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(titleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
@@ -355,6 +420,11 @@ public class Main extends javax.swing.JFrame {
         moviePanel6.setBackground(new java.awt.Color(100, 240, 240));
 
         imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/2.jpg"))); // NOI18N
+        imageMovie6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie6MouseClicked(evt);
+            }
+        });
 
         titleMovie6.setText("Star Wars: Episode VI");
         titleMovie6.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -390,6 +460,11 @@ public class Main extends javax.swing.JFrame {
         imageMovie7.setMaximumSize(new java.awt.Dimension(170, 255));
         imageMovie7.setMinimumSize(new java.awt.Dimension(170, 255));
         imageMovie7.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie7MouseClicked(evt);
+            }
+        });
 
         titleMovie7.setText("Star Wars: Episode VI");
         titleMovie7.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -421,9 +496,14 @@ public class Main extends javax.swing.JFrame {
 
         moviePanel8.setBackground(new java.awt.Color(100, 240, 240));
 
-        imagemMovie8.setMaximumSize(new java.awt.Dimension(170, 255));
-        imagemMovie8.setMinimumSize(new java.awt.Dimension(170, 255));
-        imagemMovie8.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie8.setMaximumSize(new java.awt.Dimension(170, 255));
+        imageMovie8.setMinimumSize(new java.awt.Dimension(170, 255));
+        imageMovie8.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie8MouseClicked(evt);
+            }
+        });
 
         titleMovie8.setText("Star Wars: Episode VI");
         titleMovie8.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -439,14 +519,14 @@ public class Main extends javax.swing.JFrame {
         moviePanel8.setLayout(moviePanel8Layout);
         moviePanel8Layout.setHorizontalGroup(
             moviePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imagemMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(imageMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(titleMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(subTitleMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         moviePanel8Layout.setVerticalGroup(
             moviePanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePanel8Layout.createSequentialGroup()
-                .addComponent(imagemMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(imageMovie8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titleMovie8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
@@ -461,6 +541,11 @@ public class Main extends javax.swing.JFrame {
         imageMovie9.setMaximumSize(new java.awt.Dimension(170, 255));
         imageMovie9.setMinimumSize(new java.awt.Dimension(170, 255));
         imageMovie9.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie9MouseClicked(evt);
+            }
+        });
 
         titleMovie9.setText("Star Wars: Episode VI");
         titleMovie9.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -499,6 +584,11 @@ public class Main extends javax.swing.JFrame {
         imageMovie10.setMaximumSize(new java.awt.Dimension(170, 255));
         imageMovie10.setMinimumSize(new java.awt.Dimension(170, 255));
         imageMovie10.setPreferredSize(new java.awt.Dimension(170, 255));
+        imageMovie10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageMovie10MouseClicked(evt);
+            }
+        });
 
         titleMovie10.setText("Star Wars: Episode VI");
         titleMovie10.setMaximumSize(new java.awt.Dimension(170, 16));
@@ -522,11 +612,11 @@ public class Main extends javax.swing.JFrame {
             moviePanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePanel10Layout.createSequentialGroup()
                 .addComponent(imageMovie10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titleMovie10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
+                .addGap(1, 1, 1)
                 .addComponent(subTitleMovie10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
@@ -640,7 +730,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -657,11 +747,65 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchInputActionPerformed
 
+    private void imageMovie1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie1MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(0).getIdMovie());
+    }//GEN-LAST:event_imageMovie1MouseClicked
+
+    private void imageMovie2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie2MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(1).getIdMovie());
+    }//GEN-LAST:event_imageMovie2MouseClicked
+
+    private void imageMovie3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie3MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(2).getIdMovie());
+    }//GEN-LAST:event_imageMovie3MouseClicked
+
+    private void imageMovie4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie4MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(3).getIdMovie());
+    }//GEN-LAST:event_imageMovie4MouseClicked
+
+    private void imageMovie5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie5MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(4).getIdMovie());
+    }//GEN-LAST:event_imageMovie5MouseClicked
+
+    private void imageMovie6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie6MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(5).getIdMovie());
+    }//GEN-LAST:event_imageMovie6MouseClicked
+
+    private void imageMovie7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie7MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(6).getIdMovie());
+    }//GEN-LAST:event_imageMovie7MouseClicked
+
+    private void imageMovie8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie8MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(7).getIdMovie());
+    }//GEN-LAST:event_imageMovie8MouseClicked
+
+    private void imageMovie9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie9MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(8).getIdMovie());
+    }//GEN-LAST:event_imageMovie9MouseClicked
+
+    private void imageMovie10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie10MouseClicked
+        // TODO add your handling code here:
+        controller.movie1Description(moviesArray.get(9).getIdMovie());
+    }//GEN-LAST:event_imageMovie10MouseClicked
+
+    
+
+   
+
     /**
      * @param args the command line arguments
      */
     //public static void main(String args[]) {
-      public static void main(String args[]) {
+    public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -704,11 +848,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel imageMovie2;
     private javax.swing.JLabel imageMovie3;
     private javax.swing.JLabel imageMovie4;
+    private javax.swing.JLabel imageMovie5;
     private javax.swing.JLabel imageMovie6;
     private javax.swing.JLabel imageMovie7;
     private javax.swing.JLabel imageMovie8;
     private javax.swing.JLabel imageMovie9;
-    private javax.swing.JLabel imagemMovie8;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel moviePanel1;
     private javax.swing.JPanel moviePanel10;
