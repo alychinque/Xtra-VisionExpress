@@ -30,7 +30,7 @@ public class CartController {
         this.view = view;
     }
 
-    public void backMain(int session) {
+    public void backMain() {
          try {
              conn = new ConnectionDB().getConnection();
         } catch (SQLException ex) {
@@ -44,7 +44,7 @@ public class CartController {
             JOptionPane.showMessageDialog(null, "Failed");
         }
         
-        Main main = new Main(moviesArray, session);
+        Main main = new Main(moviesArray);
         main.setVisible(true);
         this.view.dispose();
     }
