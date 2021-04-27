@@ -42,16 +42,12 @@ public class HomeController {
         }
         MovieDAO moviedao = new MovieDAO(conn);
         try {
-            moviesArray = moviedao.getMovies();
-            System.out.println(moviesArray);
-            System.out.println(moviesArray.get(0).getIdMovie());
+            moviesArray = moviedao.getLast10Movies();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Failed");
         }
         
-        //Main main = new Main();
         Main main = new Main(moviesArray);
-        //main.setMoviesArray(moviesArray);
         main.setVisible(true);
         this.view.dispose();
         
