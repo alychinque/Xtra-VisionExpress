@@ -5,20 +5,43 @@
  */
 package view;
 
+import controller.MovieDescriptionController;
+import java.util.ArrayList;
+import model.Movie;
+
 /**
  *
  * @author alych
  */
 public class MovieDescription extends javax.swing.JFrame {
+    
+    private final MovieDescriptionController controller;
 
+    private ArrayList<Movie> movieDescription = new ArrayList<>();
     /**
      * Creates new form MovieDescription
      */
-    public MovieDescription() {
+
+    /**
+     * Creates new form MovieDescription
+     * @param moviesDescriotion
+     */
+    public MovieDescription(ArrayList<Movie> moviesDescription) {
         initComponents();
-        descriptionMovie.setText("SOLO: A STAR WARS STORY takes place approximately a decade before the events of Star Wars Episode IV: A New Hope and follows a young Han (Alden Ehrenreich) as he goes from troublemaking street orphan on his home planet of Corellia to Imperial soldier to intergalactic-smuggler-in-the-making. As an adolescent, Han and his girlfriend, Qi'ra (Emilia Clarke), are separated as they attempt to escape a crime boss; he's able to leave, but she's captured. He vows to come back for her. Three years later, Han is a soldier in the Imperial Army who chances upon a younger Chewbecca (Joonas Suotamo), as well as a motley crew of smugglers led by Beckett (Woody Harrelson) and his partner, Val (Thandiwe Newton). Han joins them on a mission for the Crystal Dawn, a powerful crime syndicate managed by the merciless Dryden Vos (Paul Bettany). The high-stakes heist also puts Han in touch with legendary gambler Lando Calrissian (Donald Glover), who lends his ship in exchange for a cut of the action.");
+        controller = new MovieDescriptionController(this);
+        this.movieDescription = moviesDescription;
+        imageMovie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/"+ movieDescription.get(0).getIdMovie() +".jpg")));
+        titleMovie.setText(moviesDescription.get(0).getTitle());
+        subTitle.setText(moviesDescription.get(0).getSubTitle());
+        category.setText("ACTION");
+        duration.setText("110");
+        descriptionMovie.setText(moviesDescription.get(0).getDescription());
+        
     }
 
+    private MovieDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,14 +57,14 @@ public class MovieDescription extends javax.swing.JFrame {
         panel = new javax.swing.JPanel();
         titleMovie = new javax.swing.JLabel();
         imageMovie = new javax.swing.JLabel();
-        category = new javax.swing.JLabel();
+        subTitle = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionMovie = new javax.swing.JTextArea();
         duration = new javax.swing.JLabel();
-        categogy = new javax.swing.JLabel();
+        category = new javax.swing.JLabel();
         separator = new javax.swing.JLabel();
         rentButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
@@ -69,26 +92,28 @@ public class MovieDescription extends javax.swing.JFrame {
         imageMovie.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         imageMovie.setPreferredSize(new java.awt.Dimension(170, 255));
 
-        category.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
-        category.setText("subTitle");
-        category.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        category.setMaximumSize(new java.awt.Dimension(510, 20));
-        category.setMinimumSize(new java.awt.Dimension(510, 20));
-        category.setPreferredSize(new java.awt.Dimension(510, 20));
+        subTitle.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        subTitle.setText("subTitle");
+        subTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        subTitle.setMaximumSize(new java.awt.Dimension(510, 20));
+        subTitle.setMinimumSize(new java.awt.Dimension(510, 20));
+        subTitle.setPreferredSize(new java.awt.Dimension(510, 20));
 
         descriptionLabel.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         descriptionLabel.setText("Description");
 
         descriptionMovie.setEditable(false);
         descriptionMovie.setColumns(10);
+        descriptionMovie.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         descriptionMovie.setLineWrap(true);
         descriptionMovie.setRows(15);
+        descriptionMovie.setText("asdSFsfSASDSAAASAS");
         descriptionMovie.setWrapStyleWord(true);
         jScrollPane1.setViewportView(descriptionMovie);
 
         duration.setText("Duration");
 
-        categogy.setText("jLabel2");
+        category.setText("Category");
 
         separator.setText("/");
 
@@ -104,12 +129,12 @@ public class MovieDescription extends javax.swing.JFrame {
                         .addComponent(imageMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(category, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(subTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(titleMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addComponent(descriptionLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(categogy)
+                                .addComponent(category)
                                 .addGap(83, 83, 83)
                                 .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(35, 35, 35)
@@ -125,7 +150,7 @@ public class MovieDescription extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(titleMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(subTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
@@ -133,14 +158,14 @@ public class MovieDescription extends javax.swing.JFrame {
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(duration)
-                            .addComponent(categogy)
+                            .addComponent(category)
                             .addComponent(separator))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(imageMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
         );
@@ -185,7 +210,7 @@ public class MovieDescription extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,16 +236,19 @@ public class MovieDescription extends javax.swing.JFrame {
 
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
         // TODO add your handling code here:
+        controller.goCart(movieDescription);
+        
     }//GEN-LAST:event_rentButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+        controller.backMain();
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -255,7 +283,6 @@ public class MovieDescription extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel background;
-    private javax.swing.JLabel categogy;
     private javax.swing.JLabel category;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JTextArea descriptionMovie;
@@ -268,6 +295,7 @@ public class MovieDescription extends javax.swing.JFrame {
     private javax.swing.JPanel panel;
     private javax.swing.JButton rentButton;
     private javax.swing.JLabel separator;
+    private javax.swing.JLabel subTitle;
     private javax.swing.JLabel titleMovie;
     // End of variables declaration//GEN-END:variables
 }
