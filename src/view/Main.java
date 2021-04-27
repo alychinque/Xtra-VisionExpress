@@ -749,52 +749,52 @@ public class Main extends javax.swing.JFrame {
 
     private void imageMovie1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie1MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(0).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(0).getIdMovie());
     }//GEN-LAST:event_imageMovie1MouseClicked
 
     private void imageMovie2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie2MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(1).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(1).getIdMovie());
     }//GEN-LAST:event_imageMovie2MouseClicked
 
     private void imageMovie3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie3MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(2).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(2).getIdMovie());
     }//GEN-LAST:event_imageMovie3MouseClicked
 
     private void imageMovie4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie4MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(3).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(3).getIdMovie());
     }//GEN-LAST:event_imageMovie4MouseClicked
 
     private void imageMovie5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie5MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(4).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(4).getIdMovie());
     }//GEN-LAST:event_imageMovie5MouseClicked
 
     private void imageMovie6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie6MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(5).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(5).getIdMovie());
     }//GEN-LAST:event_imageMovie6MouseClicked
 
     private void imageMovie7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie7MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(6).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(6).getIdMovie());
     }//GEN-LAST:event_imageMovie7MouseClicked
 
     private void imageMovie8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie8MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(7).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(7).getIdMovie());
     }//GEN-LAST:event_imageMovie8MouseClicked
 
     private void imageMovie9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie9MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(8).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(8).getIdMovie());
     }//GEN-LAST:event_imageMovie9MouseClicked
 
     private void imageMovie10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie10MouseClicked
         // TODO add your handling code here:
-        controller.movie1Description(moviesArray.get(9).getIdMovie());
+        controller.goMovieDescription(moviesArray.get(9).getIdMovie());
     }//GEN-LAST:event_imageMovie10MouseClicked
 
     
