@@ -7,6 +7,7 @@ package view;
 
 import controller.MainController;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import model.Movie;
 
 /**
@@ -18,6 +19,7 @@ public class Main extends javax.swing.JFrame {
     private final MainController controller;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
+    private String[] option;
 
     /**
      * Creates new form Main
@@ -32,9 +34,13 @@ public class Main extends javax.swing.JFrame {
     public Main(ArrayList<Movie> moviesArray) {
         this.moviesArray = moviesArray;
         moviesShowed = moviesArray;
+        
         initComponents();
         this.controller = new MainController(this);
+        //controller.setGenre();
+        genreComboBox = new JComboBox(option);
         fillMovies(moviesArray);
+        //this.genreComboBox = new JComboBox(option);
     }
 
     public void fillMovies(ArrayList<Movie> moviesArray){
@@ -811,6 +817,10 @@ public class Main extends javax.swing.JFrame {
         });
     }
     int session;
+
+    public void setOption(String[] option) {
+        this.option = option;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
