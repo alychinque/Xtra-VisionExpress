@@ -29,15 +29,15 @@ public class MovieDescriptionController {
 
     public MovieDescriptionController(MovieDescription view) {
         this.view = view;
-    }
-
-    public void backMain() {
         try {
             conn = new ConnectionDB().getConnection();
         } catch (SQLException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Failed");
         }
+    }
+
+    public void backMain() {
         MovieDAO moviedao = new MovieDAO(conn);
         try {
             moviesArray = moviedao.getLast10Movies();
@@ -51,6 +51,7 @@ public class MovieDescriptionController {
     }
 
     public void goCart(ArrayList<Movie> movieDescription) {
+        
         this.view.dispose();
         Cart cart = new Cart(movieDescription);
         cart.setVisible(true);
