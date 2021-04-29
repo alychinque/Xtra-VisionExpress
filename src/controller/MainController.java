@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.DAO.ConnectionDB;
+import model.DAO.GenreDAO;
 import model.DAO.MovieDAO;
 import model.Movie;
 import view.Home;
@@ -26,10 +27,19 @@ public class MainController {
     private final Main view;
     private Connection conn;
     private ArrayList<Movie> movieDescription = new ArrayList<>();
+    private int numOfGenres = 5;
+    private String[] genre = new String[numOfGenres];
 
     public MainController(Main view) {
         this.view = view;
+        try {
+            conn = new ConnectionDB().getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Failed");
+        }
     }
+    
 
     public void backMain() {
         Home home = new Home();
@@ -38,12 +48,6 @@ public class MainController {
     }
 
     public void goMovieDescription(int idMovie) {
-        try {
-            conn = new ConnectionDB().getConnection();
-        } catch (SQLException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Failed");
-        }
         MovieDAO moviedao = new MovieDAO(conn);
         try {
             movieDescription.add(moviedao.getDescription(idMovie));
@@ -53,6 +57,16 @@ public class MainController {
         MovieDescription movieD = new MovieDescription(movieDescription);
         movieD.setVisible(true);
         this.view.dispose();
+    }
+
+    public void setGenre() {
+        GenreDAO genredao = new GenreDAO(conn);
+        try {
+            genre = genredao.getGenre();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Failed in the genre");
+        }
+        this.view.setOption(genre);
     }
     
 }
