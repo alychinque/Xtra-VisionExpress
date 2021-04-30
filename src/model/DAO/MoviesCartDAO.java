@@ -57,4 +57,19 @@ public class MoviesCartDAO {
         stmt.setInt(2, session);
         stmt.execute();
     }
+    
+    public int getMoviesCart(int session) throws SQLException{
+        String query ="SELECT session, COUNT(*) AS `count` \n" +
+                        "FROM movies_cart\n" +
+                        "WHERE session = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, session);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        int numberOfMovies = 0;
+        while (resultSet.next()) {
+            numberOfMovies = resultSet.getInt("count");
+        }
+        return numberOfMovies;
+    }
 }
