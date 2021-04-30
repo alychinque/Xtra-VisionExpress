@@ -7,7 +7,9 @@ package view;
 
 import controller.MovieDescriptionController;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Movie;
+import model.MoviesCart;
 
 /**
  *
@@ -16,8 +18,9 @@ import model.Movie;
 public class MovieDescription extends javax.swing.JFrame {
     
     private final MovieDescriptionController controller;
-
     private ArrayList<Movie> movieDescription = new ArrayList<>();
+    private ArrayList<MoviesCart> moviesCart = new ArrayList<>();
+    int session;
     /**
      * Creates new form MovieDescription
      */
@@ -26,7 +29,8 @@ public class MovieDescription extends javax.swing.JFrame {
      * Creates new form MovieDescription
      * @param moviesDescriotion
      */
-    public MovieDescription(ArrayList<Movie> moviesDescription) {
+    public MovieDescription(int session, ArrayList<Movie> moviesDescription) {
+        this.session = session;
         initComponents();
         controller = new MovieDescriptionController(this);
         this.movieDescription = moviesDescription;
@@ -237,13 +241,20 @@ public class MovieDescription extends javax.swing.JFrame {
 
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
         // TODO add your handling code here:
-        controller.goCart(movieDescription);
+        try {
+            controller.addCart(session, movieDescription.get(0).getIdMovie());
+           
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "You can not add more than 4 movies"
+                        + "\nFor add more please exclud one of the movies in the Cart");
+        }
+        
         
     }//GEN-LAST:event_rentButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        controller.backMain();
+        controller.backMain(session);
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
