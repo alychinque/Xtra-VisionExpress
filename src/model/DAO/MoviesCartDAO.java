@@ -72,4 +72,13 @@ public class MoviesCartDAO {
         }
         return numberOfMovies;
     }
+    
+    public void addMovieInTheCart(int session, int idMovie) throws SQLException {
+        query1 = "INSERT INTO movies_cart (session, movie) values(?, ?);";
+        
+        PreparedStatement stmt = connection.prepareStatement(query1);
+        stmt.setInt(1, session);
+        stmt.setInt(2, idMovie);
+        stmt.execute();
+    }
 }
