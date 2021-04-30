@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.DAO.ConnectionDB;
 import model.DAO.MovieDAO;
+import model.DAO.MoviesCartDAO;
 import model.Movie;
 import view.Cart;
 import view.Main;
@@ -25,7 +26,9 @@ import view.MovieDescription;
 public class MovieDescriptionController {
     private final MovieDescription view;
     private Connection conn;
-    private ArrayList<Movie> moviesArray = new ArrayList<>();
+    private MoviesCartDAO movieCartdao;
+    private int moviesCart;
+    private int sessionFromCart = 0;
 
     public MovieDescriptionController(MovieDescription view) {
         this.view = view;
@@ -33,28 +36,56 @@ public class MovieDescriptionController {
             conn = new ConnectionDB().getConnection();
         } catch (SQLException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Failed");
+            JOptionPane.showMessageDialog(null, "Failed creating the connection");
         }
+        movieCartdao = new MoviesCartDAO(conn);
     }
 
-    public void backMain() {
-        MovieDAO moviedao = new MovieDAO(conn);
-        try {
-            moviesArray = moviedao.getLast10Movies();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Failed");
-        }
-        
-        Main main = new Main(moviesArray);
+    public void backMain(int session) {
+        Main main = new Main(session);
         main.setVisible(true);
         this.view.dispose();
     }
 
-    public void goCart(ArrayList<Movie> movieDescription) {
-        
+    public void goCart(int session) {
         this.view.dispose();
-        Cart cart = new Cart(movieDescription);
+        Cart cart = new Cart(session);
         cart.setVisible(true);
+    }
+
+    public boolean checkCart(int session) {
+        try {
+            moviesCart = movieCartdao.getMoviesCart(session);
+        } catch (Exception e) {
+            
+        }
+        if (moviesCart == 4){
+            return false;
+        }
+        return true;
+    }
+    
+
+    public void addCart(int session, int idMovie) {
+        MovieDAO moviedao = new MovieDAO(conn);
+        try {
+            if (session == 0){
+                sessionFromCart = movieCartdao.addMovieInTheCart(idMovie);
+                goCart(sessionFromCart);
+            } else {
+                if(checkCart(session)){
+                    movieCartdao.addMovieInTheCart(session, idMovie);
+                    goCart(session);
+                } else{
+                    JOptionPane.showMessageDialog(null, "You can not add more than 4 movies"
+                        + "\nTo add more movies, please delete one from the Cart");
+                }
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Failed adding");
+        }
+        
     }
     
 }
