@@ -29,9 +29,12 @@ public class MainController {
     private ArrayList<Movie> movieDescription = new ArrayList<>();
     private int numOfGenres = 5;
     private String[] genre = new String[numOfGenres];
+    private MovieDAO moviedao;
+    private ArrayList<Movie> moviesArray = new ArrayList<>();
 
     public MainController(Main view) {
         this.view = view;
+        
         try {
             conn = new ConnectionDB().getConnection();
         } catch (SQLException ex) {
@@ -41,20 +44,20 @@ public class MainController {
     }
     
 
-    public void backMain() {
+    public void backHome() {
         Home home = new Home();
         this.view.dispose();
         home.setVisible(true);
     }
 
-    public void goMovieDescription(int idMovie) {
-        MovieDAO moviedao = new MovieDAO(conn);
+    public void goMovieDescription(int session, int idMovie) {
+        moviedao = new MovieDAO(conn);
         try {
             movieDescription.add(moviedao.getDescription(idMovie));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Failed");
         }
-        MovieDescription movieD = new MovieDescription(movieDescription);
+        MovieDescription movieD = new MovieDescription(session, movieDescription);
         movieD.setVisible(true);
         this.view.dispose();
     }
@@ -67,6 +70,22 @@ public class MainController {
             JOptionPane.showMessageDialog(null, "Failed in the genre");
         }
         this.view.setOption(genre);
+    }
+
+    public ArrayList<Movie> getLast10Movies() {
+         try {
+            conn = new ConnectionDB().getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Failed");
+        }
+        moviedao = new MovieDAO(conn);
+        try {
+            moviesArray = moviedao.getLast10Movies();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Failed");
+        }
+        return moviesArray;
     }
     
 }
