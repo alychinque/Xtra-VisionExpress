@@ -720,8 +720,14 @@ public class Main extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        controller.backHome();
-        
+        if (session != 0){
+            int answer = JOptionPane.showConfirmDialog(null, "IF YOU CLICK YES YOU GOING TO LOSE THE MOVIES ADDED IN THE CART!", "WARNING!", 1);
+            if (answer != 1){
+                controller.backHome();  
+            }
+        } else {
+            controller.backHome();
+        }
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void searchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInputActionPerformed
