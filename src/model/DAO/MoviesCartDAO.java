@@ -7,6 +7,7 @@ package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.MoviesCart;
@@ -34,5 +35,26 @@ public class MoviesCartDAO {
         int session = getSession();
         setSession(session);
         return session;
+    }
+    
+      private int getSession() throws SQLException {
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM movies_cart ORDER BY ID DESC LIMIT 1;");
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        int id = 0;
+        while (resultSet.next()) {
+            id = resultSet.getInt("id");
+        }
+        return id;
+    }
+      
+    private void setSession(int session) throws SQLException {
+        String query = "UPDATE Alysson_2019305.movies_cart\n" +
+                        "SET session = ?\n" +
+                        "WHERE id = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, session);
+        stmt.setInt(2, session);
+        stmt.execute();
     }
 }
