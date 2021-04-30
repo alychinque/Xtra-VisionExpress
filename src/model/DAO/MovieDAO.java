@@ -39,8 +39,6 @@ public class MovieDAO {
 
         ResultSet resultSet = stmt.getResultSet();
 
-        ArrayList<Movie> moviesArray = new ArrayList<>();
-
         while (resultSet.next()) {
             int id = resultSet.getInt("id_movie");
             String title = resultSet.getString("title");
