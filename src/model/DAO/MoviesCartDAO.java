@@ -6,6 +6,8 @@
 package model.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import model.MoviesCart;
 
@@ -22,6 +24,15 @@ public class MoviesCartDAO {
 
     public MoviesCartDAO(Connection conn) {
         this.connection = conn;
-
+    }
+    
+    public int addMovieInTheCart(int idMovie) throws SQLException {
+        String query = "INSERT INTO movies_cart (movie) values(?);" ;
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, idMovie);
+        stmt.execute();
+        int session = getSession();
+        setSession(session);
+        return session;
     }
 }
