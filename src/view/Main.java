@@ -8,6 +8,7 @@ package view;
 import controller.MainController;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import model.Movie;
 
 /**
@@ -20,27 +21,26 @@ public class Main extends javax.swing.JFrame {
     private ArrayList<Movie> moviesArray = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
     private String[] option;
+    private int session;
 
     /**
      * Creates new form Main
+     * @param session
      */
-    public Main(ArrayList<Movie> moviesArray, int session) {
+    public Main(int session) {
         initComponents();
         this.controller = new MainController(this);
+        moviesArray = controller.getLast10Movies();
         fillMovies(moviesArray);
         this.session = session;
     }
 
-    public Main(ArrayList<Movie> moviesArray) {
-        this.moviesArray = moviesArray;
-        moviesShowed = moviesArray;
-        
+    public Main() {
+        this.session = 0;
         initComponents();
         this.controller = new MainController(this);
-        //controller.setGenre();
-        genreComboBox = new JComboBox(option);
+        moviesArray = controller.getLast10Movies();
         fillMovies(moviesArray);
-        //this.genreComboBox = new JComboBox(option);
     }
 
     public void fillMovies(ArrayList<Movie> moviesArray){
@@ -720,7 +720,8 @@ public class Main extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        controller.backMain();
+        controller.backHome();
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void searchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInputActionPerformed
@@ -816,8 +817,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-    int session;
-
     public void setOption(String[] option) {
         this.option = option;
     }
