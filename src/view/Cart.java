@@ -16,6 +16,7 @@ import model.Movie;
 public class Cart extends javax.swing.JFrame {
     
     private final CartController controller;
+    private int session;
 
     /**
      * Creates new form Cart
@@ -32,9 +33,16 @@ public class Cart extends javax.swing.JFrame {
         movie4.setVisible(false);
         addMovieCart(movieDescription);
     }
+    
+    public Cart(int session) {
+        this.session = session;
+        controller = new CartController(this);
+        initComponents();
+    }
 
-    private Cart() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Cart() {
+        controller = new CartController(this);
+        initComponents();
     }
 
     
@@ -496,8 +504,7 @@ public class Cart extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        session++;
-        controller.backMain();
+        controller.backMain(session);
         
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -540,7 +547,6 @@ public class Cart extends javax.swing.JFrame {
     private boolean movieBoolean3 = false;
     private boolean movieBoolean4 = false;
     
-    int session = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
