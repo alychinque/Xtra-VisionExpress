@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Movie;
 import model.MoviesCart;
 
 /**
@@ -20,15 +21,15 @@ public class MoviesCartDAO {
 
     private final Connection connection;
     private MoviesCart moviesCart;
-    private ArrayList<MoviesCart> moviesInCart = new ArrayList<>();
-    String query1;
-
+    private Movie movies;
+    private ArrayList<Movie> moviesInCart = new ArrayList<>();
+    
     public MoviesCartDAO(Connection conn) {
         this.connection = conn;
     }
     
-    public int addMovieInTheCart(int idMovie) throws SQLException {
-        String query = "INSERT INTO movies_cart (movie) values(?);" ;
+    public int addFirstMovieInTheCart(int idMovie) throws SQLException {
+        String query = "INSERT INTO movies_cart (id_movie) values(?);" ;
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, idMovie);
         stmt.execute();
@@ -58,7 +59,7 @@ public class MoviesCartDAO {
         stmt.execute();
     }
     
-    public int getMoviesCart(int session) throws SQLException{
+    public int getNumberOfMoviesCart(int session) throws SQLException{
         String query ="SELECT session, COUNT(*) AS `count` \n" +
                         "FROM movies_cart\n" +
                         "WHERE session = ?;";
@@ -74,11 +75,29 @@ public class MoviesCartDAO {
     }
     
     public void addMovieInTheCart(int session, int idMovie) throws SQLException {
-        query1 = "INSERT INTO movies_cart (session, movie) values(?, ?);";
-        
-        PreparedStatement stmt = connection.prepareStatement(query1);
+        String query = "INSERT INTO movies_cart (session, id_movie) values(?, ?);";
+        PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, session);
         stmt.setInt(2, idMovie);
         stmt.execute();
+    }
+
+    public ArrayList<Movie> getMoviesSession(int session) throws SQLException {
+        String query = "SELECT movies_cart.id_movie, movie.title, movie.subTitle\n" +
+                            "FROM movies_cart\n" +
+                            "INNER JOIN movie ON movie.id_movie = movies_cart.id_movie\n" +
+                            "where movies_cart.session = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, session);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        while (resultSet.next()) {
+            int idMovie = resultSet.getInt("id_movie");
+            String title = resultSet.getString("title");
+            String subTitle = resultSet.getString("subTitle");
+            movies = new Movie(idMovie, title, subTitle);
+            moviesInCart.add(movies);
+        }
+        return moviesInCart;
     }
 }
