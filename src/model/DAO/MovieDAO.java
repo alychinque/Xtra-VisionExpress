@@ -20,7 +20,7 @@ public class MovieDAO {
 
     private final Connection connection;
     private Movie movies;
-    ArrayList<Movie> moviesArray = new ArrayList<>();
+    private ArrayList<Movie> moviesArray = new ArrayList<>();
 
     public MovieDAO(Connection conn) {
         this.connection = conn;
