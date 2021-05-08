@@ -55,7 +55,7 @@ public class MovieDescriptionController {
 
     public boolean checkCart(int session) {
         try {
-            moviesCart = movieCartdao.getMoviesCart(session);
+            moviesCart = movieCartdao.getNumberOfMoviesCart(session);
         } catch (Exception e) {
             
         }
@@ -67,10 +67,11 @@ public class MovieDescriptionController {
     
 
     public void addCart(int session, int idMovie) {
+
         MovieDAO moviedao = new MovieDAO(conn);
         try {
             if (session == 0){
-                sessionFromCart = movieCartdao.addMovieInTheCart(idMovie);
+                sessionFromCart = movieCartdao.addFirstMovieInTheCart(idMovie);
                 goCart(sessionFromCart);
             } else {
                 if(checkCart(session)){
