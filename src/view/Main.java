@@ -7,8 +7,7 @@ package view;
 
 import controller.MainController;
 import java.util.ArrayList;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
 import model.Movie;
 
 /**
@@ -18,6 +17,7 @@ import model.Movie;
 public class Main extends javax.swing.JFrame {
 
     private final MainController controller;
+    private JButton goCart;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
     private String[] option;
@@ -33,6 +33,7 @@ public class Main extends javax.swing.JFrame {
         moviesArray = controller.getLast10Movies();
         fillMovies(moviesArray);
         this.session = session;
+        creteButton();
     }
 
     public Main() {
@@ -42,6 +43,8 @@ public class Main extends javax.swing.JFrame {
         moviesArray = controller.getLast10Movies();
         fillMovies(moviesArray);
     }
+    
+    
 
     public void fillMovies(ArrayList<Movie> moviesArray){
         for (int i = 0; i < 10; i++) {
@@ -348,7 +351,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(titleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(subTitleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         moviePanel5.setBackground(new java.awt.Color(100, 240, 240));
@@ -390,7 +393,7 @@ public class Main extends javax.swing.JFrame {
             moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel5Layout.createSequentialGroup()
                 .addComponent(imageMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(subTitleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -672,13 +675,14 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(moviePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(moviePanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                            .addComponent(moviePanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                             .addComponent(moviePanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
 
         backButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         backButton.setText("BACK");
         backButton.setToolTipText("");
+        backButton.setPreferredSize(new java.awt.Dimension(140, 40));
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -697,7 +701,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -708,27 +712,15 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(logo)
                 .addGap(0, 0, 0)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
-        if (session != 0){
-            int answer = JOptionPane.showConfirmDialog(null, "IF YOU CLICK YES YOU GOING TO LOSE THE MOVIES ADDED IN THE CART!", "WARNING!", 1);
-            if (answer != 1){
-                controller.backHome();  
-            }
-        } else {
-            controller.backHome();
-        }
-    }//GEN-LAST:event_backButtonActionPerformed
 
     private void searchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInputActionPerformed
         // TODO add your handling code here:
@@ -784,7 +776,11 @@ public class Main extends javax.swing.JFrame {
         controller.goMovieDescription(session, moviesArray.get(9).getIdMovie());
     }//GEN-LAST:event_imageMovie10MouseClicked
 
-    
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backButtonActionPerformed
+
+
 
    
 
@@ -877,4 +873,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel titleMovie8;
     private javax.swing.JLabel titleMovie9;
     // End of variables declaration//GEN-END:variables
+
+    private void creteButton() {
+        goCart = new JButton();
+        goCart.setBounds(1010, 780, 140, 40);
+        goCart.setFont(new java.awt.Font("Tahoma", 0, 18));
+        goCart.setText("GO CART");
+        background.add(goCart);
+        goCart.addActionListener(controller);
+        goCart.setActionCommand(Integer.toString(session));
+        
+    }
 }
