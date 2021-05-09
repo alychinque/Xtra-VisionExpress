@@ -72,6 +72,9 @@ public class MovieDescription extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1200, 800));
+        setMinimumSize(new java.awt.Dimension(1200, 800));
+        setResizable(false);
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 800));
