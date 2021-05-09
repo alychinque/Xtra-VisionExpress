@@ -13,7 +13,7 @@ public class Movie {
     private int idMovie;
     private String title;
     private String subTitle;
-    private int idGenre;
+    private String genre;
     private String description;
     private int duration;
 
@@ -23,11 +23,11 @@ public class Movie {
         this.subTitle = subTitle;
     }
 
-    public Movie(int idMovie, String title, String subTitle, int idGenre, String description, int duration) {
+    public Movie(int idMovie, String title, String subTitle, String genre, String description, int duration) {
         this.idMovie = idMovie;
         this.title = title;
         this.subTitle = subTitle;
-        this.idGenre = idGenre;
+        this.genre = genre;
         this.description = description;
         this.duration = duration;
     }
@@ -44,8 +44,8 @@ public class Movie {
         return subTitle;
     }
 
-    public int getIdGenre() {
-        return idGenre;
+    public String getGenre() {
+        return genre;
     }
 
     public String getDescription() {
