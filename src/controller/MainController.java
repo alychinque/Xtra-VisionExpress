@@ -5,6 +5,8 @@
  */
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import model.DAO.ConnectionDB;
 import model.DAO.GenreDAO;
 import model.DAO.MovieDAO;
 import model.Movie;
+import view.Cart;
 import view.Home;
 import view.Main;
 import view.MovieDescription;
@@ -23,7 +26,7 @@ import view.MovieDescription;
  *
  * @author Alysson Chinque
  */
-public class MainController {
+public class MainController implements ActionListener{
     private final Main view;
     private Connection conn;
     private ArrayList<Movie> movieDescription = new ArrayList<>();
@@ -86,6 +89,13 @@ public class MainController {
             JOptionPane.showMessageDialog(null, "Failed");
         }
         return moviesArray;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        this.view.dispose();
+        Cart cart = new Cart(Integer.parseInt(e.getActionCommand()));
+        cart.setVisible(true);
     }
     
 }
