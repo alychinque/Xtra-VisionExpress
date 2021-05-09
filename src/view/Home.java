@@ -9,7 +9,7 @@ import controller.HomeController;
 
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class Home extends javax.swing.JFrame {
     
@@ -45,7 +45,9 @@ public class Home extends javax.swing.JFrame {
         messageLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(1200, 800));
+        setMinimumSize(new java.awt.Dimension(1200, 800));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setBackground(new java.awt.Color(40, 40, 40));
