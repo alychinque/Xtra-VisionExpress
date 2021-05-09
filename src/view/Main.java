@@ -150,7 +150,7 @@ public class Main extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(1200, 840));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -175,24 +175,20 @@ public class Main extends javax.swing.JFrame {
 
         genreLabel.setText("GENRE");
 
-        moviePanel1.setBackground(new java.awt.Color(100, 240, 240));
         moviePanel1.setMaximumSize(new java.awt.Dimension(170, 303));
         moviePanel1.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel1.setPreferredSize(new java.awt.Dimension(170, 303));
 
-        imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/test170255.jpg"))); // NOI18N
         imageMovie1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imageMovie1MouseClicked(evt);
             }
         });
 
-        titleMovie1.setText("Star Wars: Episode VI");
         titleMovie1.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie1.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie1.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie1.setText("The Return of the Jedi");
         subTitleMovie1.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie1.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie1.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -220,24 +216,20 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(subTitleMovie1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        moviePanel2.setBackground(new java.awt.Color(100, 240, 240));
         moviePanel2.setMaximumSize(new java.awt.Dimension(170, 303));
         moviePanel2.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel2.setPreferredSize(new java.awt.Dimension(170, 303));
 
-        imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/mortalkombat-2021-newposter-blue.jpeg"))); // NOI18N
         imageMovie2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imageMovie2MouseClicked(evt);
             }
         });
 
-        titleMovie2.setText("Star Wars: Episode VI");
         titleMovie2.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie2.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie2.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie2.setText("The Return of the Jedi");
         subTitleMovie2.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie2.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie2.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -265,24 +257,20 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(subTitleMovie2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        moviePanel3.setBackground(new java.awt.Color(100, 240, 240));
         moviePanel3.setMaximumSize(new java.awt.Dimension(170, 303));
         moviePanel3.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel3.setPreferredSize(new java.awt.Dimension(170, 303));
 
-        imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/return-of-the-jedi-poster-big.jpg"))); // NOI18N
         imageMovie3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imageMovie3MouseClicked(evt);
             }
         });
 
-        titleMovie3.setText("Star Wars: Episode VI");
         titleMovie3.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie3.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie3.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie3.setText("The Return of the Jedi");
         subTitleMovie3.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie3.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie3.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -310,7 +298,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(subTitleMovie3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        moviePanel4.setBackground(new java.awt.Color(100, 240, 240));
         moviePanel4.setMaximumSize(new java.awt.Dimension(170, 303));
         moviePanel4.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel4.setName(""); // NOI18N
@@ -322,12 +309,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        titleMovie4.setText("Star Wars: Episode VI");
         titleMovie4.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie4.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie4.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie4.setText("The Return of the Jedi");
         subTitleMovie4.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie4.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie4.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -354,17 +339,14 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        moviePanel5.setBackground(new java.awt.Color(100, 240, 240));
         moviePanel5.setMaximumSize(new java.awt.Dimension(170, 303));
         moviePanel5.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel5.setPreferredSize(new java.awt.Dimension(170, 303));
 
-        titleMovie5.setText("Star Wars: Episode VI");
         titleMovie5.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie5.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie5.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie5.setText("The Return of the Jedi");
         subTitleMovie5.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie5.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie5.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -400,21 +382,16 @@ public class Main extends javax.swing.JFrame {
                 .addGap(5, 5, 5))
         );
 
-        moviePanel6.setBackground(new java.awt.Color(100, 240, 240));
-
-        imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/2.jpg"))); // NOI18N
         imageMovie6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imageMovie6MouseClicked(evt);
             }
         });
 
-        titleMovie6.setText("Star Wars: Episode VI");
         titleMovie6.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie6.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie6.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie6.setText("The Return of the Jedi");
         subTitleMovie6.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie6.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie6.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -438,8 +415,6 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        moviePanel7.setBackground(new java.awt.Color(100, 240, 240));
-
         imageMovie7.setMaximumSize(new java.awt.Dimension(170, 255));
         imageMovie7.setMinimumSize(new java.awt.Dimension(170, 255));
         imageMovie7.setPreferredSize(new java.awt.Dimension(170, 255));
@@ -449,12 +424,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        titleMovie7.setText("Star Wars: Episode VI");
         titleMovie7.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie7.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie7.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie7.setText("The Return of the Jedi");
         subTitleMovie7.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie7.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie7.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -477,8 +450,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(subTitleMovie7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        moviePanel8.setBackground(new java.awt.Color(100, 240, 240));
-
         imageMovie8.setMaximumSize(new java.awt.Dimension(170, 255));
         imageMovie8.setMinimumSize(new java.awt.Dimension(170, 255));
         imageMovie8.setPreferredSize(new java.awt.Dimension(170, 255));
@@ -488,12 +459,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        titleMovie8.setText("Star Wars: Episode VI");
         titleMovie8.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie8.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie8.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie8.setText("The Return of the Jedi");
         subTitleMovie8.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie8.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie8.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -516,7 +485,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(subTitleMovie8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        moviePanel9.setBackground(new java.awt.Color(100, 240, 240));
         moviePanel9.setMaximumSize(new java.awt.Dimension(170, 303));
         moviePanel9.setMinimumSize(new java.awt.Dimension(170, 303));
         moviePanel9.setPreferredSize(new java.awt.Dimension(170, 303));
@@ -530,12 +498,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        titleMovie9.setText("Star Wars: Episode VI");
         titleMovie9.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie9.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie9.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie9.setText("The Return of the Jedi");
         subTitleMovie9.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie9.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie9.setPreferredSize(new java.awt.Dimension(170, 16));
@@ -562,8 +528,6 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        moviePanel10.setBackground(new java.awt.Color(100, 240, 240));
-
         imageMovie10.setMaximumSize(new java.awt.Dimension(170, 255));
         imageMovie10.setMinimumSize(new java.awt.Dimension(170, 255));
         imageMovie10.setPreferredSize(new java.awt.Dimension(170, 255));
@@ -573,12 +537,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        titleMovie10.setText("Star Wars: Episode VI");
         titleMovie10.setMaximumSize(new java.awt.Dimension(170, 16));
         titleMovie10.setMinimumSize(new java.awt.Dimension(170, 16));
         titleMovie10.setPreferredSize(new java.awt.Dimension(170, 16));
 
-        subTitleMovie10.setText("The Return of the Jedi");
         subTitleMovie10.setMaximumSize(new java.awt.Dimension(170, 16));
         subTitleMovie10.setMinimumSize(new java.awt.Dimension(170, 16));
         subTitleMovie10.setPreferredSize(new java.awt.Dimension(170, 16));

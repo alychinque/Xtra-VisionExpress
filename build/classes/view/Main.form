@@ -6,7 +6,9 @@
     <Property name="location" type="java.awt.Point" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
       <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,97,119,116,46,80,111,105,110,116,-74,-60,-118,114,52,126,-56,38,2,0,2,73,0,1,120,73,0,1,121,120,112,0,0,0,0,0,0,0,0"/>
     </Property>
-    <Property name="locationByPlatform" type="boolean" value="true"/>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1200, 840]"/>
+    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -232,9 +234,6 @@
             </Component>
             <Container class="javax.swing.JPanel" name="moviePanel1">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 303]"/>
                 </Property>
@@ -276,18 +275,12 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="imageMovie1">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/test170255.jpg"/>
-                    </Property>
-                  </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie1MouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -301,7 +294,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -317,9 +309,6 @@
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel2">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 303]"/>
                 </Property>
@@ -361,18 +350,12 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="imageMovie2">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/mortalkombat-2021-newposter-blue.jpeg"/>
-                    </Property>
-                  </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie2MouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -386,7 +369,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -402,9 +384,6 @@
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel3">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 303]"/>
                 </Property>
@@ -446,18 +425,12 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="imageMovie3">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/images/return-of-the-jedi-poster-big.jpg"/>
-                    </Property>
-                  </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie3MouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -471,7 +444,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie3">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -487,9 +459,6 @@
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel4">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 303]"/>
                 </Property>
@@ -536,7 +505,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -550,7 +518,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie4">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -566,9 +533,6 @@
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel5">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 303]"/>
                 </Property>
@@ -609,7 +573,6 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="titleMovie5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -623,7 +586,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -654,11 +616,6 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel6">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
-              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -683,18 +640,12 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="imageMovie6">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/view/movies/2.jpg"/>
-                    </Property>
-                  </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imageMovie6MouseClicked"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -708,7 +659,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -723,11 +673,6 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel7">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
-              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -768,7 +713,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -782,7 +726,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie7">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -797,11 +740,6 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel8">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
-              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -842,7 +780,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -856,7 +793,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -872,9 +808,6 @@
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel9">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[170, 303]"/>
                 </Property>
@@ -931,7 +864,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -945,7 +877,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -960,11 +891,6 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="moviePanel10">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f0" green="f0" red="64" type="rgb"/>
-                </Property>
-              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -1006,7 +932,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="titleMovie10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Star Wars: Episode VI"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
@@ -1020,7 +945,6 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="subTitleMovie10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="The Return of the Jedi"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[170, 16]"/>
                     </Property>
