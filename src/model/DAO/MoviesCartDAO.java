@@ -23,13 +23,13 @@ public class MoviesCartDAO {
     private MoviesCart moviesCart;
     private Movie movies;
     private ArrayList<Movie> moviesInCart = new ArrayList<>();
-    
+
     public MoviesCartDAO(Connection conn) {
         this.connection = conn;
     }
-    
+
     public int addFirstMovieInTheCart(int idMovie) throws SQLException {
-        String query = "INSERT INTO movies_cart (id_movie) values(?);" ;
+        String query = "INSERT INTO movies_cart (id_movie) values(?);";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, idMovie);
         stmt.execute();
@@ -37,8 +37,8 @@ public class MoviesCartDAO {
         setSession(session);
         return session;
     }
-    
-      private int getSession() throws SQLException {
+
+    private int getSession() throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM movies_cart ORDER BY ID DESC LIMIT 1;");
         stmt.execute();
         ResultSet resultSet = stmt.getResultSet();
@@ -48,21 +48,21 @@ public class MoviesCartDAO {
         }
         return id;
     }
-      
+
     private void setSession(int session) throws SQLException {
-        String query = "UPDATE Alysson_2019305.movies_cart\n" +
-                        "SET session = ?\n" +
-                        "WHERE id = ?;";
+        String query = "UPDATE Alysson_2019305.movies_cart\n"
+                + "SET session = ?\n"
+                + "WHERE id = ?;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, session);
         stmt.setInt(2, session);
         stmt.execute();
     }
-    
-    public int getNumberOfMoviesCart(int session) throws SQLException{
-        String query ="SELECT session, COUNT(*) AS `count` \n" +
-                        "FROM movies_cart\n" +
-                        "WHERE session = ?;";
+
+    public int getNumberOfMoviesCart(int session) throws SQLException {
+        String query = "SELECT session, COUNT(*) AS `count` \n"
+                + "FROM movies_cart\n"
+                + "WHERE session = ?;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, session);
         stmt.execute();
@@ -73,7 +73,7 @@ public class MoviesCartDAO {
         }
         return numberOfMovies;
     }
-    
+
     public void addMovieInTheCart(int session, int idMovie) throws SQLException {
         String query = "INSERT INTO movies_cart (session, id_movie) values(?, ?);";
         PreparedStatement stmt = connection.prepareStatement(query);
@@ -83,10 +83,10 @@ public class MoviesCartDAO {
     }
 
     public ArrayList<Movie> getMoviesSession(int session) throws SQLException {
-        String query = "SELECT movies_cart.id_movie, movie.title, movie.subTitle\n" +
-                            "FROM movies_cart\n" +
-                            "INNER JOIN movie ON movie.id_movie = movies_cart.id_movie\n" +
-                            "where movies_cart.session = ?;";
+        String query = "SELECT movies_cart.id_movie, movie.title, movie.subTitle\n"
+                + "FROM movies_cart\n"
+                + "INNER JOIN movie ON movie.id_movie = movies_cart.id_movie\n"
+                + "where movies_cart.session = ?;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, session);
         stmt.execute();
@@ -99,5 +99,15 @@ public class MoviesCartDAO {
             moviesInCart.add(movies);
         }
         return moviesInCart;
+    }
+
+    public void deleteMovieFromCart(int movieId, int session) throws SQLException {
+        String query = "delete  FROM Alysson_2019305.movies_cart\n"
+                + "where session = ?\n"
+                + "and id_movie = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, session);
+        stmt.setInt(2, movieId);
+        stmt.execute();
     }
 }
