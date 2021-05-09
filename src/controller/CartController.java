@@ -17,6 +17,7 @@ import model.DAO.ConnectionDB;
 import model.DAO.MoviesCartDAO;
 import model.Movie;
 import view.Cart;
+import view.Checkout;
 import view.Main;
 
 /**
@@ -54,6 +55,12 @@ public class CartController implements ActionListener {
         }
         
         return moviesCart;
+    }
+    
+    public void goCheckout(int session, int sizeArray) {
+        Checkout checkout = new Checkout(session, sizeArray);
+        this.view.dispose();
+        checkout.setVisible(true);
     }
 
     @Override
