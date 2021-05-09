@@ -13,7 +13,7 @@ import model.MoviesCart;
 
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class MovieDescription extends javax.swing.JFrame {
     
@@ -27,22 +27,17 @@ public class MovieDescription extends javax.swing.JFrame {
 
     /**
      * Creates new form MovieDescription
-     * @param moviesDescriotion
+     * @param session
+     * @param moviesDescription
      */
     public MovieDescription(int session, ArrayList<Movie> moviesDescription) {
         this.session = session;
         initComponents();
         controller = new MovieDescriptionController(this);
         this.movieDescription = moviesDescription;
-        imageMovie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/"+ movieDescription.get(0).getIdMovie() +".jpg")));
-        titleMovie.setText(moviesDescription.get(0).getTitle());
-        subTitle.setText(moviesDescription.get(0).getSubTitle());
-        category.setText("ACTION");
-        duration.setText("110");
-        descriptionMovie.setText(moviesDescription.get(0).getDescription());
-        
+        fillFields(movieDescription);
     }
-
+        
     private MovieDescription() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -71,6 +66,8 @@ public class MovieDescription extends javax.swing.JFrame {
         duration = new javax.swing.JLabel();
         category = new javax.swing.JLabel();
         separator = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         rentButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
@@ -112,7 +109,6 @@ public class MovieDescription extends javax.swing.JFrame {
         descriptionMovie.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         descriptionMovie.setLineWrap(true);
         descriptionMovie.setRows(15);
-        descriptionMovie.setText("asdSFsfSASDSAAASAS");
         descriptionMovie.setWrapStyleWord(true);
         jScrollPane1.setViewportView(descriptionMovie);
 
@@ -121,6 +117,10 @@ public class MovieDescription extends javax.swing.JFrame {
         category.setText("Category");
 
         separator.setText("/");
+
+        jLabel1.setText("DURATION:");
+
+        jLabel2.setText("GENRE:");
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -139,10 +139,14 @@ public class MovieDescription extends javax.swing.JFrame {
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addComponent(descriptionLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(category)
-                                .addGap(83, 83, 83)
-                                .addComponent(separator, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(separator)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(duration)
                                 .addGap(13, 13, 13))
                             .addComponent(jSeparator1)
@@ -164,13 +168,15 @@ public class MovieDescription extends javax.swing.JFrame {
                             .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(duration)
                             .addComponent(category)
-                            .addComponent(separator))
+                            .addComponent(separator)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(imageMovie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(87, 87, 87))
         );
@@ -215,7 +221,7 @@ public class MovieDescription extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,6 +306,8 @@ public class MovieDescription extends javax.swing.JFrame {
     private javax.swing.JTextArea descriptionMovie;
     private javax.swing.JLabel duration;
     private javax.swing.JLabel imageMovie;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -311,4 +319,15 @@ public class MovieDescription extends javax.swing.JFrame {
     private javax.swing.JLabel subTitle;
     private javax.swing.JLabel titleMovie;
     // End of variables declaration//GEN-END:variables
+
+    private void fillFields(ArrayList<Movie> movieDescription) {
+        imageMovie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/"+ movieDescription.get(0).getIdMovie() +".jpg")));
+        titleMovie.setText(movieDescription.get(0).getTitle());
+        subTitle.setText(movieDescription.get(0).getSubTitle());
+        category.setText(movieDescription.get(0).getGenre());
+        duration.setText(Integer.toString(movieDescription.get(0).getDuration()));
+        descriptionMovie.setText(movieDescription.get(0).getDescription());
+    }
+
+    
 }
