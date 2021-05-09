@@ -64,7 +64,6 @@ public class MovieDAO {
             int id = resultSet.getInt("id_movie");
             String title = resultSet.getString("title");
             String subTitle = resultSet.getString("subTitle");
-            System.out.println("inside while: " + id + title + subTitle);
             movies = new Movie(id, title, subTitle);
             moviesArray.add(movies);
         }
@@ -74,7 +73,9 @@ public class MovieDAO {
 
     public Movie getDescription(int idMovie) throws SQLException {
         //query to get all movies
-        String query2 = "SELECT * FROM Alysson_2019305.movie\n"
+        String query2 = "SELECT movie.*, genre.genre\n"
+                + "from movie\n"
+                + "INNER JOIN genre ON movie.id_genre = genre.id_genre\n"
                 + "where id_movie = ?;";
         //creating a Statement assigning a connection with the select query
         PreparedStatement stmt = connection.prepareStatement(query2);
@@ -87,10 +88,10 @@ public class MovieDAO {
             int id = resultSet.getInt("id_movie");
             String title = resultSet.getString("title");
             String subTitle = resultSet.getString("subTitle");
-            int idGenre = resultSet.getInt("idgenre");
+            String genre = resultSet.getString("genre");
             String description = resultSet.getString("description");
             int duration = resultSet.getInt("duration");
-            movies = new Movie(id, title, subTitle, idGenre, description, duration);
+            movies = new Movie(id, title, subTitle, genre, description, duration);
         }
         return movies;
     }
