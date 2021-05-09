@@ -5,6 +5,8 @@
  */
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import view.Main;
  *
  * @author Alysson Chinque
  */
-public class CartController {
+public class CartController implements ActionListener {
     private final Cart view;
     private Connection conn;
     private MoviesCartDAO movieCartdao;
@@ -48,9 +50,21 @@ public class CartController {
         try {
             moviesCart = movieCartdao.getMoviesSession(session);
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Failed creating the connection");
         }
         
         return moviesCart;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int session = this.view.getSession();
+        try {
+            movieCartdao.deleteMovieFromCart(Integer.parseInt(e.getActionCommand()), session);
+        } catch (Exception exp) {
+            JOptionPane.showMessageDialog(null, "Failed deleting the connection");
+        }
+        backMain(session);
     }
     
 }
