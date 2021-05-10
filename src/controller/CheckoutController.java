@@ -5,6 +5,7 @@
  */
 package controller;
 
+import view.Cart;
 import view.Checkout;
 
 /**
@@ -17,6 +18,10 @@ public class CheckoutController {
     public CheckoutController(Checkout view) {
         this.view = view;
     }
-    
-    
+
+    public void backCart(int session) {
+        Cart cart = new Cart(session);
+        this.view.dispose();
+        cart.setVisible(true);
+    }
 }
