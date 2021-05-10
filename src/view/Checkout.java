@@ -5,14 +5,16 @@
  */
 package view;
 
+import controller.CheckoutController;
 import javax.swing.JLabel;
 
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class Checkout extends javax.swing.JFrame {
 
+    private CheckoutController controller;
     private int session;
     private int sizeArray;
 
@@ -24,6 +26,7 @@ public class Checkout extends javax.swing.JFrame {
     }
 
     public Checkout(int session, int sizeArray) {
+        controller = new CheckoutController(this);
         initComponents();
         totalValue(sizeArray);
         this.session = session;
