@@ -5,10 +5,18 @@
  */
 package controller;
 
+import view.Checkout;
+
 /**
  *
  * @author Alysson Chinque
  */
 public class CheckoutController {
+    private final Checkout view;
+
+    public CheckoutController(Checkout view) {
+        this.view = view;
+    }
+    
     
 }
