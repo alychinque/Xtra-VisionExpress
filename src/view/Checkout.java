@@ -18,6 +18,7 @@ public class Checkout extends javax.swing.JFrame {
     private CheckoutController controller;
     private int session;
     private int sizeArray;
+    private boolean codeValid;
 
     /**
      * Creates new form Checkout
@@ -32,6 +33,15 @@ public class Checkout extends javax.swing.JFrame {
         totalValue(sizeArray);
         this.session = session;
         this.sizeArray = sizeArray;
+        Integer[] months = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+        monthBox.setModel(new javax.swing.DefaultComboBoxModel(months));
+        monthBox.addActionListener(controller);
+        monthBox.setActionCommand("month");
+        
+        Integer[] years = {2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030};
+        yearBox.setModel(new javax.swing.DefaultComboBoxModel(years));
+        yearBox.addActionListener(controller);
+        yearBox.setActionCommand("year");
     }
     
     /**
@@ -56,18 +66,21 @@ public class Checkout extends javax.swing.JFrame {
         cardNumberLabel = new javax.swing.JLabel();
         inputCardNumber = new javax.swing.JTextField();
         validLabel = new javax.swing.JLabel();
-        inputValid = new javax.swing.JTextField();
         cvcLabel = new javax.swing.JLabel();
         inputCVC = new javax.swing.JTextField();
         codeLabel = new javax.swing.JLabel();
         inputCode = new javax.swing.JTextField();
         priceLabel = new javax.swing.JLabel();
-        price = new javax.swing.JLabel();
         checkCode = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         responseCode = new javax.swing.JLabel();
+        monthBox = new javax.swing.JComboBox();
+        yearBox = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        priceTotal = new javax.swing.JLabel();
         payButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
@@ -78,6 +91,7 @@ public class Checkout extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 800));
         background.setMinimumSize(new java.awt.Dimension(1200, 800));
+        background.setPreferredSize(new java.awt.Dimension(1200, 800));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/xtra-vision_400.jpg"))); // NOI18N
 
@@ -113,9 +127,6 @@ public class Checkout extends javax.swing.JFrame {
         validLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         validLabel.setText("VALID THRU");
 
-        inputValid.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        inputValid.setPreferredSize(new java.awt.Dimension(700, 30));
-
         cvcLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cvcLabel.setText("CVC");
 
@@ -129,13 +140,7 @@ public class Checkout extends javax.swing.JFrame {
 
         priceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         priceLabel.setForeground(new java.awt.Color(255, 0, 0));
-        priceLabel.setText("YOU WILL BE CHARGED: €");
-
-        price.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        price.setForeground(new java.awt.Color(255, 0, 0));
-        price.setMaximumSize(new java.awt.Dimension(40, 20));
-        price.setMinimumSize(new java.awt.Dimension(40, 20));
-        price.setPreferredSize(new java.awt.Dimension(50, 20));
+        priceLabel.setText("YOU WILL BE CHARGED:");
 
         checkCode.setText("Ckeck code");
         checkCode.addActionListener(new java.awt.event.ActionListener() {
@@ -150,18 +155,28 @@ public class Checkout extends javax.swing.JFrame {
 
         jLabel3.setText("* Code - XXX");
 
+        monthBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthBoxActionPerformed(evt);
+            }
+        });
+
+        yearBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel4.setText("/");
+
+        priceTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        priceTotal.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 87, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(153, 153, 153)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -169,21 +184,21 @@ public class Checkout extends javax.swing.JFrame {
                     .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelLayout.createSequentialGroup()
                             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                                    .addComponent(inputValid, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(32, 32, 32))
                                 .addGroup(panelLayout.createSequentialGroup()
                                     .addComponent(jLabel2)
-                                    .addGap(31, 31, 31)))
+                                    .addGap(31, 31, 31))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)))
                             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(inputCVC, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(inputCVC, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3)))
                         .addGroup(panelLayout.createSequentialGroup()
                             .addComponent(validLabel)
                             .addGap(59, 59, 59)
                             .addComponent(cvcLabel))))
-                .addGap(36, 36, 36)
-                .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(153, 153, 153)
@@ -193,7 +208,10 @@ public class Checkout extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(inputCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(nameCardLabel)
                                 .addComponent(cardNumberLabel, javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,8 +225,20 @@ public class Checkout extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(checkCode)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(priceLabel)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(priceLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(priceTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(254, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Label, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(179, 179, 179))
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 87, Short.MAX_VALUE))
             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelLayout.createSequentialGroup()
                     .addGap(158, 158, 158)
@@ -229,12 +259,10 @@ public class Checkout extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cardDetails)
-                .addGap(37, 37, 37)
+                .addGap(43, 43, 43)
                 .addComponent(nameCardLabel)
                 .addGap(18, 18, 18)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(inputNameCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(inputNameCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cardNumberLabel)
@@ -244,31 +272,36 @@ public class Checkout extends javax.swing.JFrame {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputCVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputValid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codeLabel)
                     .addComponent(inputCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priceLabel))
-                .addGap(10, 10, 10)
-                .addComponent(responseCode, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(priceLabel)
+                    .addComponent(priceTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(responseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelLayout.createSequentialGroup()
                     .addGap(137, 137, 137)
                     .addComponent(emailLabel)
-                    .addContainerGap(426, Short.MAX_VALUE)))
+                    .addContainerGap(435, Short.MAX_VALUE)))
             .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelLayout.createSequentialGroup()
                     .addGap(177, 177, 177)
                     .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(378, Short.MAX_VALUE)))
+                    .addContainerGap(387, Short.MAX_VALUE)))
         );
 
         payButton.setText("PAY");
@@ -311,8 +344,8 @@ public class Checkout extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -335,6 +368,7 @@ public class Checkout extends javax.swing.JFrame {
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
         // TODO add your handling code here:
+        controller.payMovie(session);
     }//GEN-LAST:event_payButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -348,7 +382,16 @@ public class Checkout extends javax.swing.JFrame {
 
     private void checkCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCodeActionPerformed
         // TODO add your handling code here:
+        controller.checkCode();
     }//GEN-LAST:event_checkCodeActionPerformed
+
+    private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthBoxActionPerformed
+
+    private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,41 +443,44 @@ public class Checkout extends javax.swing.JFrame {
     private javax.swing.JTextField inputCode;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputNameCard;
-    private javax.swing.JTextField inputValid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logo;
+    private javax.swing.JComboBox monthBox;
     private javax.swing.JLabel nameCardLabel;
     private javax.swing.JPanel panel;
     private javax.swing.JButton payButton;
-    private javax.swing.JLabel price;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel priceTotal;
     private javax.swing.JLabel responseCode;
     private javax.swing.JLabel validLabel;
+    private javax.swing.JComboBox yearBox;
     // End of variables declaration//GEN-END:variables
 
     private void totalValue(int sizeArray) {
-        price = new JLabel();
-        price.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        price.setForeground(new java.awt.Color(255, 0, 0));
-        price.setBounds(800, 500, 40, 20);
+        priceTotal = new JLabel();
+        priceTotal.setFont(new java.awt.Font("Tahoma", 0, 14));
+        priceTotal.setForeground(new java.awt.Color(255, 0, 0));
+        priceTotal.setBounds(800, 500, 40, 20);
         switch (sizeArray) {
             case 1:
-                price.setText("2.99");
+                priceTotal.setText("2.99");
                 break;
             case 2:
-                price.setText("5.98");
+                priceTotal.setText("5.98");
                 break;
             case 3:
-                price.setText("8.97");
+                priceTotal.setText("8.97");
                 break;
             case 4:
-                price.setText("11.96");
+                priceTotal.setText("11.96");
                 break;
         }
-        panel.add(price);
+        panel.add(priceTotal);
     }
 
     public JTextField getInputCVC() {
@@ -457,7 +503,17 @@ public class Checkout extends javax.swing.JFrame {
         return inputNameCard;
     }
 
-    public JTextField getInputValid() {
-        return inputValid;
+    public void setResponseCode(boolean responseCode) {
+        if(responseCode){
+            this.responseCode.setText(" *-* VALID CODE *-* ");
+            this.responseCode.setFont(new java.awt.Font("Tahoma", 0, 15));
+            this.responseCode.setForeground(new java.awt.Color(0, 255, 0));
+        }else{
+            this.responseCode.setText(" *-* INVALID CODE *-* ");
+            this.responseCode.setFont(new java.awt.Font("Tahoma", 0, 15));
+            this.responseCode.setForeground(new java.awt.Color(255, 0, 0));
+        }
+        
     }
+    
 }
