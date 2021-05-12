@@ -12,23 +12,23 @@ package model;
 public class User {
     private String email;
     private String nameUser;
-    private String numberCard;
+    private String cardNumber;
     private String cvc;
     private int month;
     private int year;
 
-    public User(String email, String nameUser, String numberCard, String cvc, int month, int year) {
+    public User(String email, String nameUser, String cardNumber, String cvc, int month, int year) {
         this.email = email;
         this.nameUser = nameUser;
-        this.numberCard = numberCard;
+        this.cardNumber = cardNumber;
         this.cvc = cvc;
         this.month = month;
         this.year = year;
     }
 
-    public User(String nameUser, String numberCard, String cvc, int month, int year) {
+    public User(String nameUser, String cardNumber, String cvc, int month, int year) {
         this.nameUser = nameUser;
-        this.numberCard = numberCard;
+        this.cardNumber = cardNumber;
         this.cvc = cvc;
         this.month = month;
         this.year = year;

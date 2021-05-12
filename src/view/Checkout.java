@@ -67,8 +67,8 @@ public class Checkout extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         inputEmail = new javax.swing.JTextField();
         cardDetails = new javax.swing.JLabel();
-        nameCardLabel = new javax.swing.JLabel();
-        inputNameCard = new javax.swing.JTextField();
+        cardNameLabel = new javax.swing.JLabel();
+        inputCardName = new javax.swing.JTextField();
         cardNumberLabel = new javax.swing.JLabel();
         inputCardNumber = new javax.swing.JTextField();
         validLabel = new javax.swing.JLabel();
@@ -121,14 +121,14 @@ public class Checkout extends javax.swing.JFrame {
         cardDetails.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         cardDetails.setText("CARD DETAILS");
 
-        nameCardLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        nameCardLabel.setText("NAME IN THE CARD");
+        cardNameLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        cardNameLabel.setText("NAME IN THE CARD");
 
-        inputNameCard.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        inputNameCard.setPreferredSize(new java.awt.Dimension(700, 35));
-        inputNameCard.addActionListener(new java.awt.event.ActionListener() {
+        inputCardName.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        inputCardName.setPreferredSize(new java.awt.Dimension(700, 35));
+        inputCardName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNameCardActionPerformed(evt);
+                inputCardNameActionPerformed(evt);
             }
         });
 
@@ -208,8 +208,8 @@ public class Checkout extends javax.swing.JFrame {
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(154, 154, 154)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputNameCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameCardLabel)
+                            .addComponent(inputCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardNameLabel)
                             .addComponent(cardDetails)
                             .addGroup(panelLayout.createSequentialGroup()
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,9 +276,9 @@ public class Checkout extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(cardDetails)
                 .addGap(18, 18, 18)
-                .addComponent(nameCardLabel)
+                .addComponent(cardNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputNameCard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputCardName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cardNumberLabel)
@@ -386,13 +386,13 @@ public class Checkout extends javax.swing.JFrame {
         controller.backCart(session);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void inputNameCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameCardActionPerformed
+    private void inputCardNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCardNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputNameCardActionPerformed
+    }//GEN-LAST:event_inputCardNameActionPerformed
 
     private void checkCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCodeActionPerformed
         // TODO add your handling code here:
-        boolean promoCode = controller.checkCode();
+        boolean promoCode = controller.checkPromoCode();
         setResponseCode(promoCode);
     }//GEN-LAST:event_checkCodeActionPerformed
 
@@ -448,16 +448,17 @@ public class Checkout extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JPanel background;
     private javax.swing.JLabel cardDetails;
+    private javax.swing.JLabel cardNameLabel;
     private javax.swing.JLabel cardNumberLabel;
     private javax.swing.JButton checkCode;
     private javax.swing.JLabel codeLabel;
     private javax.swing.JLabel cvcLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField inputCVC;
+    private javax.swing.JTextField inputCardName;
     private javax.swing.JTextField inputCardNumber;
     private javax.swing.JTextField inputCode;
     private javax.swing.JTextField inputEmail;
-    private javax.swing.JTextField inputNameCard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -466,7 +467,6 @@ public class Checkout extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logo;
     private javax.swing.JComboBox monthBox;
-    private javax.swing.JLabel nameCardLabel;
     private javax.swing.JPanel panel;
     private javax.swing.JButton payButton;
     private javax.swing.JLabel priceLabel;
@@ -498,6 +498,10 @@ public class Checkout extends javax.swing.JFrame {
         panel.add(priceTotal);
     }
 
+    public int getSizeArray() {
+        return sizeArray;
+    }
+
     public JTextField getInputCVC() {
         return inputCVC;
     }
@@ -514,8 +518,8 @@ public class Checkout extends javax.swing.JFrame {
         return inputEmail;
     }
 
-    public JTextField getInputNameCard() {
-        return inputNameCard;
+    public JTextField getInputCardName() {
+        return inputCardName;
     }
 
     public void setResponseCode(boolean responseCode) {
