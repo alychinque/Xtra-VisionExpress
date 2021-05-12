@@ -7,11 +7,13 @@ package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class UserDAO {
 
@@ -34,5 +36,27 @@ public class UserDAO {
         stmt.setString(7, email);
         stmt.execute();
     }
+    
+    public boolean userIsInTheDB(String cardNumber) throws SQLException {
+        String query = "SELECT card_number FROM Alysson_2019305.user\n"
+                + "where card_number = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, cardNumber);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        String result = "000";
+        while(resultSet.next()){
+            result = resultSet.getString("card_number");
+        }
+        if(result.equalsIgnoreCase("000")){
+            JOptionPane.showMessageDialog(null, "new customer");
+            return false;
+        }
+        JOptionPane.showMessageDialog(null, "This card is in our database\nPromoCode is applicable only for first rent!");
+        return true;
+    }
+    
+    
+    
 
 }
