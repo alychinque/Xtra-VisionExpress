@@ -192,7 +192,7 @@ public class Cart extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
