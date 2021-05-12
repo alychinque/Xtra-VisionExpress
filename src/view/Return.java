@@ -21,7 +21,7 @@ public class Return extends javax.swing.JFrame {
     public Return() {
         initComponents();
         controller = new ReturnController(this);
-        String[] option = {"TITANIC", "STAR WARS"};
+        String[] option = {"TITANIC", "STAR WARS, FOREST GUMP, HARRY POTTER 5, JADNFKJANDS"};
         movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(option));
     }
 
@@ -85,7 +85,7 @@ public class Return extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        movieComboBox.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        movieComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         numberComboBox.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
@@ -119,8 +119,8 @@ public class Return extends javax.swing.JFrame {
                         .addGap(278, 278, 278)
                         .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(movieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60)
+                        .addComponent(movieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
@@ -140,16 +140,13 @@ public class Return extends javax.swing.JFrame {
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(numberLabel)
                             .addComponent(movieLabel))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addComponent(movieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 83, 83))
+                    .addComponent(retutnPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126))
             .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(backgroundLayout.createSequentialGroup()
                     .addGap(371, 371, 371)
