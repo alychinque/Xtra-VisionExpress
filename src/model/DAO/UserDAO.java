@@ -56,7 +56,17 @@ public class UserDAO {
         return true;
     }
     
-    
-    
+    public void insertUserWithoutEmail(String cardName, String numberCard, int month, int year, String cvc, int session) throws SQLException {
+        String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc, session)\n"
+                + "values (?, ?, ?, ?, ?, ?)";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, numberCard);
+        stmt.setString(2, cardName);
+        stmt.setInt(3, month);
+        stmt.setInt(4, year);
+        stmt.setString(5, cvc);
+        stmt.setInt(6, session);
+        stmt.execute();
+    }
 
 }
