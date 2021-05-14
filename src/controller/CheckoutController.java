@@ -72,12 +72,12 @@ public class CheckoutController implements ActionListener {
         cart.setVisible(true);
     }
 
-    public void checkCode() {
+    public boolean checkPromoCode() {
         String code = this.view.getInputCode().getText();
         if (code.equals("FREEMOVIE")) {
-            this.view.setResponseCode(true);
+            return true;
         } else {
-            this.view.setResponseCode(false);
+            return false;
         }
     }
 
