@@ -33,5 +33,29 @@ public class User {
         this.month = month;
         this.year = year;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public String getCvc() {
+        return cvc;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
     
 }
