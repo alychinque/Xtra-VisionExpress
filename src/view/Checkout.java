@@ -40,13 +40,13 @@ public class Checkout extends javax.swing.JFrame {
         Integer[] months = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
         monthBox.setModel(new javax.swing.DefaultComboBoxModel(months));
         monthBox.addActionListener(controller);
-        monthBox.setSelectedIndex(0);
+        monthBox.setSelectedItem(0);
         monthBox.setActionCommand("month");
         
         Integer[] years = {2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030};
         yearBox.setModel(new javax.swing.DefaultComboBoxModel(years));
         yearBox.addActionListener(controller);
-        yearBox.setSelectedIndex(0);
+        yearBox.setSelectedItem(0);
         yearBox.setActionCommand("year");
     }
     
