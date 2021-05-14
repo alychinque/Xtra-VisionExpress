@@ -189,7 +189,7 @@ public class CheckoutController implements ActionListener {
         }
     }
 
-    private boolean checkNumberCard(String numberCard) {
+    private boolean checkCardNumber(String numberCard) {
         if (numberCard.length() == 16) {
             int[] numCard = new int[numberCard.length()];
             for (int i = 0; i < numberCard.length(); i++) {
