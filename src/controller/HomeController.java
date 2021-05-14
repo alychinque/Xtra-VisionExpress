@@ -23,14 +23,19 @@ public class HomeController {
         this.view = view;
     }
     
-
+    /**
+     * This function is instantiating the main class in dispose the HomeScreen 
+     */
     public void goMain() {       
         Main main = new Main();
         main.setVisible(true);
         this.view.dispose();
         
     }
-
+    /** This function is instantiating the Return class, and set as visible and then it 
+     * will dispose in the HomeScreen
+     * 
+     */
     public void goReturn() {
         Return returnS = new Return();
         returnS.setVisible(true);
