@@ -9,12 +9,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import model.DAO.ConnectionDB;
+import model.DAO.MoviesCartDAO;
 import model.DAO.RentDAO;
 import model.DAO.UserDAO;
 import model.Rent;
@@ -225,5 +229,68 @@ public class CheckoutController implements ActionListener {
             JComboBox jcbx = (JComboBox) e.getSource();
             this.year = (int) jcbx.getSelectedItem();
         }
+    }
+    
+    private Rent getDataRent() {
+        try {
+            //get movies id []
+            MoviesCartDAO moviescartdao = new MoviesCartDAO(conn);
+            int numberOfMovies = moviescartdao.getNumberOfMoviesCart(session);
+            this.idMovies = new String[numberOfMovies];
+            this.idMovies = moviescartdao.getIdMovies(session, numberOfMovies);
+            //get random number
+            RentDAO rentdao = new RentDAO(conn);
+            while (true) {
+                int number = generateRandomNumber();
+                if (rentdao.checkRandomNumber(number)) {
+                    this.rentNumber = number;
+                    break;
+                }
+            }
+            //get rent date(taday)
+            Calendar cal = new GregorianCalendar();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+            rentDate = sdf.format(cal.getTime());
+
+            //get rent return(number the day is equal the number of movies rented)
+            int numberOfDaysOfRent = idMovies.length;
+            cal.add(Calendar.DAY_OF_MONTH, numberOfDaysOfRent);
+            returnDate = sdf.format(cal.getTime());
+
+            //set boolean returned
+            returned = false;
+
+            //get rent price
+            if(checkPromoCode() && !userIsInTheDB()){
+                rentCharge = 0;
+            }else{
+                switch (idMovies.length) {
+                    case 1:
+                        rentCharge = (float) 2.99;
+                        break;
+                    case 2:
+                        rentCharge = (float) 5.98;
+                        break;
+                    case 3:
+                        rentCharge = (float) 8.97;
+                        break;
+                    case 4:
+                        rentCharge = (float) 11.96;
+                        break;
+                }
+            }
+            System.out.println("idUser: " + idUser);
+            for (int i = 0; i < idMovies.length; i++) {
+                System.out.println("idMovie: " + idMovies[i]);
+            }
+            System.out.println("rentNumber: " + rentNumber);
+            System.out.println("rentDate: " + rentDate + " *** returnDate: " + returnDate);
+            System.out.println("Returned: " + returned + " ** rentCharge: " + rentCharge);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "nao deu certo add um rental");
+        }
+
+        return rent = new Rent(idUser, idMovies, rentNumber, rentDate, returnDate, returned, rentCharge);
     }
 }
