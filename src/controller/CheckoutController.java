@@ -136,6 +136,23 @@ public class CheckoutController implements ActionListener {
         //insertRent(cardNumber);
     }
 
+    private boolean checkFields() {
+        try {
+            email = this.view.getInputEmail().getText().toLowerCase();
+            cardName = this.view.getInputCardName().getText();
+            cardNumber = this.view.getInputCardNumber().getText();
+            cvc = this.view.getInputCVC().getText();
+
+            if (checkEmail(email) && checkCardName(cardName) && checkCardNumber(cardNumber) && checkCVC(cvc)) {
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error checking fields, Please try again.");
+            return false;
+        }
+        return false;
+    }
+    
     private boolean checkEmail(String email) {
         if (email.isEmpty()) {
             return true;
