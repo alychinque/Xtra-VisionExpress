@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import model.DAO.ConnectionDB;
+import model.DAO.RentDAO;
 import model.DAO.UserDAO;
 import model.Rent;
 import model.User;
@@ -76,23 +77,63 @@ public class CheckoutController implements ActionListener {
     }
 
     public void payMovie(int session) {
-        String email = this.view.getInputEmail().getText().toLowerCase();
-        String cardName = this.view.getInputNameCard().getText();
-        String numberCard = this.view.getInputCardNumber().getText();
-        int monthCardValid = this.month;
-        int yearCardValid = this.year;
-        int cvc = Integer.parseInt(this.view.getInputCVC().getText());
-        System.out.println("email: "+email+ "\ncardName: "+cardName+ "\nNumberCard: "+numberCard+ "\nMonth: "+monthCardValid+ "\nYear: "+yearCardValid+ "\nCVC: "+cvc);
-
         try {
-            boolean emailBoolean = checkEmail(email);
-            boolean nameCardBoolean = checkCardName(cardName);
-            boolean numberCardBoolean = checkNumberCard(numberCard);
-            boolean cvcBoolean = checkCVC(cvc);
-            
+            if (checkFields()) {
+                RentDAO rentdao = new RentDAO(conn);
+                if (userIsInTheDB()) {
+                    System.out.println("customer in the database");
+                    if (!validEmailEmpty) {
+                        //save email old customer and register rent
+                        try {
+                            userdao.registerEmail(cardNumber, email);
+                            //register rent
+                            rent = getDataRent();
+                            rentdao.registerRent(rent, session);
+                            System.out.println("save email old customer and register rent");
+                            return;
+
+                        } catch (Exception e) {
+                        }
+                    }
+                    rent = getDataRent();
+                    rentdao.registerRent(rent, session);
+                    System.out.println("register the rent only");
+                    return;
+                } else if (checkPromoCode()) {
+                    this.idUser = createUser();
+                    rent = getDataRent();
+                    if (!validEmailEmpty) {
+                        System.out.println("its a new customer with email and the promocode is valid, register rent");
+                        //Register rent
+                        rentdao.registerRent(rent, session); //with discount
+                        return;
+                    }
+                    System.out.println("its a new customer without email and the promocode is valid, register rent");
+                    //Register rent
+                    rentdao.registerRent(rent, session);
+                    return;
+
+                } else {
+                    this.idUser = createUser();
+                    //GET ID USER =============================
+                    rent = getDataRent();
+                    if (!validEmailEmpty) {
+                        System.out.println("its a new customer with email and the promocode is invalid, register rent");
+                        //Register rent
+                        rentdao.registerRent(rent, session);
+                        return;
+                    }
+                    System.out.println("its a new customer without email and the promocode is invalid, register rent");
+                    //Register rent
+                    rentdao.registerRent(rent, session);
+                    return;
+                }
+            }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Failed");
+            JOptionPane.showMessageDialog(null, "Failed connection");
         }
+        System.out.println("hit the end of the method");
+        //insertRent(cardNumber);
     }
 
     private boolean checkEmail(String email) {
