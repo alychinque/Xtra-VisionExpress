@@ -110,4 +110,20 @@ public class MoviesCartDAO {
         stmt.setInt(2, movieId);
         stmt.execute();
     }
+
+    public String[] getIdMovies(int session, int numberOfMovies) throws SQLException {
+        String query = "SELECT id_movie FROM Alysson_2019305.movies_cart\n"
+                + "where session = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, session);
+        stmt.execute();
+        String[] idMovie = new String[numberOfMovies];
+        int count = 0;
+        ResultSet resultSet = stmt.getResultSet();
+        while (resultSet.next()) {
+            idMovie[count] = Integer.toString(resultSet.getInt("id_movie"));
+            count++;
+        }
+        return idMovie;
+    }
 }
