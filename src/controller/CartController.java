@@ -73,5 +73,19 @@ public class CartController implements ActionListener {
         }
         backMain(session);
     }
+
+    
+
+//    public int[] checkMoviesInTheCart(int session) {
+//        int[] result = null;
+//        try {
+//            result = movieCartdao.getIdMovies(session);
+//            return result;
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "error");
+//            return result;
+//        }
+//        
+//    }
     
 }
