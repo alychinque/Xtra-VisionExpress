@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -300,5 +301,14 @@ public class CheckoutController implements ActionListener {
             return false;
         }
         return true;
+    }
+    
+    private int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(9999);
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 }
