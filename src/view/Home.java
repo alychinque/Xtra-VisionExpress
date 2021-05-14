@@ -12,6 +12,7 @@ import controller.HomeController;
  * @author Alysson Chinque
  */
 public class Home extends javax.swing.JFrame {
+    // 
     
     private final HomeController controller;
 
@@ -194,12 +195,16 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**  
+     * This method will call goMain once the mouse is clicked 
+     */
     private void rentLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentLabelMouseClicked
         // TODO add your handling code here:
         this.controller.goMain();
     }//GEN-LAST:event_rentLabelMouseClicked
-
+    /**  
+     * This method will call goReturn once the mouse is clicked 
+     */
     private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
         // TODO add your handling code here:
         this.controller.goReturn();
