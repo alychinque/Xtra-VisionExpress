@@ -33,6 +33,7 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         background = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         messageLabel5 = new javax.swing.JLabel();
@@ -50,6 +51,10 @@ public class Home extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 800));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setPreferredSize(new java.awt.Dimension(1200, 800));
@@ -164,7 +169,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(retutnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(140, 140, 140))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addGap(0, 250, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(logo)
                 .addGap(250, 250, 250))
         );
@@ -191,7 +196,9 @@ public class Home extends javax.swing.JFrame {
                 .addGap(0, 60, Short.MAX_VALUE))
         );
 
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jScrollPane1.setViewportView(background);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,6 +254,7 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JLabel messageLabel1;

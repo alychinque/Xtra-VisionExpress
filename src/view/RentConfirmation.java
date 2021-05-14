@@ -27,6 +27,7 @@ public class RentConfirmation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         background = new javax.swing.JPanel();
         messageLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -40,9 +41,17 @@ public class RentConfirmation extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1200, 800));
+        setMinimumSize(new java.awt.Dimension(1200, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 800));
+
         background.setBackground(new java.awt.Color(40, 40, 40));
+        background.setMaximumSize(new java.awt.Dimension(1200, 800));
+        background.setMinimumSize(new java.awt.Dimension(1200, 800));
         background.setPreferredSize(new java.awt.Dimension(1200, 800));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -90,7 +99,9 @@ public class RentConfirmation extends javax.swing.JFrame {
         });
         background.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 675, 130, 60));
 
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jScrollPane1.setViewportView(background);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +154,7 @@ public class RentConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JLabel messageLabel1;

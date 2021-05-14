@@ -74,6 +74,10 @@ public class MovieDescription extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
 
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(1200, 800));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(1200, 800));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(1200, 800));
+
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 800));
         background.setMinimumSize(new java.awt.Dimension(1200, 800));
@@ -236,11 +240,11 @@ public class MovieDescription extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
