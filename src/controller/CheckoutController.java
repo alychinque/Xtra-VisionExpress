@@ -7,9 +7,17 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import model.DAO.ConnectionDB;
+import model.DAO.UserDAO;
+import model.Rent;
+import model.User;
 import view.Cart;
 import view.Checkout;
 
@@ -20,11 +28,36 @@ import view.Checkout;
 public class CheckoutController implements ActionListener {
 
     private final Checkout view;
+    private Connection conn;
+    private String email;
+    private String cardName;
+    private String cardNumber;
+    private String cvc;
     private int month;
     private int year;
+    private boolean validEmailEmpty;
+    private final UserDAO userdao;
+    private final int session;
+    private User user;
+    private int idUser = 0;
+    private String[] idMovies = null;
+    private int rentNumber = 0;
+    private boolean returned = false;
+    private float rentCharge;
+    private Rent rent;
+    private String rentDate;
+    private String returnDate;
 
     public CheckoutController(Checkout view) {
         this.view = view;
+        try {
+            conn = new ConnectionDB().getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Failed creating the connection");
+        }
+        userdao = new UserDAO(conn);
+        this.session = view.getSession();
     }
 
     public void backCart(int session) {
