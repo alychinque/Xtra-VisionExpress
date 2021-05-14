@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import java.awt.event.ActionEvent;
@@ -26,7 +22,11 @@ import view.MovieDescription;
  *
  * @author Alysson Chinque
  */
+/**
+ *Creating a Class implementing the Action listener, also some other variables.
+ */
 public class MainController implements ActionListener{
+    
     private final Main view;
     private Connection conn;
     private ArrayList<Movie> movieDescription = new ArrayList<>();
@@ -34,7 +34,10 @@ public class MainController implements ActionListener{
     private String[] genre = new String[numOfGenres];
     private MovieDAO moviedao;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
-
+    
+    /**
+     * This a constructor try to make a connection with the DataBase to get the movie`s name.
+     */
     public MainController(Main view) {
         this.view = view;
         
@@ -46,13 +49,19 @@ public class MainController implements ActionListener{
         }
     }
     
-
+    /**
+     * 
+    *This method will call the Home page once you click back
+    */
     public void backHome() {
         Home home = new Home();
         this.view.dispose();
         home.setVisible(true);
     }
-
+    /*
+    This method will have parameters to get the movie description, It will have a connection with the database
+    that will add the movie description to the movie.
+    */
     public void goMovieDescription(int session, int idMovie) {
         moviedao = new MovieDAO(conn);
         try {
@@ -64,7 +73,10 @@ public class MainController implements ActionListener{
         movieD.setVisible(true);
         this.view.dispose();
     }
-
+    /*
+    This method will define a genre to the movies, every movie has been associate to a number from 1 to 5 in the database
+    so basically here it will get the genre for that movie chosen
+    */
     public void setGenre() {
         GenreDAO genredao = new GenreDAO(conn);
         try {
@@ -74,7 +86,10 @@ public class MainController implements ActionListener{
         }
         this.view.setOption(genre);
     }
-
+    /*
+    This other mothed has an array that will get the last 10 movies from the database. 
+    hint : they should be star wars :D
+    */
     public ArrayList<Movie> getLast10Movies() {
          try {
             conn = new ConnectionDB().getConnection();
@@ -92,6 +107,9 @@ public class MainController implements ActionListener{
     }
 
     @Override
+        /*
+        This method will dispose the cart with the movies.
+    */
     public void actionPerformed(ActionEvent e) {
         this.view.dispose();
         Cart cart = new Cart(Integer.parseInt(e.getActionCommand()));
