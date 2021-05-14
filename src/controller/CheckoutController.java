@@ -207,30 +207,8 @@ public class CheckoutController implements ActionListener {
         }
     }
 
-    private boolean checkDateValid(String valid) {
-        String[] date = new String[2];
-        date = valid.trim().split("/");
-        int month = 0;
-        int year = 0;
-        try {
-            month = Integer.parseInt(date[0]);
-            year = Integer.parseInt(date[1]);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Only number in Valid Thru");
-            return false;
-        }
-        if (month > 0 && month < 13) {
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(null, "First two digits must be between 1 and 12\nRelated the months of the year");
-            return false;
-        }
-
-    }
-
-    private boolean checkCVC(int cvc) {
-        if(cvc != 3){
+    private boolean checkCVC(String cvc) {
+        if (cvc.length() != 3) {
             JOptionPane.showMessageDialog(null, "Failed CVC!");
             return false;
         }
