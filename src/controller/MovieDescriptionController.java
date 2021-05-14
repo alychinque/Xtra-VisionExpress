@@ -5,16 +5,15 @@
  */
 package controller;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.DAO.ConnectionDB;
 import model.DAO.MovieDAO;
 import model.DAO.MoviesCartDAO;
-import model.Movie;
 import view.Cart;
 import view.Main;
 import view.MovieDescription;
@@ -26,7 +25,7 @@ import view.MovieDescription;
 public class MovieDescriptionController {
     private final MovieDescription view;
     private Connection conn;
-    private MoviesCartDAO movieCartdao;
+    private final MoviesCartDAO movieCartdao;
     private int moviesCart;
     private int sessionFromCart = 0;
 
@@ -83,7 +82,7 @@ public class MovieDescriptionController {
                 }
                 
             }
-        } catch (Exception e) {
+        } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Failed adding");
         }
         

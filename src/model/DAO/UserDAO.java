@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
+import model.User;
 
 /**
  *
@@ -23,50 +23,72 @@ public class UserDAO {
         this.connection = conn;
     }
 
-    public void insertUser(String email, String cardName, String numberCard, int month, int year, String cvc, int session) throws SQLException {
-        String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc, session, email_user)\n"
-                + "values (?, ?, ?, ?, ?, ?, ?)";
+    public int insertUser(User user) throws SQLException {
+        String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc, email_user)\n"
+                + "values (?, ?, ?, ?, ?, ?)";
         PreparedStatement stmt = connection.prepareStatement(query);
-        stmt.setString(1, numberCard);
-        stmt.setString(2, cardName);
-        stmt.setInt(3, month);
-        stmt.setInt(4, year);
-        stmt.setString(5, cvc);
-        stmt.setInt(6, session);
-        stmt.setString(7, email);
+        stmt.setString(1, user.getCardNumber());
+        stmt.setString(2, user.getNameUser());
+        stmt.setInt(3, user.getMonth());
+        stmt.setInt(4, user.getYear());
+        stmt.setString(5, user.getCvc());
+        stmt.setString(6, user.getEmail());
         stmt.execute();
+        return getIdUser(user.getCardNumber());
     }
-    
-    public boolean userIsInTheDB(String cardNumber) throws SQLException {
-        String query = "SELECT card_number FROM Alysson_2019305.user\n"
+
+    public int userIsInTheDB(String cardNumber) throws SQLException {
+        String query = "SELECT id_user FROM Alysson_2019305.user\n"
                 + "where card_number = ?;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setString(1, cardNumber);
         stmt.execute();
         ResultSet resultSet = stmt.getResultSet();
-        String result = "000";
-        while(resultSet.next()){
-            result = resultSet.getString("card_number");
+        int idUser = 0;
+        while (resultSet.next()) {
+            idUser = resultSet.getInt("id_user");
         }
-        if(result.equalsIgnoreCase("000")){
-            JOptionPane.showMessageDialog(null, "new customer");
-            return false;
+        if (idUser == 0) {
+            return idUser;
         }
-        JOptionPane.showMessageDialog(null, "This card is in our database\nPromoCode is applicable only for first rent!");
-        return true;
+        return idUser;
     }
-    
-    public void insertUserWithoutEmail(String cardName, String numberCard, int month, int year, String cvc, int session) throws SQLException {
-        String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc, session)\n"
-                + "values (?, ?, ?, ?, ?, ?)";
+
+    public int insertUserWithoutEmail(User user) throws SQLException {
+        String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc)\n"
+                + "values (?, ?, ?, ?, ?)";
         PreparedStatement stmt = connection.prepareStatement(query);
-        stmt.setString(1, numberCard);
-        stmt.setString(2, cardName);
-        stmt.setInt(3, month);
-        stmt.setInt(4, year);
-        stmt.setString(5, cvc);
-        stmt.setInt(6, session);
+        stmt.setString(1, user.getCardNumber());
+        stmt.setString(2, user.getNameUser());
+        stmt.setInt(3, user.getMonth());
+        stmt.setInt(4, user.getYear());
+        stmt.setString(5, user.getCvc());
         stmt.execute();
+        return getIdUser(user.getCardNumber());
+    }
+
+    public void registerEmail(String cardNumber, String email) throws SQLException {
+        String query = "UPDATE Alysson_2019305.user\n"
+                + "SET email_user = ?"
+                + "WHERE card_number = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, email);
+        stmt.setString(2, cardNumber);
+        stmt.execute();
+    }
+
+    private int getIdUser(String cardNumber) throws SQLException {
+        String query = "SELECT id_user from Alysson_2019305.user\n"
+                + "where card_number = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, cardNumber);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        int idUser = 0;
+        while (resultSet.next()) {
+            idUser = resultSet.getInt("id_user");
+        }
+        return idUser;
     }
 
 }

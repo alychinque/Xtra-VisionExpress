@@ -199,6 +199,11 @@ public class Cart extends javax.swing.JFrame {
 
     private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
         // TODO add your handling code here:
+//        if( controller.checkMoviesInTheCart(session)[0] == 0){
+//            JOptionPane.showMessageDialog(null, "Cart might be empty");
+//        }else{
+//            controller.goCheckout(session, sizeArray);
+//        }
         controller.goCheckout(session, sizeArray);
     }//GEN-LAST:event_checkoutButtonActionPerformed
 

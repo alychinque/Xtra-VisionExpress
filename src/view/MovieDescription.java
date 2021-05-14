@@ -9,7 +9,6 @@ import controller.MovieDescriptionController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Movie;
-import model.MoviesCart;
 
 /**
  *
@@ -19,7 +18,6 @@ public class MovieDescription extends javax.swing.JFrame {
     
     private final MovieDescriptionController controller;
     private ArrayList<Movie> movieDescription = new ArrayList<>();
-    private ArrayList<MoviesCart> moviesCart = new ArrayList<>();
     int session;
     /**
      * Creates new form MovieDescription
