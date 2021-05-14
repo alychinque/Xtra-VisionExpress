@@ -5,17 +5,25 @@
  */
 package view;
 
+import model.Rent;
+
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class RentConfirmation extends javax.swing.JFrame {
 
     /**
      * Creates new form RentConfirmation
      */
-    public RentConfirmation() {
+
+    public RentConfirmation(Rent rent) {
+        
         initComponents();
+    }
+
+    private RentConfirmation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -29,16 +37,18 @@ public class RentConfirmation extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         background = new javax.swing.JPanel();
-        messageLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        messageLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        returnDateLabel = new javax.swing.JLabel();
+        returnDate = new javax.swing.JLabel();
+        ballonMessage1 = new javax.swing.JLabel();
+        ballonMessage2 = new javax.swing.JLabel();
+        ballonMessage3 = new javax.swing.JLabel();
+        rentNumberLabel = new javax.swing.JLabel();
+        rentNumber = new javax.swing.JLabel();
+        dvdImage = new javax.swing.JLabel();
+        ballon = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
+        messageLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1200, 800));
@@ -55,49 +65,67 @@ public class RentConfirmation extends javax.swing.JFrame {
         background.setPreferredSize(new java.awt.Dimension(1200, 800));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        messageLabel1.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        messageLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        messageLabel1.setText("ENJOY THE MOVIE!");
-        background.add(messageLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 710, -1, -1));
+        returnDateLabel.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        returnDateLabel.setForeground(new java.awt.Color(255, 255, 0));
+        returnDateLabel.setText("RETURN DATE!");
+        background.add(returnDateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        jLabel5.setText("SAVE IT TO RETURN THE DVD");
-        background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, -1, -1));
+        returnDate.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+        returnDate.setForeground(new java.awt.Color(255, 255, 0));
+        returnDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        returnDate.setMaximumSize(new java.awt.Dimension(285, 70));
+        returnDate.setMinimumSize(new java.awt.Dimension(285, 70));
+        returnDate.setPreferredSize(new java.awt.Dimension(285, 70));
+        returnDate.setRequestFocusEnabled(false);
+        background.add(returnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        jLabel3.setText("THIS IS THE NUMBER THAT");
-        background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, -1, -1));
+        ballonMessage1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        ballonMessage1.setText("THIS IS THE NUMBER THAT");
+        background.add(ballonMessage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        jLabel6.setText("COMES PRINTED IN THE DVD CASE.");
-        background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, -1, -1));
+        ballonMessage2.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        ballonMessage2.setText("COMES PRINTED IN THE DVD CASE.");
+        background.add(ballonMessage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, -1, -1));
 
-        messageLabel.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        messageLabel.setForeground(new java.awt.Color(255, 0, 0));
-        messageLabel.setText("Rent Number");
-        background.add(messageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
+        ballonMessage3.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        ballonMessage3.setText("SAVE IT TO RETURN THE DVD");
+        background.add(ballonMessage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
-        jLabel2.setText("312");
-        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
+        rentNumberLabel.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        rentNumberLabel.setForeground(new java.awt.Color(255, 0, 0));
+        rentNumberLabel.setText("Rent Number");
+        background.add(rentNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/dvd.png"))); // NOI18N
-        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+        rentNumber.setFont(new java.awt.Font("Arial Black", 0, 48)); // NOI18N
+        rentNumber.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rentNumber.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        rentNumber.setMaximumSize(new java.awt.Dimension(130, 70));
+        rentNumber.setMinimumSize(new java.awt.Dimension(130, 70));
+        rentNumber.setPreferredSize(new java.awt.Dimension(130, 70));
+        background.add(rentNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 560, 130, 70));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/speechBalloon.png"))); // NOI18N
-        background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, -1, -1));
+        dvdImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/dvd.png"))); // NOI18N
+        background.add(dvdImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+
+        ballon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/speechBalloon.png"))); // NOI18N
+        background.add(ballon, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 170, -1, -1));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/xtra-vision_700.jpg"))); // NOI18N
         background.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 25, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("EXIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnExit.setText("EXIT");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
-        background.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 675, 130, 60));
+        background.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 675, 130, 60));
+
+        messageLabel2.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        messageLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        messageLabel2.setText("ENJOY THE MOVIE!");
+        background.add(messageLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 710, -1, -1));
 
         jScrollPane1.setViewportView(background);
 
@@ -106,9 +134,9 @@ public class RentConfirmation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,16 +175,18 @@ public class RentConfirmation extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel ballon;
+    private javax.swing.JLabel ballonMessage1;
+    private javax.swing.JLabel ballonMessage2;
+    private javax.swing.JLabel ballonMessage3;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JLabel dvdImage;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel messageLabel;
-    private javax.swing.JLabel messageLabel1;
+    private javax.swing.JLabel messageLabel2;
+    private javax.swing.JLabel rentNumber;
+    private javax.swing.JLabel rentNumberLabel;
+    private javax.swing.JLabel returnDate;
+    private javax.swing.JLabel returnDateLabel;
     // End of variables declaration//GEN-END:variables
 }
