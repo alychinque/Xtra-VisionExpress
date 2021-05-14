@@ -293,4 +293,12 @@ public class CheckoutController implements ActionListener {
 
         return rent = new Rent(idUser, idMovies, rentNumber, rentDate, returnDate, returned, rentCharge);
     }
+    
+    private boolean userIsInTheDB() throws SQLException {
+        this.idUser = userdao.userIsInTheDB(cardNumber);
+        if (idUser == 0) {
+            return false;
+        }
+        return true;
+    }
 }
