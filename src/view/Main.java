@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import controller.MainController;
@@ -24,7 +20,7 @@ public class Main extends javax.swing.JFrame {
     private int session;
 
     /**
-     * Creates new form Main
+     * Creates new form Main and the last 10 movies will be shown on the MainController 
      * @param session
      */
     public Main(int session) {
@@ -45,7 +41,9 @@ public class Main extends javax.swing.JFrame {
     }
     
     
-
+    /**
+     * Creating a method with an array that will be populated with the last 10 movies from the DataBase
+     */
     public void fillMovies(ArrayList<Movie> moviesArray){
         for (int i = 0; i < 10; i++) {
             if (i == 0) {
@@ -336,7 +334,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(titleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(subTitleMovie4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         moviePanel5.setMaximumSize(new java.awt.Dimension(170, 303));
@@ -375,7 +373,7 @@ public class Main extends javax.swing.JFrame {
             moviePanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, moviePanel5Layout.createSequentialGroup()
                 .addComponent(imageMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(titleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(subTitleMovie5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -637,7 +635,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(moviePanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, 0)
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(moviePanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                            .addComponent(moviePanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                             .addComponent(moviePanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
 
@@ -685,71 +683,64 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInputActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_searchInputActionPerformed
-
+      // Method that will return the information of the movies
     private void imageMovie1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie1MouseClicked
-        // TODO add your handling code here:
+   
         controller.goMovieDescription(session, moviesArray.get(0).getIdMovie());
     }//GEN-LAST:event_imageMovie1MouseClicked
 
     private void imageMovie2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie2MouseClicked
-        // TODO add your handling code here:
+        
         controller.goMovieDescription(session, moviesArray.get(1).getIdMovie());
     }//GEN-LAST:event_imageMovie2MouseClicked
 
     private void imageMovie3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie3MouseClicked
-        // TODO add your handling code here:
+       
         controller.goMovieDescription(session, moviesArray.get(2).getIdMovie());
     }//GEN-LAST:event_imageMovie3MouseClicked
 
     private void imageMovie4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie4MouseClicked
-        // TODO add your handling code here:
+       
         controller.goMovieDescription(session, moviesArray.get(3).getIdMovie());
     }//GEN-LAST:event_imageMovie4MouseClicked
 
     private void imageMovie5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie5MouseClicked
-        // TODO add your handling code here:
+      
         controller.goMovieDescription(session, moviesArray.get(4).getIdMovie());
     }//GEN-LAST:event_imageMovie5MouseClicked
 
     private void imageMovie6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie6MouseClicked
-        // TODO add your handling code here:
+      
         controller.goMovieDescription(session, moviesArray.get(5).getIdMovie());
     }//GEN-LAST:event_imageMovie6MouseClicked
 
     private void imageMovie7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie7MouseClicked
-        // TODO add your handling code here:
+        
         controller.goMovieDescription(session, moviesArray.get(6).getIdMovie());
     }//GEN-LAST:event_imageMovie7MouseClicked
 
     private void imageMovie8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie8MouseClicked
-        // TODO add your handling code here:
+    
         controller.goMovieDescription(session, moviesArray.get(7).getIdMovie());
     }//GEN-LAST:event_imageMovie8MouseClicked
 
     private void imageMovie9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie9MouseClicked
-        // TODO add your handling code here:
+        
         controller.goMovieDescription(session, moviesArray.get(8).getIdMovie());
     }//GEN-LAST:event_imageMovie9MouseClicked
 
     private void imageMovie10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie10MouseClicked
-        // TODO add your handling code here:
+       
         controller.goMovieDescription(session, moviesArray.get(9).getIdMovie());
     }//GEN-LAST:event_imageMovie10MouseClicked
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
 
-
-   
-
-    /**
-     * @param args the command line arguments
-     */
-    //public static void main(String args[]) {
     public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */
