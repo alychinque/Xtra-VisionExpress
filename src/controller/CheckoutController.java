@@ -311,4 +311,21 @@ public class CheckoutController implements ActionListener {
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
+    
+    private int createUser() {
+        try {
+            if (validEmailEmpty) {
+                user = new User(cardName, cardNumber, cvc, month, year);
+                return userdao.insertUserWithoutEmail(user);
+            } else {
+                user = new User(email, cardName, cardNumber, cvc, month, year);
+                return userdao.insertUser(user);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error creating a user");
+        }
+        return 0;
+        
+    }
 }
