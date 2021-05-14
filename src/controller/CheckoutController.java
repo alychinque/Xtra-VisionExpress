@@ -155,6 +155,7 @@ public class CheckoutController implements ActionListener {
     
     private boolean checkEmail(String email) {
         if (email.isEmpty()) {
+            validEmailEmpty = true;
             return true;
         } else {
             try {
@@ -164,13 +165,16 @@ public class CheckoutController implements ActionListener {
                         + "A-Z]{2,7}$";
                 Pattern pat = Pattern.compile(emailRegex);
                 if (pat.matcher(email).matches() == true) {
+                    validEmailEmpty = false;
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "Email is not valid!\nPlease enter again!");
+                    validEmailEmpty = false;
                     return false;
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Email is not valid!\nPlease enter again!");
+                validEmailEmpty = false;
                 return false;
             }
         }
