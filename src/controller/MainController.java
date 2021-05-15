@@ -90,13 +90,7 @@ public class MainController implements ActionListener{
     This other mothed has an array that will get the last 10 movies from the database. 
     hint : they should be star wars :D
     */
-    public ArrayList<Movie> getLast10Movies() {
-         try {
-            conn = new ConnectionDB().getConnection();
-        } catch (SQLException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Failed");
-        }
+    public ArrayList<Movie> getLast10Movies(){
         moviedao = new MovieDAO(conn);
         try {
             moviesArray = moviedao.getLast10Movies();
