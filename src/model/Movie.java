@@ -9,6 +9,9 @@ package model;
  *
  * @author Alysson Chinque
  */
+/**
+ * This class will hold some variables that will be associated to the movies
+ */
 public class Movie {
     private int idMovie;
     private String title;
@@ -16,7 +19,10 @@ public class Movie {
     private String genre;
     private String description;
     private int duration;
-
+    /**
+     * 
+     * Every movie will have an ID number, number and subtitle (when applicable)
+     */
     public Movie(int idMovie, String title, String subTitle) {
         this.idMovie = idMovie;
         this.title = title;
@@ -31,27 +37,39 @@ public class Movie {
         this.description = description;
         this.duration = duration;
     }
-
+    /**
+     * A movie will have an ID number
+     */
     public int getIdMovie() {
         return idMovie;
     }
-
+    /**
+     * A title
+     */
     public String getTitle() {
         return title;
     }
-
+    /**
+     * Subtitle 
+     */
     public String getSubTitle() {
         return subTitle;
     }
-
+    /**
+     * Genre
+     */
     public String getGenre() {
         return genre;
     }
-
+    /**
+     * Description
+     */
     public String getDescription() {
         return description;
     }
-
+    /**
+     * Duration
+     */
     public int getDuration() {
         return duration;
     }
