@@ -22,13 +22,21 @@ import view.MovieDescription;
  *
  * @author Alysson Chinque
  */
+/**
+ * 
+ * @author Maicon
+ * Creating a class and instantiating some variables that will be used to display the movie description.
+ */
 public class MovieDescriptionController {
     private final MovieDescription view;
     private Connection conn;
     private final MoviesCartDAO movieCartdao;
     private int moviesCart;
     private int sessionFromCart = 0;
-
+    /**
+     * 
+     * This function will try a connection with the database to get the movies information
+     */
     public MovieDescriptionController(MovieDescription view) {
         this.view = view;
         try {
@@ -39,19 +47,26 @@ public class MovieDescriptionController {
         }
         movieCartdao = new MoviesCartDAO(conn);
     }
-
+    /**
+     * This function is instatiating the Main class, so it will bring you to the main page if you click back
+     */
     public void backMain(int session) {
         Main main = new Main(session);
         main.setVisible(true);
         this.view.dispose();
     }
-
+    /**
+     * This function will bring you to the cart.
+     */
     public void goCart(int session) {
         this.view.dispose();
         Cart cart = new Cart(session);
         cart.setVisible(true);
     }
-
+    /**
+     * 
+     * Here is defined that you can`t have more than 4 movies into your cart.
+     */
     public boolean checkCart(int session) {
         try {
             moviesCart = movieCartdao.getNumberOfMoviesCart(session);
