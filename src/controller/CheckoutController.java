@@ -26,6 +26,7 @@ import model.Rent;
 import model.User;
 import view.Cart;
 import view.Checkout;
+import view.RentConfirmation;
 
 /**
  *
@@ -49,6 +50,7 @@ public class CheckoutController implements ActionListener {
     private String[] idMovies = null;
     private int rentNumber = 0;
     private boolean returned = false;
+    private boolean newUser = false;
     private float rentCharge;
     private Rent rent;
     private String rentDate;
@@ -94,6 +96,7 @@ public class CheckoutController implements ActionListener {
                             //register rent
                             rent = getDataRent();
                             rentdao.registerRent(rent, session);
+                            goRentConfirmation(rent);
                             System.out.println("save email old customer and register rent");
                             return;
 
@@ -102,20 +105,23 @@ public class CheckoutController implements ActionListener {
                     }
                     rent = getDataRent();
                     rentdao.registerRent(rent, session);
+                    goRentConfirmation(rent);
                     System.out.println("register the rent only");
                     return;
                 } else if (checkPromoCode()) {
                     this.idUser = createUser();
                     rent = getDataRent();
                     if (!validEmailEmpty) {
-                        System.out.println("its a new customer with email and the promocode is valid, register rent");
                         //Register rent
                         rentdao.registerRent(rent, session); //with discount
+                        goRentConfirmation(rent);
+                        System.out.println("its a new customer with email and the promocode is valid, register rent");
                         return;
                     }
-                    System.out.println("its a new customer without email and the promocode is valid, register rent");
                     //Register rent
                     rentdao.registerRent(rent, session);
+                    goRentConfirmation(rent);
+                    System.out.println("its a new customer without email and the promocode is valid, register rent");
                     return;
 
                 } else {
@@ -123,14 +129,16 @@ public class CheckoutController implements ActionListener {
                     //GET ID USER =============================
                     rent = getDataRent();
                     if (!validEmailEmpty) {
-                        System.out.println("its a new customer with email and the promocode is invalid, register rent");
                         //Register rent
                         rentdao.registerRent(rent, session);
+                        goRentConfirmation(rent);
+                        System.out.println("its a new customer with email and the promocode is invalid, register rent");
                         return;
                     }
-                    System.out.println("its a new customer without email and the promocode is invalid, register rent");
                     //Register rent
                     rentdao.registerRent(rent, session);
+                    goRentConfirmation(rent);
+                    System.out.println("its a new customer without email and the promocode is invalid, register rent");
                     return;
                 }
             }
@@ -147,6 +155,10 @@ public class CheckoutController implements ActionListener {
             cardName = this.view.getInputCardName().getText();
             cardNumber = this.view.getInputCardNumber().getText();
             cvc = this.view.getInputCVC().getText();
+            if(month == 0 || year == 0){
+                JOptionPane.showMessageDialog(null, "Date is invalid!");
+                return false;
+            }
 
             if (checkEmail(email) && checkCardName(cardName) && checkCardNumber(cardNumber) && checkCVC(cvc)) {
                 return true;
@@ -157,7 +169,7 @@ public class CheckoutController implements ActionListener {
         }
         return false;
     }
-    
+
     private boolean checkEmail(String email) {
         if (email.isEmpty()) {
             validEmailEmpty = true;
@@ -231,7 +243,7 @@ public class CheckoutController implements ActionListener {
             this.year = (int) jcbx.getSelectedItem();
         }
     }
-    
+
     private Rent getDataRent() {
         try {
             //get movies id []
@@ -263,9 +275,9 @@ public class CheckoutController implements ActionListener {
             returned = false;
 
             //get rent price
-            if(checkPromoCode() && !userIsInTheDB()){
+            if (checkPromoCode() && newUser) {
                 rentCharge = 0;
-            }else{
+            } else {
                 switch (idMovies.length) {
                     case 1:
                         rentCharge = (float) 2.99;
@@ -294,15 +306,17 @@ public class CheckoutController implements ActionListener {
 
         return rent = new Rent(idUser, idMovies, rentNumber, rentDate, returnDate, returned, rentCharge);
     }
-    
+
     private boolean userIsInTheDB() throws SQLException {
         this.idUser = userdao.userIsInTheDB(cardNumber);
         if (idUser == 0) {
+            newUser = true;
             return false;
         }
+        newUser = false;
         return true;
     }
-    
+
     private int generateRandomNumber() {
         Random random = new Random();
         return random.nextInt(9999);
@@ -311,8 +325,12 @@ public class CheckoutController implements ActionListener {
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
-    
+
     private int createUser() {
+        System.out.println("card number: "+ cardNumber+
+                "\ncard name: "+ cardName
+                + "\ncvc: "+ cvc
+                + "\nmonth: "+ month+" year: "+year);
         try {
             if (validEmailEmpty) {
                 user = new User(cardName, cardNumber, cvc, month, year);
@@ -326,6 +344,12 @@ public class CheckoutController implements ActionListener {
             JOptionPane.showMessageDialog(null, "error creating a user");
         }
         return 0;
-        
+
+    }
+
+    private void goRentConfirmation(Rent rent) {
+        RentConfirmation rentConfirmation = new RentConfirmation(rent);
+        this.view.dispose();
+        rentConfirmation.setVisible(true);
     }
 }
