@@ -12,6 +12,9 @@ import view.Return;
  *
  * @author alych
  */
+/**
+ * This class will create the return screen.
+ */
 public class ReturnController {
     private final Return view;
 
