@@ -9,6 +9,13 @@ package model;
  *
  * @author alych
  */
+/**
+ * 
+ * @author Maicon
+ * This class creates the genre and there`s a number assigned to each movie in the database and its specific genre
+
+ * 
+ */
 public class Genre {
     private int idGenre;
     private String genre;
