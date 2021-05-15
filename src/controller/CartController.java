@@ -24,12 +24,20 @@ import view.Main;
  *
  * @author Alysson Chinque
  */
+/**
+ * 
+ * @author Maicon 
+ * Class that will control the cart created
+ * There a few variables such as an array that will hold the movies chosen and a connection with the database
+ */
 public class CartController implements ActionListener {
     private final Cart view;
     private Connection conn;
     private MoviesCartDAO movieCartdao;
     private ArrayList<Movie> moviesCart = new ArrayList<>();
-
+    /**
+     * This method let me view the cart and it will try a connection with the database . 
+     */
     public CartController(Cart view) {
         this.view = view;
         try {
@@ -40,13 +48,18 @@ public class CartController implements ActionListener {
         }
         movieCartdao = new MoviesCartDAO(conn);
     }
-
+    /**
+     * This is just a method to get back to the main session.
+     */
     public void backMain(int session) {        
         Main main = new Main(session);
         main.setVisible(true);
         this.view.dispose();
     }
-
+    /**
+     * 
+     * This array will get the movies and will keep them in the cart
+     */
     public ArrayList<Movie> getMoviesSession(int session) {
         try {
             moviesCart = movieCartdao.getMoviesSession(session);
@@ -56,7 +69,10 @@ public class CartController implements ActionListener {
         
         return moviesCart;
     }
-    
+    /**
+     * This method will bring me to the checkout, the movies chosen will be kept in an array to be disposed once 
+     * you go to checkout
+     */
     public void goCheckout(int session, int sizeArray) {
         Checkout checkout = new Checkout(session, sizeArray);
         this.view.dispose();
@@ -64,6 +80,9 @@ public class CartController implements ActionListener {
     }
 
     @Override
+    /**
+     * This method will allow you to delete a movie from your cart
+     */
     public void actionPerformed(ActionEvent e) {
         int session = this.view.getSession();
         try {
@@ -72,20 +91,5 @@ public class CartController implements ActionListener {
             JOptionPane.showMessageDialog(null, "Failed deleting the connection");
         }
         backMain(session);
-    }
-
-    
-
-//    public int[] checkMoviesInTheCart(int session) {
-//        int[] result = null;
-//        try {
-//            result = movieCartdao.getIdMovies(session);
-//            return result;
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "error");
-//            return result;
-//        }
-//        
-//    }
-    
+    } 
 }
