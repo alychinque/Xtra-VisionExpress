@@ -55,6 +55,10 @@ public class CheckoutController implements ActionListener {
     private Rent rent;
     private String rentDate;
     private String returnDate;
+    /**
+     * This method will generate my checkout page, getting a connection with the database
+     * and it will create a session with the movies the user have chosen
+     */
 
     public CheckoutController(Checkout view) {
         this.view = view;
@@ -67,13 +71,16 @@ public class CheckoutController implements ActionListener {
         userdao = new UserDAO(conn);
         this.session = view.getSession();
     }
-
+    
     public void backCart(int session) {
         Cart cart = new Cart(session);
         this.view.dispose();
         cart.setVisible(true);
     }
-
+    /**
+     * This method will check if the user have the Promo code which is "FREEMOVIE" if yes, then the rental
+     * will be free of charge, go on and try it ;)
+     */
     public boolean checkPromoCode() {
         String code = this.view.getInputCode().getText();
         if (code.equals("FREEMOVIE")) {
@@ -82,7 +89,11 @@ public class CheckoutController implements ActionListener {
             return false;
         }
     }
-
+    /**
+     * This other method is to get the payment, first it will check if the customer has a log in or not,
+     * if not the user have the option to register themselves, and their information will be saved in the database,
+     * it will also check if the customer is a new one or not, so then we can know if the customer can use the voucher.
+     */
     public void payMovie(int session) {
         try {
             if (checkFields()) {
@@ -148,7 +159,10 @@ public class CheckoutController implements ActionListener {
         System.out.println("hit the end of the method");
         //insertRent(cardNumber);
     }
-
+    /**
+     * This method will check if all fields are filled correctly,for example for the card  you need to have 16 numbers, all the 
+     * possible mistakes will be catch, like if you type a letter for card number, it won`t work
+     */
     private boolean checkFields() {
         try {
             email = this.view.getInputEmail().getText().toLowerCase();
@@ -169,7 +183,10 @@ public class CheckoutController implements ActionListener {
         }
         return false;
     }
-
+    /**
+     * 
+     * To register an email you need to have a valid email structure. 
+     */
     private boolean checkEmail(String email) {
         if (email.isEmpty()) {
             validEmailEmpty = true;
@@ -196,7 +213,9 @@ public class CheckoutController implements ActionListener {
             }
         }
     }
-
+    /**
+     * You need to have a name in the field card name
+     */
     private boolean checkCardName(String cardName) {
         if (cardName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Card name is empty!\nPlease enter again!");
@@ -205,7 +224,11 @@ public class CheckoutController implements ActionListener {
             return true;
         }
     }
-
+    /**
+     * 
+     * This will check if your card has 16 numbers, and it will catch any possible mistake, such as
+     * if you type a letter by mistake.
+     */
     private boolean checkCardNumber(String numberCard) {
         if (numberCard.length() == 16) {
             int[] numCard = new int[numberCard.length()];
@@ -223,7 +246,9 @@ public class CheckoutController implements ActionListener {
             return false;
         }
     }
-
+    /**
+     * Checking if you have a valid CVC, that should be strictly 3 numbers, no more, no less.
+     */
     private boolean checkCVC(String cvc) {
         if (cvc.length() != 3) {
             JOptionPane.showMessageDialog(null, "Failed CVC!");
@@ -233,6 +258,10 @@ public class CheckoutController implements ActionListener {
     }
 
     @Override
+    /**
+     * This method will have a combo box with the months, so you can add your card information regarding
+     * when it will be expired. Just like any other online shopping.
+     */
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand() == "month") {
             JComboBox jcbx = (JComboBox) e.getSource();
@@ -243,7 +272,10 @@ public class CheckoutController implements ActionListener {
             this.year = (int) jcbx.getSelectedItem();
         }
     }
-
+    /**
+     * This method will get the movies id and it will generate a random number that you should keep for 
+     * when you need to return your movie.
+     */
     private Rent getDataRent() {
         try {
             //get movies id []
@@ -260,7 +292,7 @@ public class CheckoutController implements ActionListener {
                     break;
                 }
             }
-            //get rent date(taday)
+            //get rent date(today)
             Calendar cal = new GregorianCalendar();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -293,6 +325,9 @@ public class CheckoutController implements ActionListener {
                         break;
                 }
             }
+            /**
+             * Showing a resume of the movies chosen, dates to be returned and etc.
+             */
             System.out.println("idUser: " + idUser);
             for (int i = 0; i < idMovies.length; i++) {
                 System.out.println("idMovie: " + idMovies[i]);
@@ -306,7 +341,10 @@ public class CheckoutController implements ActionListener {
 
         return rent = new Rent(idUser, idMovies, rentNumber, rentDate, returnDate, returned, rentCharge);
     }
-
+    /**
+     * 
+     * Checking if the user in the database
+     */
     private boolean userIsInTheDB() throws SQLException {
         this.idUser = userdao.userIsInTheDB(cardNumber);
         if (idUser == 0) {
@@ -316,7 +354,9 @@ public class CheckoutController implements ActionListener {
         newUser = false;
         return true;
     }
-
+    /**
+     * Generating a random number for that session of movies, you will need this number to return your movies.
+     */
     private int generateRandomNumber() {
         Random random = new Random();
         return random.nextInt(9999);
@@ -346,7 +386,9 @@ public class CheckoutController implements ActionListener {
         return 0;
 
     }
-
+    /**
+     * Confirming that the rent was successful
+     */
     private void goRentConfirmation(Rent rent) {
         RentConfirmation rentConfirmation = new RentConfirmation(rent);
         this.view.dispose();
