@@ -153,9 +153,9 @@ public class Main extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 840));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 840));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 840));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 840));
