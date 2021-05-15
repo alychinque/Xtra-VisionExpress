@@ -18,12 +18,12 @@ public class RentConfirmation extends javax.swing.JFrame {
      */
 
     public RentConfirmation(Rent rent) {
-        
         initComponents();
+        fillVariables(rent);
     }
 
     private RentConfirmation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
     }
 
     /**
@@ -48,10 +48,12 @@ public class RentConfirmation extends javax.swing.JFrame {
         ballon = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
-        messageLabel2 = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        typeOfCurrency = new javax.swing.JLabel();
+        priceCharged = new javax.swing.JLabel();
+        messageLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1200, 800));
         setMinimumSize(new java.awt.Dimension(1200, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -122,10 +124,27 @@ public class RentConfirmation extends javax.swing.JFrame {
         });
         background.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 675, 130, 60));
 
-        messageLabel2.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
-        messageLabel2.setForeground(new java.awt.Color(255, 255, 0));
-        messageLabel2.setText("ENJOY THE MOVIE!");
-        background.add(messageLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 710, -1, -1));
+        priceLabel.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        priceLabel.setForeground(new java.awt.Color(255, 255, 0));
+        priceLabel.setText("YOU WERE CHARGED");
+        background.add(priceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 630, -1, -1));
+
+        typeOfCurrency.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        typeOfCurrency.setForeground(new java.awt.Color(255, 255, 0));
+        typeOfCurrency.setText("€");
+        background.add(typeOfCurrency, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 630, -1, -1));
+
+        priceCharged.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        priceCharged.setForeground(new java.awt.Color(255, 255, 0));
+        priceCharged.setMaximumSize(new java.awt.Dimension(16, 35));
+        priceCharged.setMinimumSize(new java.awt.Dimension(16, 35));
+        priceCharged.setPreferredSize(new java.awt.Dimension(16, 35));
+        background.add(priceCharged, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 630, 100, -1));
+
+        messageLabel3.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        messageLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        messageLabel3.setText("ENJOY THE MOVIE!");
+        background.add(messageLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 710, -1, -1));
 
         jScrollPane1.setViewportView(background);
 
@@ -136,6 +155,9 @@ public class RentConfirmation extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        Home home = new Home();
+        this.dispose();
+        home.setVisible(true);
     }//GEN-LAST:event_btnExitActionPerformed
 
     /**
@@ -183,10 +205,19 @@ public class RentConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel dvdImage;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
-    private javax.swing.JLabel messageLabel2;
+    private javax.swing.JLabel messageLabel3;
+    private javax.swing.JLabel priceCharged;
+    private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel rentNumber;
     private javax.swing.JLabel rentNumberLabel;
     private javax.swing.JLabel returnDate;
     private javax.swing.JLabel returnDateLabel;
+    private javax.swing.JLabel typeOfCurrency;
     // End of variables declaration//GEN-END:variables
+
+    private void fillVariables(Rent rent) {
+        rentNumber.setText(Integer.toString(rent.getRentNumber()));
+        returnDate.setText(rent.getReturnDate());
+        priceCharged.setText(Float.toString(rent.getRentCharge()));
+    }
 }
