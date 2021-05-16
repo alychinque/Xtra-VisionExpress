@@ -2,6 +2,7 @@
 package view;
 
 import controller.MainController;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import model.Movie;
@@ -47,42 +48,52 @@ public class Main extends javax.swing.JFrame {
     public void fillMovies(ArrayList<Movie> moviesArray){
         for (int i = 0; i < 10; i++) {
             if (i == 0) {
+                this.imageMovie1.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie1.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie1.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 1) {
+                this.imageMovie2.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie2.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie2.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 2) {
+                this.imageMovie3.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie3.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie3.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 3) {
+                this.imageMovie4.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie4.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie4.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 4) {
+                this.imageMovie5.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie5.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie5.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 5) {
+                this.imageMovie6.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie6.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie6.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 6) {
+                this.imageMovie7.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie7.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie7.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 7) {
+                this.imageMovie8.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie8.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie8.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 8) {
+                this.imageMovie9.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie9.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie9.setText(moviesArray.get(i).getSubTitle());
             } else if (i == 9) {
+                this.imageMovie10.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
                 this.titleMovie10.setText(moviesArray.get(i).getTitle());
                 this.subTitleMovie10.setText(moviesArray.get(i).getSubTitle());
@@ -746,7 +757,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_imageMovie10MouseClicked
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        
+        controller.backHome();
     }//GEN-LAST:event_backButtonActionPerformed
 
 
