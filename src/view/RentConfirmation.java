@@ -17,9 +17,9 @@ public class RentConfirmation extends javax.swing.JFrame {
      * Creates new form RentConfirmation
      */
 
-    public RentConfirmation(Rent rent) {
+    public RentConfirmation(Rent rent, float rentCharge) {
         initComponents();
-        fillVariables(rent);
+        fillVariables(rent, rentCharge);
     }
 
     private RentConfirmation() {
@@ -215,9 +215,9 @@ public class RentConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel typeOfCurrency;
     // End of variables declaration//GEN-END:variables
 
-    private void fillVariables(Rent rent) {
+    private void fillVariables(Rent rent, float rentCharged) {
         rentNumber.setText(Integer.toString(rent.getRentNumber()));
         returnDate.setText(rent.getReturnDate());
-        priceCharged.setText(Float.toString(rent.getRentCharge()));
+        priceCharged.setText(Float.toString(rentCharged));
     }
 }
