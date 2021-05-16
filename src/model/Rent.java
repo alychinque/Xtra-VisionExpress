@@ -16,7 +16,7 @@ package model;
  */
 public class Rent {
     private int idUser;
-    private String[] idMovie;
+    private String movieTitle;
     private int rentNumber;
     private String rentDate;
     private String returnDate;
@@ -24,9 +24,9 @@ public class Rent {
     private float rentCharge;
     private float extraCharge;
 
-    public Rent(int idUser, String[] idMovie, int rentNumber, String rentDate, String returnDate, boolean returned, float rentCharge, float extraCharge) {
+    public Rent(int idUser, String movieTitle, int rentNumber, String rentDate, String returnDate, boolean returned, float rentCharge, float extraCharge) {
         this.idUser = idUser;
-        this.idMovie = idMovie;
+        this.movieTitle = movieTitle;
         this.rentNumber = rentNumber;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
@@ -34,9 +34,9 @@ public class Rent {
         this.extraCharge = extraCharge;
     }
 
-    public Rent(int idUser, String[] idMovie, int rentNumber, String rentDate, String returnDate, boolean returned, float rentCharge) {
+    public Rent(int idUser, String movieTitle, int rentNumber, String rentDate, String returnDate, boolean returned, float rentCharge) {
         this.idUser = idUser;
-        this.idMovie = idMovie;
+        this.movieTitle = movieTitle;
         this.rentNumber = rentNumber;
         this.rentDate = rentDate;
         this.returnDate = returnDate;
@@ -49,8 +49,8 @@ public class Rent {
         return idUser;
     }
 
-    public String[] getIdMovie() {
-        return idMovie;
+    public String getMovieTitle() {
+        return movieTitle;
     }
 
     public int getRentNumber() {
