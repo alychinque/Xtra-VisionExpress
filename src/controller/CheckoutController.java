@@ -47,12 +47,13 @@ public class CheckoutController implements ActionListener {
     private final int session;
     private User user;
     private int idUser = 0;
-    private String[] idMovies = null;
+    private String[] titleMovie = null;
+    private int numberOfMovies;
     private int rentNumber = 0;
     private boolean returned = false;
     private boolean newUser = false;
     private float rentCharge;
-    private Rent rent;
+    private Rent[] rent;
     private String rentDate;
     private String returnDate;
     /**
@@ -106,7 +107,9 @@ public class CheckoutController implements ActionListener {
                             userdao.registerEmail(cardNumber, email);
                             //register rent
                             rent = getDataRent();
-                            rentdao.registerRent(rent, session);
+                            for (int i = 0; i < numberOfMovies; i++) {
+                                rentdao.registerRent(rent[i], session);
+                            }
                             goRentConfirmation(rent);
                             System.out.println("save email old customer and register rent");
                             return;
@@ -115,7 +118,9 @@ public class CheckoutController implements ActionListener {
                         }
                     }
                     rent = getDataRent();
-                    rentdao.registerRent(rent, session);
+                    for (int i = 0; i < numberOfMovies; i++) {
+                        rentdao.registerRent(rent[i], session);
+                    }
                     goRentConfirmation(rent);
                     System.out.println("register the rent only");
                     return;
@@ -124,13 +129,17 @@ public class CheckoutController implements ActionListener {
                     rent = getDataRent();
                     if (!validEmailEmpty) {
                         //Register rent
-                        rentdao.registerRent(rent, session); //with discount
+                        for (int i = 0; i < numberOfMovies; i++) {
+                            rentdao.registerRent(rent[i], session);
+                        }//with discount
                         goRentConfirmation(rent);
                         System.out.println("its a new customer with email and the promocode is valid, register rent");
                         return;
                     }
                     //Register rent
-                    rentdao.registerRent(rent, session);
+                    for (int i = 0; i < numberOfMovies; i++) {
+                        rentdao.registerRent(rent[i], session);
+                    }
                     goRentConfirmation(rent);
                     System.out.println("its a new customer without email and the promocode is valid, register rent");
                     return;
@@ -141,13 +150,17 @@ public class CheckoutController implements ActionListener {
                     rent = getDataRent();
                     if (!validEmailEmpty) {
                         //Register rent
-                        rentdao.registerRent(rent, session);
+                        for (int i = 0; i < numberOfMovies; i++) {
+                            rentdao.registerRent(rent[i], session);
+                        }
                         goRentConfirmation(rent);
                         System.out.println("its a new customer with email and the promocode is invalid, register rent");
                         return;
                     }
                     //Register rent
-                    rentdao.registerRent(rent, session);
+                    for (int i = 0; i < numberOfMovies; i++) {
+                        rentdao.registerRent(rent[i], session);
+                    }
                     goRentConfirmation(rent);
                     System.out.println("its a new customer without email and the promocode is invalid, register rent");
                     return;
@@ -169,7 +182,7 @@ public class CheckoutController implements ActionListener {
             cardName = this.view.getInputCardName().getText();
             cardNumber = this.view.getInputCardNumber().getText();
             cvc = this.view.getInputCVC().getText();
-            if(month == 0 || year == 0){
+            if (month == 0 || year == 0) {
                 JOptionPane.showMessageDialog(null, "Date is invalid!");
                 return false;
             }
@@ -272,17 +285,18 @@ public class CheckoutController implements ActionListener {
             this.year = (int) jcbx.getSelectedItem();
         }
     }
+    
     /**
      * This method will get the movies id and it will generate a random number that you should keep for 
      * when you need to return your movie.
      */
-    private Rent getDataRent() {
+    private Rent[] getDataRent() {
         try {
             //get movies id []
             MoviesCartDAO moviescartdao = new MoviesCartDAO(conn);
-            int numberOfMovies = moviescartdao.getNumberOfMoviesCart(session);
-            this.idMovies = new String[numberOfMovies];
-            this.idMovies = moviescartdao.getIdMovies(session, numberOfMovies);
+            numberOfMovies = moviescartdao.getNumberOfMoviesCart(session);
+            this.titleMovie = new String[numberOfMovies];
+            this.titleMovie = moviescartdao.getTitleMovies(session, numberOfMovies);
             //get random number
             RentDAO rentdao = new RentDAO(conn);
             while (true) {
@@ -299,7 +313,7 @@ public class CheckoutController implements ActionListener {
             rentDate = sdf.format(cal.getTime());
 
             //get rent return(number the day is equal the number of movies rented)
-            int numberOfDaysOfRent = idMovies.length;
+            int numberOfDaysOfRent = numberOfMovies;
             cal.add(Calendar.DAY_OF_MONTH, numberOfDaysOfRent);
             returnDate = sdf.format(cal.getTime());
 
@@ -307,39 +321,31 @@ public class CheckoutController implements ActionListener {
             returned = false;
 
             //get rent price
+            rentCharge = (float) 2.99;
             if (checkPromoCode() && newUser) {
                 rentCharge = 0;
             } else {
-                switch (idMovies.length) {
-                    case 1:
-                        rentCharge = (float) 2.99;
-                        break;
-                    case 2:
-                        rentCharge = (float) 5.98;
-                        break;
-                    case 3:
-                        rentCharge = (float) 8.97;
-                        break;
-                    case 4:
-                        rentCharge = (float) 11.96;
-                        break;
-                }
+                rentCharge = (float) 2.99;
             }
             /**
              * Showing a resume of the movies chosen, dates to be returned and etc.
              */
             System.out.println("idUser: " + idUser);
-            for (int i = 0; i < idMovies.length; i++) {
-                System.out.println("idMovie: " + idMovies[i]);
+            for (int i = 0; i < numberOfMovies; i++) {
+                System.out.println("idMovie: " + titleMovie[i]);
             }
             System.out.println("rentNumber: " + rentNumber);
             System.out.println("rentDate: " + rentDate + " *** returnDate: " + returnDate);
             System.out.println("Returned: " + returned + " ** rentCharge: " + rentCharge);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "nao deu certo add um rental");
+            JOptionPane.showMessageDialog(null, "error creatinf a rent");
+        }
+        rent = new Rent[numberOfMovies];
+        for (int i = 0; i < numberOfMovies; i++) {
+            rent[i] = new Rent(idUser, titleMovie[i], rentNumber, rentDate, returnDate, returned, rentCharge);
         }
 
-        return rent = new Rent(idUser, idMovies, rentNumber, rentDate, returnDate, returned, rentCharge);
+        return rent;
     }
     /**
      * 
@@ -367,10 +373,10 @@ public class CheckoutController implements ActionListener {
     }
 
     private int createUser() {
-        System.out.println("card number: "+ cardNumber+
-                "\ncard name: "+ cardName
-                + "\ncvc: "+ cvc
-                + "\nmonth: "+ month+" year: "+year);
+        System.out.println("card number: " + cardNumber
+                + "\ncard name: " + cardName
+                + "\ncvc: " + cvc
+                + "\nmonth: " + month + " year: " + year);
         try {
             if (validEmailEmpty) {
                 user = new User(cardName, cardNumber, cvc, month, year);
@@ -386,11 +392,27 @@ public class CheckoutController implements ActionListener {
         return 0;
 
     }
+    
     /**
      * Confirming that the rent was successful
      */
-    private void goRentConfirmation(Rent rent) {
-        RentConfirmation rentConfirmation = new RentConfirmation(rent);
+    private void goRentConfirmation(Rent[] rent) {
+        switch (numberOfMovies) {
+            case 1:
+                rentCharge = (float) 2.99;
+                break;
+            case 2:
+                rentCharge = (float) 5.98;
+                break;
+            case 3:
+                rentCharge = (float) 8.97;
+                break;
+            case 4:
+                rentCharge = (float) 11.96;
+                break;
+        }
+        RentConfirmation rentConfirmation;
+        rentConfirmation = new RentConfirmation(rent[0], rentCharge);
         this.view.dispose();
         rentConfirmation.setVisible(true);
     }

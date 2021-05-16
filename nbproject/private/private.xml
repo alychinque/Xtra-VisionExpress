@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/view/RentConfirmation.java</file>
             <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/model/DAO/MoviesCartDAO.java</file>
-            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/model/Rent.java</file>
-            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/view/Cart.java</file>
+            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/controller/ReturnController.java</file>
+            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/view/Main.java</file>
             <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/model/DAO/RentDAO.java</file>
             <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/controller/MovieDescriptionController.java</file>
-            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/controller/CartController.java</file>
-            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/model/DAO/UserDAO.java</file>
+            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/view/Return.java</file>
             <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/view/Checkout.java</file>
             <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/controller/CheckoutController.java</file>
-            <file>file:/C:/Users/alych/CA/Xtra-VisionExpress/src/model/User.java</file>
         </group>
     </open-files>
 </project-private>
