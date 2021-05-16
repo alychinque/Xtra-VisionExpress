@@ -10,13 +10,21 @@ package model;
  *
  * @author alych
  */
+/**
+ * 
+ * @author Maicon
+ * A class with some variables that will be applied in the cart
+ */
 public class MoviesCart {
     private int session;
     private int movie1;
     private int movie2;
     private int movie3;
     private int movie4;
-
+    /**
+     * 
+     * Every session will hold up to 4 movies
+     */
     public MoviesCart(int session, int movie1, int movie2, int movie3, int movie4) {
         this.session = session;
         this.movie1 = movie1;
