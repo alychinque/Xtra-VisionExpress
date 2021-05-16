@@ -6,14 +6,21 @@
 package view;
 
 import controller.ReturnController;
+import java.awt.Cursor;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
  * @author alych
  */
 public class Return extends javax.swing.JFrame {
-    
+
     private final ReturnController controller;
+    private ArrayList<String> moviesTitle = new ArrayList<>();
+    private ArrayList<Integer> rentNumber =  new ArrayList<>();
+    private String[] moviesRented;
+    private String[] rentNum;
 
     /**
      * Creates new form Return
@@ -21,8 +28,14 @@ public class Return extends javax.swing.JFrame {
     public Return() {
         initComponents();
         controller = new ReturnController(this);
-        String[] option = {"TITANIC", "STAR WARS, FOREST GUMP, HARRY POTTER 5, JADNFKJANDS"};
-        movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(option));
+        
+        moviesTitle = controller.getMoviesRented();
+        convertArray(moviesTitle);
+        movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(moviesRented));
+        rentNumber = controller.getRentNumbers();
+        convertRentNumber(rentNumber);
+        numberComboBox.setModel(new DefaultComboBoxModel(rentNum));
+        returnLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     /**
@@ -228,4 +241,18 @@ public class Return extends javax.swing.JFrame {
     private javax.swing.JLabel returnLabel;
     private javax.swing.JPanel retutnPanel;
     // End of variables declaration//GEN-END:variables
+
+    private void convertArray(ArrayList<String> moviesTitle) {
+        moviesRented = new String[moviesTitle.size()];
+        for (int i = 0; i < moviesTitle.size(); i++) {
+            moviesRented[i] = moviesTitle.get(i);
+        }
+    }
+
+    private void convertRentNumber(ArrayList<Integer> rentNumber) {
+        rentNum = new String[rentNumber.size()];
+        for (int i = 0; i < rentNumber.size(); i++) {
+            rentNum[i] = Integer.toString(rentNumber.get(i));
+        }
+    }
 }
