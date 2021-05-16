@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import model.Rent;
 
@@ -19,6 +20,8 @@ import model.Rent;
 public class RentDAO {
 
     private final Connection connection;
+    private ArrayList<String> moviesTitle = new ArrayList<>();
+    private ArrayList<Integer> rentNumber = new ArrayList<>();
 
     public RentDAO(Connection conn) {
         this.connection = conn;
@@ -47,11 +50,11 @@ public class RentDAO {
     }
 
     public void registerRent(Rent rent, int session) throws SQLException {
-        String query = "insert into rent (id_user, id_movie, session, rent_number, rent_date, return_date, returned, rent_charge)\n"
+        String query = "insert into rent (id_user, title, session, rent_number, rent_date, return_date, returned, rent_charge)\n"
                 + "values(?, ?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, rent.getIdUser());
-        stmt.setString(2, Arrays.toString(rent.getIdMovie()));
+        stmt.setString(2, rent.getMovieTitle());
         stmt.setInt(3, session);
         stmt.setInt(4, rent.getRentNumber());
         stmt.setString(5, rent.getRentDate());
@@ -59,6 +62,30 @@ public class RentDAO {
         stmt.setBoolean(7, rent.isReturned());
         stmt.setFloat(8, rent.getRentCharge());
         stmt.execute();
+    }
+
+    public ArrayList<String> getMovies() throws SQLException {
+        String query = "SELECT title FROM Alysson_2019305.rent\n"
+                + "where returned = 0;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        while (resultSet.next()) {
+            moviesTitle.add(resultSet.getString("title"));
+        }
+        return moviesTitle;
+    }
+
+    public ArrayList<Integer> getRentNumbers() throws SQLException {
+        String query = "SELECT DISTINCT rent_number FROM Alysson_2019305.rent\n"
+                + "where returned = 0;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        while (resultSet.next()) {
+            rentNumber.add(resultSet.getInt("rent_number"));
+        }
+        return rentNumber;
     }
 
 }
