@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model.DAO;
 
 import java.sql.Connection;
@@ -22,7 +18,11 @@ public class GenreDAO {
     public GenreDAO(Connection conn){
         this.connection = conn;
     }
-
+    /**
+     * 
+     * Creating a connection with the database, this connection will check what kind of genre the movie is, 
+     * there are 5 different genres. Each movie is assigned to a different genre
+     */
     public String[] getGenre() throws SQLException {
         String query = "SELECT genre FROM Alysson_2019305.genre;";
         PreparedStatement stmt = connection.prepareStatement(query);
