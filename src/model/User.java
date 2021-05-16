@@ -9,6 +9,9 @@ package model;
  *
  * @author alych
  */
+/**
+ * Creating a class with variables that will be assigned to the user credit card
+ */
 public class User {
     private String email;
     private String nameUser;
