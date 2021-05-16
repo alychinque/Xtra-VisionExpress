@@ -14,13 +14,17 @@ import java.sql.SQLException;
  */
 public class ConnectionDB {
 
-    //CREATED A CONNECTION WITH THE DATABASE
+    /**
+     * Creating a connection with the database
+     */
     public Connection getConnection() throws SQLException {
         String dbServer = "jdbc:mysql://apontejaj.com:3306/Alysson_2019305?useSSL=false";
         String user = "Alysson_2019305";
         String password = "2019305";
 
-        // Get a connection to the database
+        /**
+         * Getting a connection to the database
+         */
         Connection conn = DriverManager.getConnection(dbServer, user, password);
         return conn;
     }
