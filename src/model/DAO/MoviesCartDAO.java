@@ -111,19 +111,20 @@ public class MoviesCartDAO {
         stmt.execute();
     }
 
-    public String[] getIdMovies(int session, int numberOfMovies) throws SQLException {
-        String query = "SELECT id_movie FROM Alysson_2019305.movies_cart\n"
-                + "where session = ?;";
+    public String[] getTitleMovies(int session, int numberOfMovies) throws SQLException {
+        String query = "SELECT movie.title FROM movies_cart\n"
+                + "INNER JOIN movie ON movie.id_movie = movies_cart.id_movie\n"
+                + "where movies_cart.session = ?;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.setInt(1, session);
         stmt.execute();
-        String[] idMovie = new String[numberOfMovies];
+        String[] movieTitle = new String[numberOfMovies];
         int count = 0;
         ResultSet resultSet = stmt.getResultSet();
         while (resultSet.next()) {
-            idMovie[count] = Integer.toString(resultSet.getInt("id_movie"));
+            movieTitle[count] = resultSet.getString("title");
             count++;
         }
-        return idMovie;
+        return movieTitle;
     }
 }
