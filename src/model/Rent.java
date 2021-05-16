@@ -9,6 +9,11 @@ package model;
  *
  * @author Alysson Chinque
  */
+/**
+ * 
+ * @author Maicon
+ * Creating a class and instantiating some variables that will be assigned to the movies
+ */
 public class Rent {
     private int idUser;
     private String[] idMovie;
