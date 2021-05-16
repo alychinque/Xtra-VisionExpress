@@ -6,6 +6,7 @@
 package view;
 
 import controller.HomeController;
+import java.awt.Cursor;
 
 /**
  *
@@ -22,6 +23,8 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         controller = new HomeController(this);
+        rentLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        returnLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     /**
