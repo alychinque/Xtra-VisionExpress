@@ -65,8 +65,9 @@ public class RentDAO {
     }
 
     public ArrayList<String> getMovies() throws SQLException {
-        String query = "SELECT title FROM Alysson_2019305.rent\n"
-                + "where returned = 0;";
+        String query = "SELECT DISTINCT title FROM Alysson_2019305.rent\n"
+                + "WHERE returned = 0\n"
+                + "ORDER BY TITLE ASC;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.execute();
         ResultSet resultSet = stmt.getResultSet();
@@ -78,7 +79,8 @@ public class RentDAO {
 
     public ArrayList<Integer> getRentNumbers() throws SQLException {
         String query = "SELECT DISTINCT rent_number FROM Alysson_2019305.rent\n"
-                + "where returned = 0;";
+                + "where returned = 0\n"
+                + "ORDER BY rent_number ASC;";
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.execute();
         ResultSet resultSet = stmt.getResultSet();
@@ -88,4 +90,23 @@ public class RentDAO {
         return rentNumber;
     }
 
+    public boolean checkIfRentNumberMatchesMovie(String rentNumberSelected, String movie) throws SQLException {
+        int rentQuery = Integer.parseInt(rentNumberSelected);
+        String query = "SELECT title FROM Alysson_2019305.rent\n"
+                + "where rent_number = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, rentQuery);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        while (resultSet.next()) {
+            if (movie.equals(resultSet.getString("title"))) {
+                updateRent(rentQuery, movie);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
+    
 }
