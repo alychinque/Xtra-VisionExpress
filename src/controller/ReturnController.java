@@ -91,6 +91,38 @@ public class ReturnController implements ActionListener {
         }
     }
 
-    
+    public void checkReturn() {
+        today = sdf.format(cal.getTime());
+        if (checkFields()) {
+            try {
+                if (rentdao.checkIfRentNumberMatchesMovie(rentNumberSelected, movie)) {
+                    String returnDate = rentdao.getReturnDate(rentNumberSelected);
+                    int datesCompared = getDifferenceDates(today, returnDate);
+                    if (datesCompared > 0){
+                        if (datesCompared < 10){
+                            JOptionPane.showMessageDialog(view, "Movie Returned with success but it is late\n"
+                                + "You were charged €" + (datesCompared * fee));
+                            backHome();
+                        } else {
+                            JOptionPane.showMessageDialog(view, "You are more than or equal to 10 days overdue\n"
+                                    + "You were charged €" + (10 * fee));
+                            backHome();
+                        }
+                        
+                    } else {
+                        JOptionPane.showMessageDialog(view, "Movie Returned with success");
+                        backHome();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(view, "Failed in return the movie\nPlease try agan!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(view, "Error connection DB", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
 
+        }
+    }
+
+    
 }
