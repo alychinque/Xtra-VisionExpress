@@ -118,5 +118,20 @@ public class RentDAO {
         stmt.execute();
     }
 
+    public String getReturnDate(String rentNumber) throws SQLException {
+        int rentQuery = Integer.parseInt(rentNumber);
+        String query = "SELECT return_date FROM Alysson_2019305.rent\n"
+                + "WHERE rent_number = ?;";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, rentQuery);
+        stmt.execute();
+        ResultSet resultSet = stmt.getResultSet();
+        String returnDate = "";
+        while(resultSet.next()){
+            returnDate = resultSet.getString("return_date");
+        }
+        return returnDate;
+    }
+
     
 }
