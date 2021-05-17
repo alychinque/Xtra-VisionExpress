@@ -80,26 +80,18 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
-                              <Component id="retutnPanel" min="-2" pref="252" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Component id="movieComboBox" min="-2" pref="470" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
+                      <Component id="retutnPanel" min="-2" pref="252" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="813" max="32767" attributes="0"/>
-                          <Component id="numberComboBox" min="-2" pref="194" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="movieComboBox" min="-2" pref="470" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="numberComboBox" min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -117,21 +109,17 @@
                           </Group>
                           <Component id="logo" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="movieComboBox" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="movieComboBox" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="numberComboBox" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="86" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="retutnPanel" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="371" max="-2" attributes="0"/>
-                          <Component id="numberComboBox" min="-2" pref="45" max="-2" attributes="0"/>
-                          <EmptySpace pref="384" max="32767" attributes="0"/>
-                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -219,6 +207,9 @@
                     <Property name="text" type="java.lang.String" value="RETURN"/>
                     <Property name="alignmentX" type="float" value="0.5"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="returnLabelMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
