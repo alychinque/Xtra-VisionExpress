@@ -124,5 +124,14 @@ public class ReturnController implements ActionListener {
         }
     }
 
+    private boolean checkFields() {
+        if (rentNumberSelected.equals("") || rentNumberSelected.equals("0") || movie.equals("") || movie.equals("Movies")) {
+            JOptionPane.showMessageDialog(view, "Please, pick a movie and a number!");
+            return false;
+        }
+        return true;
+    }
+
     
+
 }
