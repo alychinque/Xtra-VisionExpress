@@ -132,6 +132,21 @@ public class ReturnController implements ActionListener {
         return true;
     }
 
-    
+    private int getDifferenceDates(String today, String returnDate) {
+        String inputString1 =returnDate ;
+        String inputString2 = today;
+
+        try {
+            Date date1 = sdf.parse(inputString1);
+            Date date2 = sdf.parse(inputString2);
+            long diff = date2.getTime() - date1.getTime();
+            System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+            float days = (diff / (1000*60*60*24));
+            return Math.round(days);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
 }
