@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -56,11 +57,12 @@ public class CheckoutController implements ActionListener {
     private Rent[] rent;
     private String rentDate;
     private String returnDate;
-    /**
-     * This method will generate my checkout page, getting a connection with the database
-     * and it will create a session with the movies the user have chosen
-     */
 
+    /**
+     * This method will generate my checkout page, getting a connection with the
+     * database and it will create a session with the movies the user have
+     * chosen
+     */
     public CheckoutController(Checkout view) {
         this.view = view;
         try {
@@ -72,15 +74,17 @@ public class CheckoutController implements ActionListener {
         userdao = new UserDAO(conn);
         this.session = view.getSession();
     }
-    
+
     public void backCart(int session) {
         Cart cart = new Cart(session);
         this.view.dispose();
         cart.setVisible(true);
     }
+
     /**
-     * This method will check if the user have the Promo code which is "FREEMOVIE" if yes, then the rental
-     * will be free of charge, go on and try it ;)
+     * This method will check if the user have the Promo code which is
+     * "FREEMOVIE" if yes, then the rental will be free of charge, go on and try
+     * it ;)
      */
     public boolean checkPromoCode() {
         String code = this.view.getInputCode().getText();
@@ -90,12 +94,18 @@ public class CheckoutController implements ActionListener {
             return false;
         }
     }
+
     /**
-     * This other method is to get the payment, first it will check if the customer has a log in or not,
-     * if not the user have the option to register themselves, and their information will be saved in the database,
-     * it will also check if the customer is a new one or not, so then we can know if the customer can use the voucher.
+     * This other method is to get the payment, first it will check if the
+     * customer has a log in or not, if not the user have the option to register
+     * themselves, and their information will be saved in the database, it will
+     * also check if the customer is a new one or not, so then we can know if
+     * the customer can use the voucher.
+     *
+     * @param sizeArray
      */
-    public void payMovie(int session) {
+    public void payMovie(int sizeArray) {
+        this.numberOfMovies = sizeArray;
         try {
             if (checkFields()) {
                 RentDAO rentdao = new RentDAO(conn);
@@ -123,8 +133,7 @@ public class CheckoutController implements ActionListener {
                     }
                     goRentConfirmation(rent);
                     System.out.println("register the rent only");
-                    return;
-                } else if (checkPromoCode()) {
+                } else if (checkPromoCode() && numberOfMovies <= 2) {
                     this.idUser = createUser();
                     rent = getDataRent();
                     if (!validEmailEmpty) {
@@ -142,9 +151,8 @@ public class CheckoutController implements ActionListener {
                     }
                     goRentConfirmation(rent);
                     System.out.println("its a new customer without email and the promocode is valid, register rent");
-                    return;
 
-                } else {
+                } else if (numberOfMovies <= 2) {
                     this.idUser = createUser();
                     //GET ID USER =============================
                     rent = getDataRent();
@@ -163,18 +171,19 @@ public class CheckoutController implements ActionListener {
                     }
                     goRentConfirmation(rent);
                     System.out.println("its a new customer without email and the promocode is invalid, register rent");
-                    return;
+                } else {
+                    JOptionPane.showMessageDialog(view, "You can rent only two movies in the first rental");
                 }
             }
-        } catch (Exception e) {
+        } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Failed connection");
         }
-        System.out.println("hit the end of the method");
-        //insertRent(cardNumber);
     }
+
     /**
-     * This method will check if all fields are filled correctly,for example for the card  you need to have 16 numbers, all the 
-     * possible mistakes will be catch, like if you type a letter for card number, it won`t work
+     * This method will check if all fields are filled correctly,for example for
+     * the card you need to have 16 numbers, all the possible mistakes will be
+     * catch, like if you type a letter for card number, it won`t work
      */
     private boolean checkFields() {
         try {
@@ -196,9 +205,10 @@ public class CheckoutController implements ActionListener {
         }
         return false;
     }
+
     /**
-     * 
-     * To register an email you need to have a valid email structure. 
+     *
+     * To register an email you need to have a valid email structure.
      */
     private boolean checkEmail(String email) {
         if (email.isEmpty()) {
@@ -226,6 +236,7 @@ public class CheckoutController implements ActionListener {
             }
         }
     }
+
     /**
      * You need to have a name in the field card name
      */
@@ -237,10 +248,11 @@ public class CheckoutController implements ActionListener {
             return true;
         }
     }
+
     /**
-     * 
-     * This will check if your card has 16 numbers, and it will catch any possible mistake, such as
-     * if you type a letter by mistake.
+     *
+     * This will check if your card has 16 numbers, and it will catch any
+     * possible mistake, such as if you type a letter by mistake.
      */
     private boolean checkCardNumber(String numberCard) {
         if (numberCard.length() == 16) {
@@ -259,8 +271,10 @@ public class CheckoutController implements ActionListener {
             return false;
         }
     }
+
     /**
-     * Checking if you have a valid CVC, that should be strictly 3 numbers, no more, no less.
+     * Checking if you have a valid CVC, that should be strictly 3 numbers, no
+     * more, no less.
      */
     private boolean checkCVC(String cvc) {
         if (cvc.length() != 3) {
@@ -272,8 +286,9 @@ public class CheckoutController implements ActionListener {
 
     @Override
     /**
-     * This method will have a combo box with the months, so you can add your card information regarding
-     * when it will be expired. Just like any other online shopping.
+     * This method will have a combo box with the months, so you can add your
+     * card information regarding when it will be expired. Just like any other
+     * online shopping.
      */
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand() == "month") {
@@ -285,16 +300,15 @@ public class CheckoutController implements ActionListener {
             this.year = (int) jcbx.getSelectedItem();
         }
     }
-    
+
     /**
-     * This method will get the movies id and it will generate a random number that you should keep for 
-     * when you need to return your movie.
+     * This method will get the movies id and it will generate a random number
+     * that you should keep for when you need to return your movie.
      */
     private Rent[] getDataRent() {
         try {
             //get movies id []
             MoviesCartDAO moviescartdao = new MoviesCartDAO(conn);
-            numberOfMovies = moviescartdao.getNumberOfMoviesCart(session);
             this.titleMovie = new String[numberOfMovies];
             this.titleMovie = moviescartdao.getTitleMovies(session, numberOfMovies);
             //get random number
@@ -328,7 +342,8 @@ public class CheckoutController implements ActionListener {
                 rentCharge = (float) 2.99;
             }
             /**
-             * Showing a resume of the movies chosen, dates to be returned and etc.
+             * Showing a resume of the movies chosen, dates to be returned and
+             * etc.
              */
             System.out.println("idUser: " + idUser);
             for (int i = 0; i < numberOfMovies; i++) {
@@ -347,8 +362,9 @@ public class CheckoutController implements ActionListener {
 
         return rent;
     }
+
     /**
-     * 
+     *
      * Checking if the user in the database
      */
     private boolean userIsInTheDB() throws SQLException {
@@ -360,8 +376,10 @@ public class CheckoutController implements ActionListener {
         newUser = false;
         return true;
     }
+
     /**
-     * Generating a random number for that session of movies, you will need this number to return your movies.
+     * Generating a random number for that session of movies, you will need this
+     * number to return your movies.
      */
     private int generateRandomNumber() {
         Random random = new Random();
@@ -392,24 +410,28 @@ public class CheckoutController implements ActionListener {
         return 0;
 
     }
-    
+
     /**
      * Confirming that the rent was successful
      */
     private void goRentConfirmation(Rent[] rent) {
-        switch (numberOfMovies) {
-            case 1:
-                rentCharge = (float) 2.99;
-                break;
-            case 2:
-                rentCharge = (float) 5.98;
-                break;
-            case 3:
-                rentCharge = (float) 8.97;
-                break;
-            case 4:
-                rentCharge = (float) 11.96;
-                break;
+        if (checkPromoCode() && newUser) {
+            rentCharge = 0;
+        } else {
+            switch (numberOfMovies) {
+                case 1:
+                    rentCharge = (float) 2.99;
+                    break;
+                case 2:
+                    rentCharge = (float) 5.98;
+                    break;
+                case 3:
+                    rentCharge = (float) 8.97;
+                    break;
+                case 4:
+                    rentCharge = (float) 11.96;
+                    break;
+            }
         }
         RentConfirmation rentConfirmation;
         rentConfirmation = new RentConfirmation(rent[0], rentCharge);
