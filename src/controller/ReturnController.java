@@ -80,6 +80,17 @@ public class ReturnController implements ActionListener {
         return rentNumber = null;
     }
 
-   
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("movie")) {
+            JComboBox jcbx = (JComboBox) e.getSource();
+            this.movie = (String)jcbx.getSelectedItem();
+        } else if (e.getActionCommand().equals("rentNumber")) {
+            JComboBox jcbx = (JComboBox) e.getSource();
+            this.rentNumberSelected = (String)jcbx.getSelectedItem();
+        }
+    }
+
+    
 
 }
