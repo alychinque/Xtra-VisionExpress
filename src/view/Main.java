@@ -16,9 +16,11 @@ public class Main extends javax.swing.JFrame {
     private final MainController controller;
     private JButton goCart;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
+    private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
     private String[] option;
     private int session;
+    private int pages;
 
     /**
      * Creates new form Main and the last 10 movies will be shown on the MainController 
@@ -28,6 +30,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.controller = new MainController(this);
         moviesArray = controller.getLast10Movies();
+        
         fillMovies(moviesArray);
         this.session = session;
         creteButton();
@@ -38,6 +41,8 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         this.controller = new MainController(this);
         moviesArray = controller.getLast10Movies();
+        moviesArrayTotal = controller.getMoviesTotal();
+        pages = getPages();
         fillMovies(moviesArray);
     }
     
@@ -827,5 +832,11 @@ public class Main extends javax.swing.JFrame {
         goCart.addActionListener(controller);
         goCart.setActionCommand(Integer.toString(session));
         
+    }
+
+    private int getPages() {
+        double size = moviesArrayTotal.size();
+        double res = size/10;
+        return (int)Math.ceil(size/10);
     }
 }

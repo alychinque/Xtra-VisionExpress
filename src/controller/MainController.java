@@ -34,6 +34,7 @@ public class MainController implements ActionListener{
     private String[] genre = new String[numOfGenres];
     private MovieDAO moviedao;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
+    private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
     
     /**
      * This a constructor try to make a connection with the DataBase to get the movie`s name.
@@ -43,6 +44,7 @@ public class MainController implements ActionListener{
         
         try {
             conn = new ConnectionDB().getConnection();
+            moviedao = new MovieDAO(conn);
         } catch (SQLException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Failed");
@@ -63,7 +65,7 @@ public class MainController implements ActionListener{
     that will add the movie description to the movie.
     */
     public void goMovieDescription(int session, int idMovie) {
-        moviedao = new MovieDAO(conn);
+        
         try {
             movieDescription.add(moviedao.getDescription(idMovie));
         } catch (Exception e) {
@@ -91,7 +93,6 @@ public class MainController implements ActionListener{
     hint : they should be star wars :D
     */
     public ArrayList<Movie> getLast10Movies(){
-        moviedao = new MovieDAO(conn);
         try {
             moviesArray = moviedao.getLast10Movies();
         } catch (Exception e) {
@@ -108,6 +109,15 @@ public class MainController implements ActionListener{
         this.view.dispose();
         Cart cart = new Cart(Integer.parseInt(e.getActionCommand()));
         cart.setVisible(true);
+    }
+
+    public ArrayList<Movie> getMoviesTotal() {
+        try {
+            moviesArrayTotal = moviedao.getMovies();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Failed");
+        }
+        return moviesArrayTotal;
     }
     
 }
