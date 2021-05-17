@@ -107,6 +107,16 @@ public class RentDAO {
         return false;
     }
 
-    
+    private void updateRent(int rentQuery, String movie) throws SQLException {
+        String query = "UPDATE Alysson_2019305.rent\n"
+                + "SET returned = 1\n"
+                + "WHERE rent_number = ?\n"
+                + "AND title = ?";
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setInt(1, rentQuery);
+        stmt.setString(2, movie);
+        stmt.execute();
+    }
+
     
 }
