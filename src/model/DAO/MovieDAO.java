@@ -72,7 +72,6 @@ public class MovieDAO {
             movies = new Movie(id, title, subTitle);
             moviesArray.add(movies);
         }
-        System.out.println("size: " + moviesArray.size());
         return moviesArray;
     }
 

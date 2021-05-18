@@ -4,6 +4,7 @@ import controller.MainController;
 import java.awt.Cursor;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import model.Movie;
 
 /**
@@ -14,12 +15,11 @@ public class Main extends javax.swing.JFrame {
 
     private final MainController controller = new MainController(this);
     private JButton goCart;
-    private ArrayList<Movie> moviesArray = new ArrayList<>();
     private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
     private String[] option;
     private int session;
-    private int currentPage;
+    private int currentPage = 1;
     private int pages;
     private double quantityOfMovies;
     private int first;
@@ -42,10 +42,14 @@ public class Main extends javax.swing.JFrame {
      */
     public Main(int session) {
         initComponents();
-        //this.controller = new MainController(this);
-        //moviesArray = controller.getLast10Movies();
+        this.currentPage = 1;
+        moviesArrayTotal = controller.getMoviesTotal();
+        quantityOfMovies = moviesArrayTotal.size();
+        pages = getPages(quantityOfMovies);
+        lastPageLabel.setText(Integer.toString(pages));
+        setPagination();
+        first = (int) quantityOfMovies - 1;
         fillMovies(moviesArrayTotal, first);
-        //fillMovies(moviesArray);
         this.session = session;
         creteButton();
     }
@@ -53,13 +57,12 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         this.session = 0;
         initComponents();
-        //this.controller = new MainController(this);
-        //moviesArray = controller.getLast10Movies();
-
         this.currentPage = 1;
         moviesArrayTotal = controller.getMoviesTotal();
         quantityOfMovies = moviesArrayTotal.size();
         pages = getPages(quantityOfMovies);
+        lastPageLabel.setText(Integer.toString(pages));
+        setPagination();
         first = (int) quantityOfMovies - 1;
         fillMovies(moviesArrayTotal, first);
     }
@@ -72,12 +75,14 @@ public class Main extends javax.swing.JFrame {
         this.first = first;
 
         this.movie1Id = first;
+        this.moviePanel1.setVisible(true);
         this.imageMovie1.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first).getIdMovie() + ".jpg")));
         this.titleMovie1.setText(moviesArray.get(first).getTitle());
         this.subTitleMovie1.setText(moviesArray.get(first).getSubTitle());
 
         if ((first / 1) > 0) {
+            this.moviePanel2.setVisible(true);
             this.movie2Id = first - 1;
             this.imageMovie2.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 1).getIdMovie() + ".jpg")));
@@ -86,6 +91,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 2) > 0) {
+            this.moviePanel3.setVisible(true);
             this.movie3Id = first - 2;
             this.imageMovie3.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 2).getIdMovie() + ".jpg")));
@@ -94,6 +100,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 3) > 0) {
+            this.moviePanel4.setVisible(true);
             this.movie4Id = first - 3;
             this.imageMovie4.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 3).getIdMovie() + ".jpg")));
@@ -102,6 +109,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 4) > 0) {
+            this.moviePanel5.setVisible(true);
             this.movie5Id = first - 4;
             this.imageMovie5.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 4).getIdMovie() + ".jpg")));
@@ -110,6 +118,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 5) > 0) {
+            this.moviePanel6.setVisible(true);
             this.movie6Id = first - 5;
             this.imageMovie6.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 5).getIdMovie() + ".jpg")));
@@ -118,6 +127,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 6) > 0) {
+            this.moviePanel7.setVisible(true);
             this.movie7Id = first - 6;
             this.imageMovie7.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 6).getIdMovie() + ".jpg")));
@@ -126,6 +136,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 7) > 0) {
+            this.moviePanel8.setVisible(true);
             this.movie8Id = first - 7;
             this.imageMovie8.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 7).getIdMovie() + ".jpg")));
@@ -134,6 +145,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 8) > 0) {
+            this.moviePanel9.setVisible(true);
             this.movie9Id = first - 8;
             this.imageMovie9.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 8).getIdMovie() + ".jpg")));
@@ -142,6 +154,7 @@ public class Main extends javax.swing.JFrame {
         }
 
         if ((first / 9) > 0) {
+            this.moviePanel10.setVisible(true);
             this.movie10Id = first - 9;
             this.imageMovie10.setCursor(new Cursor(Cursor.HAND_CURSOR));
             this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 9).getIdMovie() + ".jpg")));
@@ -211,6 +224,9 @@ public class Main extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        currentPageLabel = new javax.swing.JLabel();
+        lastPageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1200, 840));
@@ -734,6 +750,23 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setText("/");
+
+        currentPageLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        currentPageLabel.setForeground(new java.awt.Color(255, 255, 0));
+        currentPageLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        currentPageLabel.setMaximumSize(new java.awt.Dimension(40, 22));
+        currentPageLabel.setMinimumSize(new java.awt.Dimension(40, 22));
+        currentPageLabel.setPreferredSize(new java.awt.Dimension(40, 22));
+
+        lastPageLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lastPageLabel.setForeground(new java.awt.Color(255, 255, 0));
+        lastPageLabel.setMaximumSize(new java.awt.Dimension(40, 22));
+        lastPageLabel.setMinimumSize(new java.awt.Dimension(40, 22));
+        lastPageLabel.setPreferredSize(new java.awt.Dimension(40, 22));
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -751,9 +784,15 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)
-                                .addGap(131, 131, 131)
+                                .addGap(79, 79, 79)
+                                .addComponent(currentPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lastPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(380, 380, 380)))))
+                                .addGap(340, 340, 340)))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
@@ -767,6 +806,9 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(currentPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastPageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton1)
                         .addComponent(jButton2)))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -789,59 +831,72 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_imageMovie1MouseClicked
 
     private void imageMovie2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie2MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie2Id).getIdMovie());
+        if ((first / 1) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie2Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie2MouseClicked
 
     private void imageMovie3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie3MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie3Id).getIdMovie());
+        if ((first / 2) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie3Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie3MouseClicked
 
     private void imageMovie4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie4MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie4Id).getIdMovie());
+        if ((first / 3) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie4Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie4MouseClicked
 
     private void imageMovie5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie5MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie5Id).getIdMovie());
+        if ((first / 4) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie5Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie5MouseClicked
 
     private void imageMovie6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie6MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie6Id).getIdMovie());
+        if ((first / 5) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie6Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie6MouseClicked
 
     private void imageMovie7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie7MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie7Id).getIdMovie());
+        if ((first / 6) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie7Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie7MouseClicked
 
     private void imageMovie8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie8MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie8Id).getIdMovie());
+        if ((first / 7) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie8Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie8MouseClicked
 
     private void imageMovie9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie9MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie9Id).getIdMovie());
+        if ((first / 8) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie9Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie9MouseClicked
 
     private void imageMovie10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie10MouseClicked
-
-        controller.goMovieDescription(session, moviesArrayTotal.get(movie10Id).getIdMovie());
+        if ((first / 9) > 0) {
+            controller.goMovieDescription(session, moviesArrayTotal.get(movie10Id).getIdMovie());
+        }
     }//GEN-LAST:event_imageMovie10MouseClicked
 
+
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+
         controller.backHome();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
         goPreviousPage();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         goNextPage();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -852,6 +907,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel background;
+    private javax.swing.JLabel currentPageLabel;
     private javax.swing.JComboBox genreComboBox;
     private javax.swing.JLabel genreLabel;
     private javax.swing.JLabel imageMovie1;
@@ -866,7 +922,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel imageMovie9;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lastPageLabel;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel moviePanel1;
     private javax.swing.JPanel moviePanel10;
@@ -921,13 +979,45 @@ public class Main extends javax.swing.JFrame {
 
     private void goNextPage() {
         currentPage++;
-        this.first -= 10;
-        fillMovies(moviesArrayTotal, first);
+        if (currentPage > pages) {
+            JOptionPane.showMessageDialog(null, "Last page.");
+            currentPage--;
+        } else {
+            this.first -= 10;
+            setPagination();
+            cleanPanels();
+            fillMovies(moviesArrayTotal, first);
+        }
     }
 
     private void goPreviousPage() {
         currentPage--;
-        this.first += 10;
-        fillMovies(moviesArrayTotal, first);
+        if (currentPage < 1) {
+            JOptionPane.showMessageDialog(null, "First page.");
+            currentPage++;
+        } else {
+            this.first += 10;
+            setPagination();
+
+            fillMovies(moviesArrayTotal, first);
+        }
     }
+
+    private void setPagination() {
+        currentPageLabel.setText(Integer.toString(currentPage));
+    }
+
+    private void cleanPanels() {
+        moviePanel1.setVisible(false);
+        moviePanel2.setVisible(false);
+        moviePanel3.setVisible(false);
+        moviePanel4.setVisible(false);
+        moviePanel5.setVisible(false);
+        moviePanel6.setVisible(false);
+        moviePanel7.setVisible(false);
+        moviePanel8.setVisible(false);
+        moviePanel9.setVisible(false);
+        moviePanel10.setVisible(false);
+    }
+
 }
