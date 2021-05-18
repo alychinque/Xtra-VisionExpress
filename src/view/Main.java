@@ -1,4 +1,3 @@
-
 package view;
 
 import controller.MainController;
@@ -13,25 +12,40 @@ import model.Movie;
  */
 public class Main extends javax.swing.JFrame {
 
-    private final MainController controller;
+    private final MainController controller = new MainController(this);
     private JButton goCart;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
     private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
     private String[] option;
     private int session;
+    private int currentPage;
     private int pages;
+    private double quantityOfMovies;
+    private int first;
+    private int movie1Id;
+    private int movie2Id;
+    private int movie3Id;
+    private int movie4Id;
+    private int movie5Id;
+    private int movie6Id;
+    private int movie7Id;
+    private int movie8Id;
+    private int movie9Id;
+    private int movie10Id;
 
     /**
-     * Creates new form Main and the last 10 movies will be shown on the MainController 
+     * Creates new form Main and the last 10 movies will be shown on the
+     * MainController
+     *
      * @param session
      */
     public Main(int session) {
         initComponents();
-        this.controller = new MainController(this);
-        moviesArray = controller.getLast10Movies();
-        
-        fillMovies(moviesArray);
+        //this.controller = new MainController(this);
+        //moviesArray = controller.getLast10Movies();
+        fillMovies(moviesArrayTotal, first);
+        //fillMovies(moviesArray);
         this.session = session;
         creteButton();
     }
@@ -39,75 +53,107 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         this.session = 0;
         initComponents();
-        this.controller = new MainController(this);
-        moviesArray = controller.getLast10Movies();
+        //this.controller = new MainController(this);
+        //moviesArray = controller.getLast10Movies();
+
+        this.currentPage = 1;
         moviesArrayTotal = controller.getMoviesTotal();
-        pages = getPages();
-        fillMovies(moviesArray);
+        quantityOfMovies = moviesArrayTotal.size();
+        pages = getPages(quantityOfMovies);
+        first = (int) quantityOfMovies - 1;
+        fillMovies(moviesArrayTotal, first);
     }
-    
-    
+
     /**
-     * Creating a method with an array that will be populated with the last 10 movies from the DataBase
+     * Creating a method with an array that will be populated with the last 10
+     * movies from the DataBase
      */
-    public void fillMovies(ArrayList<Movie> moviesArray){
-        for (int i = 0; i < 10; i++) {
-            if (i == 0) {
-                this.imageMovie1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie1.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie1.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 1) {
-                this.imageMovie2.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie2.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie2.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 2) {
-                this.imageMovie3.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie3.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie3.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 3) {
-                this.imageMovie4.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie4.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie4.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 4) {
-                this.imageMovie5.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie5.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie5.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 5) {
-                this.imageMovie6.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie6.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie6.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 6) {
-                this.imageMovie7.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie7.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie7.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 7) {
-                this.imageMovie8.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie8.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie8.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 8) {
-                this.imageMovie9.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie9.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie9.setText(moviesArray.get(i).getSubTitle());
-            } else if (i == 9) {
-                this.imageMovie10.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(i).getIdMovie() + ".jpg")));
-                this.titleMovie10.setText(moviesArray.get(i).getTitle());
-                this.subTitleMovie10.setText(moviesArray.get(i).getSubTitle());
-            }
+    public void fillMovies(ArrayList<Movie> moviesArray, int first) {
+        this.first = first;
+
+        this.movie1Id = first;
+        this.imageMovie1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        this.imageMovie1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first).getIdMovie() + ".jpg")));
+        this.titleMovie1.setText(moviesArray.get(first).getTitle());
+        this.subTitleMovie1.setText(moviesArray.get(first).getSubTitle());
+
+        if ((first / 1) > 0) {
+            this.movie2Id = first - 1;
+            this.imageMovie2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 1).getIdMovie() + ".jpg")));
+            this.titleMovie2.setText(moviesArray.get(first - 1).getTitle());
+            this.subTitleMovie2.setText(moviesArray.get(first - 1).getSubTitle());
         }
+
+        if ((first / 2) > 0) {
+            this.movie3Id = first - 2;
+            this.imageMovie3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 2).getIdMovie() + ".jpg")));
+            this.titleMovie3.setText(moviesArray.get(first - 2).getTitle());
+            this.subTitleMovie3.setText(moviesArray.get(first - 2).getSubTitle());
+        }
+
+        if ((first / 3) > 0) {
+            this.movie4Id = first - 3;
+            this.imageMovie4.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 3).getIdMovie() + ".jpg")));
+            this.titleMovie4.setText(moviesArray.get(first - 3).getTitle());
+            this.subTitleMovie4.setText(moviesArray.get(first - 3).getSubTitle());
+        }
+
+        if ((first / 4) > 0) {
+            this.movie5Id = first - 4;
+            this.imageMovie5.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 4).getIdMovie() + ".jpg")));
+            this.titleMovie5.setText(moviesArray.get(first - 4).getTitle());
+            this.subTitleMovie5.setText(moviesArray.get(first - 4).getSubTitle());
+        }
+
+        if ((first / 5) > 0) {
+            this.movie6Id = first - 5;
+            this.imageMovie6.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 5).getIdMovie() + ".jpg")));
+            this.titleMovie6.setText(moviesArray.get(first - 5).getTitle());
+            this.subTitleMovie6.setText(moviesArray.get(first - 5).getSubTitle());
+        }
+
+        if ((first / 6) > 0) {
+            this.movie7Id = first - 6;
+            this.imageMovie7.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 6).getIdMovie() + ".jpg")));
+            this.titleMovie7.setText(moviesArray.get(first - 6).getTitle());
+            this.subTitleMovie7.setText(moviesArray.get(first - 6).getSubTitle());
+        }
+
+        if ((first / 7) > 0) {
+            this.movie8Id = first - 7;
+            this.imageMovie8.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 7).getIdMovie() + ".jpg")));
+            this.titleMovie8.setText(moviesArray.get(first - 7).getTitle());
+            this.subTitleMovie8.setText(moviesArray.get(first - 7).getSubTitle());
+        }
+
+        if ((first / 8) > 0) {
+            this.movie9Id = first - 8;
+            this.imageMovie9.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 8).getIdMovie() + ".jpg")));
+            this.titleMovie9.setText(moviesArray.get(first - 8).getTitle());
+            this.subTitleMovie9.setText(moviesArray.get(first - 8).getSubTitle());
+        }
+
+        if ((first / 9) > 0) {
+            this.movie10Id = first - 9;
+            this.imageMovie10.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            this.imageMovie10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/" + moviesArray.get(first - 9).getIdMovie() + ".jpg")));
+            this.titleMovie10.setText(moviesArray.get(first - 9).getTitle());
+            this.subTitleMovie10.setText(moviesArray.get(first - 9).getSubTitle());
+        }
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always 
+     * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
@@ -163,6 +209,8 @@ public class Main extends javax.swing.JFrame {
         titleMovie10 = new javax.swing.JLabel();
         subTitleMovie10 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1200, 840));
@@ -672,6 +720,20 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("previous");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -683,9 +745,15 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(logo))
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(backgroundLayout.createSequentialGroup()
+                                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(131, 131, 131)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(380, 380, 380)))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
@@ -696,7 +764,11 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -708,69 +780,75 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchInputActionPerformed
-       
+
     }//GEN-LAST:event_searchInputActionPerformed
-      // Method that will return the information of the movies
+    // Method that will return the information of the movies
     private void imageMovie1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie1MouseClicked
-   
-        controller.goMovieDescription(session, moviesArray.get(0).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie1Id).getIdMovie());
     }//GEN-LAST:event_imageMovie1MouseClicked
 
     private void imageMovie2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie2MouseClicked
-        
-        controller.goMovieDescription(session, moviesArray.get(1).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie2Id).getIdMovie());
     }//GEN-LAST:event_imageMovie2MouseClicked
 
     private void imageMovie3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie3MouseClicked
-       
-        controller.goMovieDescription(session, moviesArray.get(2).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie3Id).getIdMovie());
     }//GEN-LAST:event_imageMovie3MouseClicked
 
     private void imageMovie4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie4MouseClicked
-       
-        controller.goMovieDescription(session, moviesArray.get(3).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie4Id).getIdMovie());
     }//GEN-LAST:event_imageMovie4MouseClicked
 
     private void imageMovie5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie5MouseClicked
-      
-        controller.goMovieDescription(session, moviesArray.get(4).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie5Id).getIdMovie());
     }//GEN-LAST:event_imageMovie5MouseClicked
 
     private void imageMovie6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie6MouseClicked
-      
-        controller.goMovieDescription(session, moviesArray.get(5).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie6Id).getIdMovie());
     }//GEN-LAST:event_imageMovie6MouseClicked
 
     private void imageMovie7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie7MouseClicked
-        
-        controller.goMovieDescription(session, moviesArray.get(6).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie7Id).getIdMovie());
     }//GEN-LAST:event_imageMovie7MouseClicked
 
     private void imageMovie8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie8MouseClicked
-    
-        controller.goMovieDescription(session, moviesArray.get(7).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie8Id).getIdMovie());
     }//GEN-LAST:event_imageMovie8MouseClicked
 
     private void imageMovie9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie9MouseClicked
-        
-        controller.goMovieDescription(session, moviesArray.get(8).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie9Id).getIdMovie());
     }//GEN-LAST:event_imageMovie9MouseClicked
 
     private void imageMovie10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageMovie10MouseClicked
-       
-        controller.goMovieDescription(session, moviesArray.get(9).getIdMovie());
+
+        controller.goMovieDescription(session, moviesArrayTotal.get(movie10Id).getIdMovie());
     }//GEN-LAST:event_imageMovie10MouseClicked
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         controller.backHome();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        goPreviousPage();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        goNextPage();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void setOption(String[] option) {
         this.option = option;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JPanel background;
@@ -786,6 +864,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel imageMovie7;
     private javax.swing.JLabel imageMovie8;
     private javax.swing.JLabel imageMovie9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel moviePanel1;
@@ -831,12 +911,23 @@ public class Main extends javax.swing.JFrame {
         background.add(goCart);
         goCart.addActionListener(controller);
         goCart.setActionCommand(Integer.toString(session));
-        
+
     }
 
-    private int getPages() {
-        double size = moviesArrayTotal.size();
-        double res = size/10;
-        return (int)Math.ceil(size/10);
+    private int getPages(double size) {
+        double res = size / 10;
+        return (int) Math.ceil(size / 10);
+    }
+
+    private void goNextPage() {
+        currentPage++;
+        this.first -= 10;
+        fillMovies(moviesArrayTotal, first);
+    }
+
+    private void goPreviousPage() {
+        currentPage--;
+        this.first += 10;
+        fillMovies(moviesArrayTotal, first);
     }
 }
