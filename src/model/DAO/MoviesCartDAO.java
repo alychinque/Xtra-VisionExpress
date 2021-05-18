@@ -27,7 +27,9 @@ public class MoviesCartDAO {
     public MoviesCartDAO(Connection conn) {
         this.connection = conn;
     }
-
+    /**
+     *Query to add the movies to the cart
+     */
     public int addFirstMovieInTheCart(int idMovie) throws SQLException {
         String query = "INSERT INTO movies_cart (id_movie) values(?);";
         PreparedStatement stmt = connection.prepareStatement(query);
@@ -37,7 +39,9 @@ public class MoviesCartDAO {
         setSession(session);
         return session;
     }
-
+    /**
+     * Query to set the movies selected into a session.
+     */
     private int getSession() throws SQLException {
         PreparedStatement stmt = connection.prepareStatement("SELECT * FROM movies_cart ORDER BY ID DESC LIMIT 1;");
         stmt.execute();
@@ -48,7 +52,9 @@ public class MoviesCartDAO {
         }
         return id;
     }
-
+    /**
+     * Query to update the session with the movies selected.
+     */
     private void setSession(int session) throws SQLException {
         String query = "UPDATE Alysson_2019305.movies_cart\n"
                 + "SET session = ?\n"
@@ -58,7 +64,9 @@ public class MoviesCartDAO {
         stmt.setInt(2, session);
         stmt.execute();
     }
-
+    /**
+     * Query that will check if in the sessions are up to 4 movies, you can`t have more than 4
+     */
     public int getNumberOfMoviesCart(int session) throws SQLException {
         String query = "SELECT session, COUNT(*) AS `count` \n"
                 + "FROM movies_cart\n"
@@ -73,7 +81,9 @@ public class MoviesCartDAO {
         }
         return numberOfMovies;
     }
-
+    /**
+     * Query that will insert the movies into the cart session
+     */
     public void addMovieInTheCart(int session, int idMovie) throws SQLException {
         String query = "INSERT INTO movies_cart (session, id_movie) values(?, ?);";
         PreparedStatement stmt = connection.prepareStatement(query);
@@ -81,7 +91,11 @@ public class MoviesCartDAO {
         stmt.setInt(2, idMovie);
         stmt.execute();
     }
-
+    /**
+     * This query will get the movies and return them in an array in the cart, showing some relevant information
+     * regarding the movies.
+     * 
+     */
     public ArrayList<Movie> getMoviesSession(int session) throws SQLException {
         String query = "SELECT movies_cart.id_movie, movie.title, movie.subTitle\n"
                 + "FROM movies_cart\n"
@@ -100,7 +114,9 @@ public class MoviesCartDAO {
         }
         return moviesInCart;
     }
-
+    /**
+     * This query will allow the user to delete a movie in case he or she wants.
+     */
     public void deleteMovieFromCart(int movieId, int session) throws SQLException {
         String query = "delete  FROM Alysson_2019305.movies_cart\n"
                 + "where session = ?\n"
@@ -110,7 +126,9 @@ public class MoviesCartDAO {
         stmt.setInt(2, movieId);
         stmt.execute();
     }
-
+    /**
+     * This query will get the movie`s titles
+     */
     public String[] getTitleMovies(int session, int numberOfMovies) throws SQLException {
         String query = "SELECT movie.title FROM movies_cart\n"
                 + "INNER JOIN movie ON movie.id_movie = movies_cart.id_movie\n"

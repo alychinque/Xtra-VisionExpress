@@ -26,14 +26,19 @@ public class MovieDAO {
         this.connection = conn;
     }
 
-    //THIS METHOD RETRIEVE THE LAST 10 MOVIES
+    /**
+     * THIS METHOD RETRIEVE THE LAST 10 MOVIES
+     * 
+     */
     public ArrayList<Movie> getLast10Movies() throws SQLException {
         //query to get the movies
         String query = "SELECT id_movie, title, subTitle FROM (\n"
                 + "SELECT * FROM Alysson_2019305.movie ORDER BY id_movie DESC LIMIT 10\n"
                 + ")var1\n"
                 + "ORDER BY id_movie ASC;";
-        //creating a Statement assigning a connection with the select query
+        /*
+        creating a Statement assigning a connection with the select query
+        */
         PreparedStatement stmt = connection.prepareStatement(query);
         stmt.execute();
 
