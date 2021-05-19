@@ -20,8 +20,7 @@ import view.MovieDescription;
 /**
  *
  * @author Alysson Chinque
- */
-/**
+ * @author Maicon
  * Creating a Class implementing the Action listener, also some other variables.
  */
 public class MainController implements ActionListener {
@@ -37,8 +36,8 @@ public class MainController implements ActionListener {
     private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
 
     /**
-     * This a constructor try to make a connection with the DataBase to get the
-     * movie`s name.
+     * This a constructor try to make a connection with the DataBase.
+     * Instantiating movieDao and genreDao.
      */
     public MainController(Main view) {
         this.view = view;
@@ -54,7 +53,6 @@ public class MainController implements ActionListener {
     }
 
     /**
-     *
      * This method will call the Home page once you click back
      */
     public void backHome() {
@@ -62,11 +60,12 @@ public class MainController implements ActionListener {
         this.view.dispose();
         home.setVisible(true);
     }
-    /*
-     This method will have parameters to get the movie description, It will have a connection with the database
-     that will add the movie description to the movie.
+    
+    /**
+     * This method will bring you to the movie description, it carries a session and idMovie.
+     * @param session : current session.
+     * @param idMovie : movie selected.
      */
-
     public void goMovieDescription(int session, int idMovie) {
 
         try {
@@ -79,29 +78,20 @@ public class MainController implements ActionListener {
         this.view.dispose();
     }
 
-    /*
-     This other mothed has an array that will get the last 10 movies from the database. 
-     hint : they should be star wars :D
+    /**
+     * This method will bring you to the cart.
      */
-    public ArrayList<Movie> getLast10Movies() {
-        try {
-            moviesArray = moviedao.getLast10Movies();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Failed");
-        }
-        return moviesArray;
-    }
-
     @Override
-    /*
-     This method will dispose the cart with the movies.
-     */
     public void actionPerformed(ActionEvent e) {
         this.view.dispose();
         Cart cart = new Cart(Integer.parseInt(e.getActionCommand()));
         cart.setVisible(true);
     }
-
+    
+    /**
+     * This method will get all the movies and
+     * @return an array list of movies.
+     */
     public ArrayList<Movie> getMoviesTotal() {
         try {
             moviesArrayTotal = moviedao.getMovies();
@@ -110,7 +100,11 @@ public class MainController implements ActionListener {
         }
         return moviesArrayTotal;
     }
-
+    
+    /**
+     * This method will get the genres from the DB and 
+     * @return an array of genre.
+     */
     public String[] getGenre() {
         String[] genre = null;
         try {
