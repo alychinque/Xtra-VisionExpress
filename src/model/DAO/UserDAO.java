@@ -15,6 +15,12 @@ import model.User;
  *
  * @author Alysson Chinque
  */
+/**
+ * 
+ * @author Maicon
+ * This class will instantiate a connection with the database, that will have a query to get the user information, 
+ * such as name and card details
+ */
 public class UserDAO {
 
     private final Connection connection;
@@ -36,7 +42,9 @@ public class UserDAO {
         stmt.execute();
         return getIdUser(user.getCardNumber());
     }
-
+    /**
+     * This query will get the user id from the database 
+     */
     public int userIsInTheDB(String cardNumber) throws SQLException {
         String query = "SELECT id_user FROM Alysson_2019305.user\n"
                 + "where card_number = ?;";
@@ -53,7 +61,11 @@ public class UserDAO {
         }
         return idUser;
     }
-
+    /**
+     * 
+     * This query will add a new user even if the user doesn`t want to register an email.
+     * the payment will be possible without having to register themselves.
+     */
     public int insertUserWithoutEmail(User user) throws SQLException {
         String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc)\n"
                 + "values (?, ?, ?, ?, ?)";
@@ -66,7 +78,9 @@ public class UserDAO {
         stmt.execute();
         return getIdUser(user.getCardNumber());
     }
-
+    /**
+     * This query will allow the user to register their email if they want.
+     */
     public void registerEmail(String cardNumber, String email) throws SQLException {
         String query = "UPDATE Alysson_2019305.user\n"
                 + "SET email_user = ?"
@@ -76,7 +90,9 @@ public class UserDAO {
         stmt.setString(2, cardNumber);
         stmt.execute();
     }
-
+    /**
+     * This query will get the user id
+     */
     private int getIdUser(String cardNumber) throws SQLException {
         String query = "SELECT id_user from Alysson_2019305.user\n"
                 + "where card_number = ?;";
