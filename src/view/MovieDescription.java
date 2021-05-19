@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import controller.MovieDescriptionController;
@@ -13,20 +9,18 @@ import model.Movie;
 /**
  *
  * @author Alysson Chinque
+ * @author Maicon
  */
 public class MovieDescription extends javax.swing.JFrame {
     
     private final MovieDescriptionController controller;
     private ArrayList<Movie> movieDescription = new ArrayList<>();
     int session;
+   
     /**
-     * Creates new form MovieDescription
-     */
-
-    /**
-     * Creates new form MovieDescription
-     * @param session
-     * @param moviesDescription
+     * Creates a constructor of the class MovieDescription
+     * @param session : from main 
+     * @param moviesDescription : movie selected.
      */
     public MovieDescription(int session, ArrayList<Movie> moviesDescription) {
         this.session = session;
@@ -221,7 +215,7 @@ public class MovieDescription extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,19 +239,25 @@ public class MovieDescription extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This mouse clicked event will try to add a movie into the cart, if 
+     * the cart already holds 4 movies, it will show an error message.
+     * @param evt 
+     */
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
-        // TODO add your handling code here:
-        try {
+         try {
             controller.addCart(session, movieDescription.get(0).getIdMovie());
            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "You can not add more than 4 movies"
                         + "\nFor add more please exclud one of the movies in the Cart");
-        }
-        
-        
+        }   
     }//GEN-LAST:event_rentButtonActionPerformed
 
+    /**
+     * This mouse clicked event will bring you back to the Main screen.
+     * @param evt 
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         controller.backMain(session);
@@ -285,7 +285,11 @@ public class MovieDescription extends javax.swing.JFrame {
     private javax.swing.JLabel subTitle;
     private javax.swing.JLabel titleMovie;
     // End of variables declaration//GEN-END:variables
-
+    
+    /**
+     * This method will fill the fields with the movie information, such as title, duration, etc.
+     * @param movieDescription 
+     */
     private void fillFields(ArrayList<Movie> movieDescription) {
         imageMovie.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/movies/"+ movieDescription.get(0).getIdMovie() +".jpg")));
         titleMovie.setText(movieDescription.get(0).getTitle());
