@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import controller.HomeController;
@@ -18,7 +14,7 @@ public class Home extends javax.swing.JFrame {
     private final HomeController controller;
 
     /**
-     * Creates new form Home
+     * Constructor of the class creating a new controller and set cursor 
      */
     public Home() {
         initComponents();
