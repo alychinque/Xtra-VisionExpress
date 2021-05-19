@@ -26,7 +26,7 @@ public class Cart extends javax.swing.JFrame {
     private javax.swing.JButton[] btnDelete;
 
     /**
-     * Creates new form Cart
+     * Constructor of the class
      */
     public Cart(int session) {
         this.session = session;
@@ -39,7 +39,6 @@ public class Cart extends javax.swing.JFrame {
         positionVariables(sizeArray);
         totalValue(sizeArray);
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -187,7 +186,7 @@ public class Cart extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(logo)
                 .addGap(5, 5, 5)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,16 +210,18 @@ public class Cart extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Once the button is clicked you will go to the checkout.
+     * @param evt 
+     */
     private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
-        // TODO add your handling code here:
-//        if( controller.checkMoviesInTheCart(session)[0] == 0){
-//            JOptionPane.showMessageDialog(null, "Cart might be empty");
-//        }else{
-//            controller.goCheckout(session, sizeArray);
-//        }
-        controller.goCheckout(session, sizeArray);
+         controller.goCheckout(session, sizeArray);
     }//GEN-LAST:event_checkoutButtonActionPerformed
-
+   
+    /**
+     * Once the button is clicked you will go to the Main screen.
+     * @param evt 
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         controller.backMain(session);
@@ -242,6 +243,11 @@ public class Cart extends javax.swing.JFrame {
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * This method will generate variables
+     * @param moviesArray from the cart session
+     * @param sizeArray 
+     */
     private void genVariables(ArrayList<Movie> moviesArray, int sizeArray) {
         try {
             panelMovie = new JPanel[sizeArray];
@@ -267,7 +273,12 @@ public class Cart extends javax.swing.JFrame {
 
         }
     }
-
+    
+    /**
+     * This method will fill the variables with the movies from the cart
+     * @param moviesArray
+     * @param sizeArray 
+     */
     private void fillVariables(ArrayList<Movie> moviesArray, int sizeArray) {
         for (int i = 0; i < sizeArray; i++) {
             try {
@@ -282,7 +293,10 @@ public class Cart extends javax.swing.JFrame {
             }
         }
     }
-
+    /**
+     * This method will set the position of the variables.
+     * @param sizeArray 
+     */
     private void positionVariables(int sizeArray) {
         try {
             for (int i = 0; i < sizeArray; i++) {
@@ -308,11 +322,19 @@ public class Cart extends javax.swing.JFrame {
             System.out.println("error positioning variables: " + e);
         }
     }
-
+    
+    /**
+     * This method will get the session.
+     * @return 
+     */
     public int getSession() {
         return this.session;
     }
-
+    
+    /**
+     * This method will set the value of the rental accordingly with 
+     * @param sizeArray : quantity of movies. 
+     */
     private void totalValue(int sizeArray) {
         switch (sizeArray) {
             case 1:
