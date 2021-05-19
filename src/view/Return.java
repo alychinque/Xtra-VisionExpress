@@ -12,7 +12,7 @@ import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author alych
+ * @author Alysson Chinque
  */
 public class Return extends javax.swing.JFrame {
 
@@ -66,9 +66,9 @@ public class Return extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(600, 400));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(600, 400));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 400));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 800));
