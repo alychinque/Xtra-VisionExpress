@@ -17,15 +17,11 @@ public class Checkout extends javax.swing.JFrame {
 
     private CheckoutController controller;
     private int session;
-
-    public int getSession() {
-        return session;
-    }
     private int sizeArray;
     private boolean codeValid;
-
+        
     /**
-     * Creates new form Checkout
+     * Constructor of the class, initiate the components and set the combo box.
      */
     public Checkout(int session, int sizeArray) {
         this.session = session;
@@ -311,7 +307,7 @@ public class Checkout extends javax.swing.JFrame {
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(priceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                             .addComponent(priceTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(responseCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -380,35 +376,48 @@ public class Checkout extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method will call the method payMovie in the controller.
+     * @param evt 
+     */
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
         controller.payMovie(sizeArray);
     }//GEN-LAST:event_payButtonActionPerformed
 
+    /**
+     * This method will call the method backCart in the controller.
+     * @param evt 
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         controller.backCart(session);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void inputCardNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputCardNameActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_inputCardNameActionPerformed
 
+    /**
+     * This method will check the code for the Promo code is valid.
+     * the promo code is "FREEMOVIE"
+     * @param evt 
+     */
     private void checkCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCodeActionPerformed
         // TODO add your handling code here:
         boolean promoCode = controller.checkPromoCode();
         setResponseCode(promoCode);
     }//GEN-LAST:event_checkCodeActionPerformed
-
+    
     private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_monthBoxActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_yearBoxActionPerformed
 
     private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_inputEmailActionPerformed
 
     /**
@@ -449,7 +458,12 @@ public class Checkout extends javax.swing.JFrame {
     private javax.swing.JLabel validLabel;
     private javax.swing.JComboBox yearBox;
     // End of variables declaration//GEN-END:variables
-
+    
+    /**
+     * This method will add the prices for the movies, it will be based on the size of 
+     * the array. 
+     * @param sizeArray 
+     */
     private void totalValue(int sizeArray) {
         priceTotal = new JLabel();
         priceTotal.setFont(new java.awt.Font("Tahoma", 0, 14));
@@ -472,6 +486,10 @@ public class Checkout extends javax.swing.JFrame {
         panel.add(priceTotal);
     }
 
+    /**
+     * Getter methods
+     * @return 
+     */
     public int getSizeArray() {
         return sizeArray;
     }
@@ -495,7 +513,11 @@ public class Checkout extends javax.swing.JFrame {
     public JTextField getInputCardName() {
         return inputCardName;
     }
-
+    
+    /**
+     * This method sets if the code is valid or not.
+     * @param responseCode 
+     */
     public void setResponseCode(boolean responseCode) {
         if(responseCode){
             this.responseCode.setText(" *-* VALID CODE *-* ");
@@ -506,6 +528,13 @@ public class Checkout extends javax.swing.JFrame {
             this.responseCode.setFont(new java.awt.Font("Tahoma", 0, 20));
             this.responseCode.setForeground(new java.awt.Color(255, 0, 0));
         }
-        
+    }
+    
+    /**
+     * Method to get the current session.
+     * @return 
+     */
+    public int getSession() {
+        return session;
     }
 }
