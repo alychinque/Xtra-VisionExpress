@@ -92,7 +92,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="backButton" min="-2" pref="140" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="JButtonPrevious" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                       <Component id="currentPageLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lastPageLabel" min="-2" pref="38" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Component id="JButtonNext" min="-2" pref="79" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -122,8 +122,8 @@
                           <Component id="backButton" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="currentPageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lastPageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="JButtonNext" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="JButtonPrevious" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="20" max="32767" attributes="0"/>
@@ -243,7 +243,7 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="moviePanel9" pref="308" max="32767" attributes="0"/>
+                                      <Component id="moviePanel9" pref="309" max="32767" attributes="0"/>
                                       <Component id="moviePanel8" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -463,7 +463,7 @@
                               <Component id="titleMovie3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Component id="subTitleMovie3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="260" max="32767" attributes="0"/>
+                              <EmptySpace pref="261" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -537,7 +537,7 @@
                               <Component id="titleMovie4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Component id="subTitleMovie4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -606,7 +606,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="imageMovie5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="7" max="32767" attributes="0"/>
                               <Component id="titleMovie5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Component id="subTitleMovie5" min="-2" max="-2" attributes="0"/>
@@ -1020,20 +1020,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="JButtonNext">
               <Properties>
                 <Property name="text" type="java.lang.String" value="next"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonNextActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="JButtonPrevious">
               <Properties>
                 <Property name="text" type="java.lang.String" value="previous"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonPreviousActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
