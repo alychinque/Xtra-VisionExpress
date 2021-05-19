@@ -52,6 +52,7 @@ public class Main extends javax.swing.JFrame {
         fillMovies(moviesArrayTotal, first);
         this.session = session;
         creteButton();
+        setGenre();
     }
 
     public Main() {
@@ -232,12 +233,11 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1200, 840));
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 840));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 840));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 840));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1000, 600));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1000, 600));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 840));
