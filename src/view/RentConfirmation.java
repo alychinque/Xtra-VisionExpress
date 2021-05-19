@@ -14,9 +14,8 @@ import model.Rent;
 public class RentConfirmation extends javax.swing.JFrame {
 
     /**
-     * Creates new form RentConfirmation
+     * Constructor of the class, initiate the complements and fill the variables.
      */
-
     public RentConfirmation(Rent rent, float rentCharge) {
         initComponents();
         fillVariables(rent, rentCharge);
@@ -157,6 +156,10 @@ public class RentConfirmation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method will instantiate the Home page once the button exit is clicked. 
+     * @param evt 
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         Home home = new Home();
@@ -185,6 +188,11 @@ public class RentConfirmation extends javax.swing.JFrame {
     private javax.swing.JLabel typeOfCurrency;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * This method will fill the variables 
+     * @param rent
+     * @param rentCharged 
+     */
     private void fillVariables(Rent rent, float rentCharged) {
         rentNumber.setText(Integer.toString(rent.getRentNumber()));
         returnDate.setText(rent.getReturnDate());
