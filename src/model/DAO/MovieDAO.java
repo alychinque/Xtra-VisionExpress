@@ -27,33 +27,10 @@ public class MovieDAO {
     }
 
     /**
-     * THIS METHOD RETRIEVE THE LAST 10 MOVIES
-     * 
+     * This method will get the movies 
+     * @return an array list of movies.
+     * @throws SQLException 
      */
-    public ArrayList<Movie> getLast10Movies() throws SQLException {
-        //query to get the movies
-        String query = "SELECT id_movie, title, subTitle FROM (\n"
-                + "SELECT * FROM Alysson_2019305.movie ORDER BY id_movie DESC LIMIT 10\n"
-                + ")var1\n"
-                + "ORDER BY id_movie ASC;";
-        /*
-        creating a Statement assigning a connection with the select query
-        */
-        PreparedStatement stmt = connection.prepareStatement(query);
-        stmt.execute();
-
-        ResultSet resultSet = stmt.getResultSet();
-
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id_movie");
-            String title = resultSet.getString("title");
-            String subTitle = resultSet.getString("subTitle");
-            movies = new Movie(id, title, subTitle);
-            moviesArray.add(movies);
-        }
-        return moviesArray;
-    }
-
     public ArrayList<Movie> getMovies() throws SQLException {
         //query to get all movies
         String query = "SELECT id_movie, title, subTitle FROM Alysson_2019305.movie;";
@@ -75,6 +52,13 @@ public class MovieDAO {
         return moviesArray;
     }
 
+    /**
+     * This method will get the description of the movie.
+     * accordingly with the idMovie
+     * @param idMovie
+     * @return an object of movie with all the information about the movie.
+     * @throws SQLException 
+     */
     public Movie getDescription(int idMovie) throws SQLException {
         //query to get all movies
         String query2 = "SELECT movie.*, genre.genre\n"

@@ -9,7 +9,7 @@ import model.Genre;
 
 /**
  *
- * @author alych
+ * @author alysson Chinque
  */
 public class GenreDAO {
     private Connection connection;
