@@ -68,11 +68,10 @@ public class MovieDescription extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1200, 800));
         setMinimumSize(new java.awt.Dimension(1200, 800));
-        setResizable(false);
 
-        jScrollPane2.setMaximumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane2.setMinimumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane2.setMinimumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(1200, 750));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 800));

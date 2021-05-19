@@ -91,9 +91,9 @@ public class Checkout extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1200, 800));
         setMinimumSize(new java.awt.Dimension(1200, 800));
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 800));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 800));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 750));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 800));

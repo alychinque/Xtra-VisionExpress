@@ -232,12 +232,14 @@ public class Main extends javax.swing.JFrame {
         lastPageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
         setMaximumSize(new java.awt.Dimension(1200, 840));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(1200, 840));
+        setPreferredSize(new java.awt.Dimension(1200, 840));
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(1000, 600));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(1000, 600));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1000, 600));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1150, 750));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1150, 750));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1150, 750));
 
         background.setBackground(new java.awt.Color(40, 40, 40));
         background.setMaximumSize(new java.awt.Dimension(1200, 840));
@@ -818,7 +820,16 @@ public class Main extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(background);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
