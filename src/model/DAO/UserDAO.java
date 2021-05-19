@@ -14,21 +14,26 @@ import model.User;
 /**
  *
  * @author Alysson Chinque
- */
-/**
- * 
  * @author Maicon
- * This class will instantiate a connection with the database, that will have a query to get the user information, 
- * such as name and card details
  */
 public class UserDAO {
 
     private final Connection connection;
 
+    /**
+     * This constructor will create a connection with the DB.
+     * @param conn 
+     */
     public UserDAO(Connection conn) {
         this.connection = conn;
     }
 
+    /**
+     * This method will insert an user into the DB
+     * @param user
+     * @return : The user id will be returned.
+     * @throws SQLException 
+     */
     public int insertUser(User user) throws SQLException {
         String query = "INSERT INTO Alysson_2019305.user (card_number, name_user, month_card, year_card, cvc, email_user)\n"
                 + "values (?, ?, ?, ?, ?, ?)";
@@ -42,8 +47,9 @@ public class UserDAO {
         stmt.execute();
         return getIdUser(user.getCardNumber());
     }
+    
     /**
-     * This query will get the user id from the database 
+     * This method will check if the user is in the database 
      */
     public int userIsInTheDB(String cardNumber) throws SQLException {
         String query = "SELECT id_user FROM Alysson_2019305.user\n"
@@ -61,9 +67,9 @@ public class UserDAO {
         }
         return idUser;
     }
+    
     /**
-     * 
-     * This query will add a new user even if the user doesn`t want to register an email.
+     * This method will add a new user even if the user doesn`t want to register an email.
      * the payment will be possible without having to register themselves.
      */
     public int insertUserWithoutEmail(User user) throws SQLException {
@@ -78,8 +84,9 @@ public class UserDAO {
         stmt.execute();
         return getIdUser(user.getCardNumber());
     }
+    
     /**
-     * This query will allow the user to register their email if they want.
+     * This method will allow the user to register their email if they want.
      */
     public void registerEmail(String cardNumber, String email) throws SQLException {
         String query = "UPDATE Alysson_2019305.user\n"
@@ -90,8 +97,9 @@ public class UserDAO {
         stmt.setString(2, cardNumber);
         stmt.execute();
     }
+    
     /**
-     * This query will get the user id
+     * This method will get the user id
      */
     private int getIdUser(String cardNumber) throws SQLException {
         String query = "SELECT id_user from Alysson_2019305.user\n"

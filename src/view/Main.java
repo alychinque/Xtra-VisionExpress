@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import model.Movie;
 
 /**
- *
+ *@author Alysson Chinque
  * @author Maicon
  */
 public class Main extends javax.swing.JFrame {
