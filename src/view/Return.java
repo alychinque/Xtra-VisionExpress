@@ -11,8 +11,9 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 
 /**
- *
- * @author Alysson Chinque
+ * @author Alysson Chinque 
+ * @author Maicon
+ * 
  */
 public class Return extends javax.swing.JFrame {
 
@@ -23,25 +24,14 @@ public class Return extends javax.swing.JFrame {
     private String[] rentNum;
 
     /**
-     * Creates new form Return
+     * Constructor of the class initiating the components, get movie`s title
+     * and set JComboBox
      */
     public Return() {
         initComponents();
         controller = new ReturnController(this);
-        
         moviesTitle = controller.getMoviesRented();
-        convertArray(moviesTitle);
-        movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(moviesRented));
-        rentNumber = controller.getRentNumbers();
-        convertRentNumber(rentNumber);
-        numberComboBox.setModel(new DefaultComboBoxModel(rentNum));
-        returnLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
-        movieComboBox.addActionListener(controller);
-        movieComboBox.setActionCommand("movie");
-        
-        numberComboBox.addActionListener(controller);
-        numberComboBox.setActionCommand("rentNumber");
+        setJComboBoxes();
     }
 
     /**
@@ -195,14 +185,18 @@ public class Return extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method calls back to the home screen.
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        controller.backHome();
+         controller.backHome();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    /**
+     * This method checks if the movie and the rent number matches.
+     */
     private void returnLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnLabelMouseClicked
-        // TODO add your handling code here:
-        controller.checkReturn();
+         controller.checkReturn();
     }//GEN-LAST:event_returnLabelMouseClicked
 
 
@@ -219,6 +213,28 @@ public class Return extends javax.swing.JFrame {
     private javax.swing.JPanel retutnPanel;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * This method is setting the JComboBox. 
+     */
+    private void setJComboBoxes() {
+        convertArray(moviesTitle);
+        movieComboBox.setModel(new javax.swing.DefaultComboBoxModel(moviesRented));
+        rentNumber = controller.getRentNumbers();
+        
+        convertRentNumber(rentNumber);
+        numberComboBox.setModel(new DefaultComboBoxModel(rentNum));
+        returnLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        movieComboBox.addActionListener(controller);
+        movieComboBox.setActionCommand("movie");
+        
+        numberComboBox.addActionListener(controller);
+        numberComboBox.setActionCommand("rentNumber");
+    }
+    
+    /**
+     * This method converts array list into an array.
+     */
     private void convertArray(ArrayList<String> moviesTitle) {
         moviesRented = new String[moviesTitle.size()];
         for (int i = 0; i < moviesTitle.size(); i++) {
@@ -226,10 +242,14 @@ public class Return extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * This method converts array list into an array.
+     */
     private void convertRentNumber(ArrayList<Integer> rentNumber) {
         rentNum = new String[rentNumber.size()];
         for (int i = 0; i < rentNumber.size(); i++) {
             rentNum[i] = Integer.toString(rentNumber.get(i));
         }
     }
+
 }
