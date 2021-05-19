@@ -18,13 +18,17 @@ public class HomeController {
     private final Home view;
     private Connection conn;;
     
-    
+    /**
+     * Constructor of the class 
+     * @param view : Assign view to view
+     */
     public HomeController(Home view) {
         this.view = view;
     }
     
     /**
-     * This function is instantiating the main class in dispose the HomeScreen 
+     * This function is instantiating the main class, and set the main class as 
+     * visible and dispose the Home screen.
      */
     public void goMain() {       
         Main main = new Main();
@@ -32,9 +36,9 @@ public class HomeController {
         this.view.dispose();
         
     }
-    /** This function is instantiating the Return class, and set as visible and then it 
-     * will dispose in the HomeScreen
-     * 
+    /**
+     * This function is instantiating the Return class, and set return class as 
+     * visible and then it will dispose the Home screen.
      */
     public void goReturn() {
         Return returnS = new Return();
