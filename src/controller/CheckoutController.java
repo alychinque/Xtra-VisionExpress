@@ -74,7 +74,10 @@ public class CheckoutController implements ActionListener {
         userdao = new UserDAO(conn);
         this.session = view.getSession();
     }
-
+    /**
+     * This method will bring you back to the cart. 
+     * @param session 
+     */
     public void backCart(int session) {
         Cart cart = new Cart(session);
         this.view.dispose();
@@ -96,11 +99,7 @@ public class CheckoutController implements ActionListener {
     }
 
     /**
-     * This other method is to get the payment, first it will check if the
-     * customer has a log in or not, if not the user have the option to register
-     * themselves, and their information will be saved in the database, it will
-     * also check if the customer is a new one or not, so then we can know if
-     * the customer can use the voucher.
+     * This method will generate a register of the rent
      *
      * @param sizeArray
      */
@@ -208,7 +207,7 @@ public class CheckoutController implements ActionListener {
 
     /**
      *
-     * To register an email you need to have a valid email structure.
+     * This method will check if the email is valid.
      */
     private boolean checkEmail(String email) {
         if (email.isEmpty()) {
@@ -238,7 +237,8 @@ public class CheckoutController implements ActionListener {
     }
 
     /**
-     * You need to have a name in the field card name
+     * This method will check if the card name is filled.
+     * all possible mistakes will be catch.
      */
     private boolean checkCardName(String cardName) {
         if (cardName.isEmpty()) {
@@ -251,7 +251,7 @@ public class CheckoutController implements ActionListener {
 
     /**
      *
-     * This will check if your card has 16 numbers, and it will catch any
+     * This method will check if your card has 16 numbers, and it will catch any
      * possible mistake, such as if you type a letter by mistake.
      */
     private boolean checkCardNumber(String numberCard) {
@@ -302,8 +302,7 @@ public class CheckoutController implements ActionListener {
     }
 
     /**
-     * This method will get the movies id and it will generate a random number
-     * that you should keep for when you need to return your movie.
+     * This method will generate an object of rent with the renting information.
      */
     private Rent[] getDataRent() {
         try {
@@ -365,7 +364,7 @@ public class CheckoutController implements ActionListener {
 
     /**
      *
-     * Checking if the user in the database
+     * This method will check if the user in the database
      */
     private boolean userIsInTheDB() throws SQLException {
         this.idUser = userdao.userIsInTheDB(cardNumber);
@@ -385,11 +384,19 @@ public class CheckoutController implements ActionListener {
         Random random = new Random();
         return random.nextInt(9999);
     }
-
+    
+    /**
+     * This method will set the user ID
+     * @param idUser 
+     */
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
-
+    
+    /**
+     * This method will create an object of user with the information about the user
+     * @return 
+     */
     private int createUser() {
         System.out.println("card number: " + cardNumber
                 + "\ncard name: " + cardName
@@ -412,7 +419,8 @@ public class CheckoutController implements ActionListener {
     }
 
     /**
-     * Confirming that the rent was successful
+     * This method will instantiate rent confirmation and set as visible and
+     * will set the rent charge.
      */
     private void goRentConfirmation(Rent[] rent) {
         if (checkPromoCode() && newUser) {
