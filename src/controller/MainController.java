@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.awt.event.ActionEvent;
@@ -23,49 +22,53 @@ import view.MovieDescription;
  * @author Alysson Chinque
  */
 /**
- *Creating a Class implementing the Action listener, also some other variables.
+ * Creating a Class implementing the Action listener, also some other variables.
  */
-public class MainController implements ActionListener{
-    
+public class MainController implements ActionListener {
+
     private final Main view;
     private Connection conn;
     private ArrayList<Movie> movieDescription = new ArrayList<>();
     private int numOfGenres = 5;
     private String[] genre = new String[numOfGenres];
     private MovieDAO moviedao;
+    private GenreDAO genredao;
     private ArrayList<Movie> moviesArray = new ArrayList<>();
     private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
-    
+
     /**
-     * This a constructor try to make a connection with the DataBase to get the movie`s name.
+     * This a constructor try to make a connection with the DataBase to get the
+     * movie`s name.
      */
     public MainController(Main view) {
         this.view = view;
-        
+
         try {
             conn = new ConnectionDB().getConnection();
             moviedao = new MovieDAO(conn);
+            genredao = new GenreDAO(conn);
         } catch (SQLException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Failed");
         }
     }
-    
+
     /**
-     * 
-    *This method will call the Home page once you click back
-    */
+     *
+     * This method will call the Home page once you click back
+     */
     public void backHome() {
         Home home = new Home();
         this.view.dispose();
         home.setVisible(true);
     }
     /*
-    This method will have parameters to get the movie description, It will have a connection with the database
-    that will add the movie description to the movie.
-    */
+     This method will have parameters to get the movie description, It will have a connection with the database
+     that will add the movie description to the movie.
+     */
+
     public void goMovieDescription(int session, int idMovie) {
-        
+
         try {
             movieDescription.add(moviedao.getDescription(idMovie));
         } catch (Exception e) {
@@ -75,24 +78,12 @@ public class MainController implements ActionListener{
         movieD.setVisible(true);
         this.view.dispose();
     }
+
     /*
-    This method will define a genre to the movies, every movie has been associate to a number from 1 to 5 in the database
-    so basically here it will get the genre for that movie chosen
-    */
-    public void setGenre() {
-        GenreDAO genredao = new GenreDAO(conn);
-        try {
-            genre = genredao.getGenre();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Failed in the genre");
-        }
-        this.view.setOption(genre);
-    }
-    /*
-    This other mothed has an array that will get the last 10 movies from the database. 
-    hint : they should be star wars :D
-    */
-    public ArrayList<Movie> getLast10Movies(){
+     This other mothed has an array that will get the last 10 movies from the database. 
+     hint : they should be star wars :D
+     */
+    public ArrayList<Movie> getLast10Movies() {
         try {
             moviesArray = moviedao.getLast10Movies();
         } catch (Exception e) {
@@ -102,9 +93,9 @@ public class MainController implements ActionListener{
     }
 
     @Override
-        /*
-        This method will dispose the cart with the movies.
-    */
+    /*
+     This method will dispose the cart with the movies.
+     */
     public void actionPerformed(ActionEvent e) {
         this.view.dispose();
         Cart cart = new Cart(Integer.parseInt(e.getActionCommand()));
@@ -119,5 +110,14 @@ public class MainController implements ActionListener{
         }
         return moviesArrayTotal;
     }
-    
+
+    public String[] getGenre() {
+        String[] genre = null;
+        try {
+            return genredao.getGenre();
+        } catch (Exception e) {
+            return genre;
+        }
+    }
+
 }

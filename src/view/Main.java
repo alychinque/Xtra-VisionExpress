@@ -17,7 +17,7 @@ public class Main extends javax.swing.JFrame {
     private JButton goCart;
     private ArrayList<Movie> moviesArrayTotal = new ArrayList<>();
     public static ArrayList<Movie> moviesShowed = new ArrayList<>();
-    private String[] option;
+    private String[] genre;
     private int session;
     private int currentPage = 1;
     private int pages;
@@ -65,6 +65,8 @@ public class Main extends javax.swing.JFrame {
         setPagination();
         first = (int) quantityOfMovies - 1;
         fillMovies(moviesArrayTotal, first);
+        genre = setComboBox();
+        setGenre();
     }
 
     /**
@@ -900,9 +902,6 @@ public class Main extends javax.swing.JFrame {
         goNextPage();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void setOption(String[] option) {
-        this.option = option;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -1018,6 +1017,21 @@ public class Main extends javax.swing.JFrame {
         moviePanel8.setVisible(false);
         moviePanel9.setVisible(false);
         moviePanel10.setVisible(false);
+    }
+
+    private String[] setComboBox() {
+        String[] genre = null;
+        try {
+            genre = controller.getGenre();
+            return genre;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting genre");
+            return genre;
+        }
+    }
+
+    private void setGenre() {
+        genreComboBox.setModel(new javax.swing.DefaultComboBoxModel(genre));
     }
 
 }
