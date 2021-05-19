@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import java.awt.event.ActionEvent;
@@ -24,11 +20,11 @@ import view.Return;
 
 /**
  *
- * @author alych
+ * @author alysson chinque
+ * @author maicon
+ * 
  */
-/**
- * This class will create the return screen.
- */
+
 public class ReturnController implements ActionListener {
 
     private final Return view;
@@ -41,8 +37,13 @@ public class ReturnController implements ActionListener {
     private final Calendar cal;
     private final SimpleDateFormat sdf;
     private String today;
-    private double fee = 1.50;
+    private double fine = 1.50;
 
+    /**
+     * Constructor of the class, Creating a connection with the DB, instantiating rentDao
+     * creating a Gregorian calendar and a simple date format.
+     * @param view : from the return view class.
+     */
     public ReturnController(Return view) {
         try {
             conn = new ConnectionDB().getConnection();
@@ -53,13 +54,21 @@ public class ReturnController implements ActionListener {
         cal = new GregorianCalendar();
         sdf = new SimpleDateFormat("dd/MM/yyyy");
     }
-
+    
+    /**
+     * This method is instantiating the home page and setting as visible.
+     * 
+     */
     public void backHome() {
         Home home = new Home();
         this.view.dispose();
         home.setVisible(true);
     }
-
+    
+    /**
+     * This method gets an array list with the movies rented.
+     * @return : return an array list of movies rented.
+     */
     public ArrayList<String> getMoviesRented() {
         try {
             moviesTitle = rentdao.getMovies();
@@ -68,8 +77,12 @@ public class ReturnController implements ActionListener {
 
         }
         return moviesTitle = null;
-    }
-
+    }  
+        
+    /**
+     * This method gets the rent numbers and 
+     * @return : an array list of rent numbers.
+     */
     public ArrayList<Integer> getRentNumbers() {
         try {
             rentNumber = rentdao.getRentNumbers();
@@ -80,6 +93,10 @@ public class ReturnController implements ActionListener {
         return rentNumber = null;
     }
 
+    /**
+     * Action performed gets the selected items in the combo box
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("movie")) {
@@ -91,6 +108,10 @@ public class ReturnController implements ActionListener {
         }
     }
 
+    /**
+     * This method will check if the movie and the rent number matches, also it will check
+     * if the return overdue the return date, if so it applies a fine. 
+     */
     public void checkReturn() {
         today = sdf.format(cal.getTime());
         if (checkFields()) {
@@ -101,11 +122,11 @@ public class ReturnController implements ActionListener {
                     if (datesCompared > 0){
                         if (datesCompared < 10){
                             JOptionPane.showMessageDialog(view, "Movie Returned with success but it is late\n"
-                                + "You were charged €" + (datesCompared * fee));
+                                + "You were charged €" + (datesCompared * fine));
                             backHome();
                         } else {
                             JOptionPane.showMessageDialog(view, "You are more than or equal to 10 days overdue\n"
-                                    + "You were charged €" + (10 * fee));
+                                    + "You were charged €" + (10 * fine));
                             backHome();
                         }
                         
@@ -124,6 +145,10 @@ public class ReturnController implements ActionListener {
         }
     }
 
+    /**
+     * It will check if the combo box is selected, then it will
+     * @return : true if so, and it will return a error message if not selected.
+     */
     private boolean checkFields() {
         if (rentNumberSelected.equals("") || rentNumberSelected.equals("0") || movie.equals("") || movie.equals("Movies")) {
             JOptionPane.showMessageDialog(view, "Please, pick a movie and a number!");
@@ -132,6 +157,12 @@ public class ReturnController implements ActionListener {
         return true;
     }
 
+    /**
+     * This method will check if the date overdue the return date.
+     * @param today : passing the current date
+     * @param returnDate : passing the date that the movie is supposed to be returned.
+     * @return : if the date is overdue, return the number of days. If not return 0.
+     */
     private int getDifferenceDates(String today, String returnDate) {
         String inputString1 =returnDate ;
         String inputString2 = today;
