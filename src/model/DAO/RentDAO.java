@@ -16,22 +16,33 @@ import model.Rent;
 /**
  *
  * @author Alysson Chinque
+ * @author maicon
+ * 
  */
-/**
- * This class will have some variables that will be used to return the movies.
- */
+
 public class RentDAO {
 
     private final Connection connection;
     private ArrayList<String> moviesTitle = new ArrayList<>();
     private ArrayList<Integer> rentNumber = new ArrayList<>();
-    //making a connection with the database.
+    
+    /**
+     * Construction of the class creating a 
+     * @param conn : Connection with the database.
+     */
     public RentDAO(Connection conn) {
         this.connection = conn;
     }
+    
     /**
-     * This method will have a query that will check the random number generated when you rent the movies.
-     * It will check if your number is valid or not. 
+     * ALL METHODS WILL CHECK THE DB
+     */
+    
+    /**
+     * This method will check if the random number is already in the DB
+     * @param number : random number
+     * @return : true if the number is not in the DB, otherwise it will 
+     * return false.
      */
     public boolean checkRandomNumber(int number) {
         try {
@@ -54,8 +65,12 @@ public class RentDAO {
         }
         return false;
     }
+    
     /**
-     * This query will insert some informations to register your rental. 
+     * This query will insert some informations to register your rental
+     * @param rent: Object with the information about the rent
+     * @param session : Refers to the rent.
+     * @throws SQLException
      */
     public void registerRent(Rent rent, int session) throws SQLException {
         String query = "insert into rent (id_user, title, session, rent_number, rent_date, return_date, returned, rent_charge)\n"
@@ -71,8 +86,11 @@ public class RentDAO {
         stmt.setFloat(8, rent.getRentCharge());
         stmt.execute();
     }
+    
     /**
      * This query will arrange the movies in an array. 
+     * @return : it will return an array list with the movie`s title.
+     * @throws SQLException 
      */
     public ArrayList<String> getMovies() throws SQLException {
         String query = "SELECT DISTINCT title FROM Alysson_2019305.rent\n"
@@ -86,8 +104,11 @@ public class RentDAO {
         }
         return moviesTitle;
     }
+    
     /**
-     * This query will select the rental number from the database and will return a random number to the user.
+     * This method will get the rent numbers without repetition in order.
+     * @return : it will return an array list with the rent numbers.
+     * @throws SQLException 
      */
     public ArrayList<Integer> getRentNumbers() throws SQLException {
         String query = "SELECT DISTINCT rent_number FROM Alysson_2019305.rent\n"
@@ -101,9 +122,14 @@ public class RentDAO {
         }
         return rentNumber;
     }
+    
     /**
-     * This query will check if number generated will match the movies selected, if the they are the same, the rent will be
-     * successful
+     * This query will check if the rent number will match the movies selected, 
+     * the return will be successful.
+     * @param rentNumberSelected 
+     * @param movie
+     * @return : true if matches and false if not.
+     * @throws SQLException 
      */
     public boolean checkIfRentNumberMatchesMovie(String rentNumberSelected, String movie) throws SQLException {
         int rentQuery = Integer.parseInt(rentNumberSelected);
@@ -121,8 +147,12 @@ public class RentDAO {
         }
         return false;
     }
+    
     /**
-     * This query will update the session of movies. 
+     * This method will update the returned variable in the DB
+     * @param rentQuery: rent number
+     * @param movie : related movies.
+     * @throws SQLException 
      */
     private void updateRent(int rentQuery, String movie) throws SQLException {
         String query = "UPDATE Alysson_2019305.rent\n"
@@ -134,8 +164,12 @@ public class RentDAO {
         stmt.setString(2, movie);
         stmt.execute();
     }
+    
     /**
-     * This query will get the date to return the movies, based on the date you rented them. 
+     * This query will get the date to return the movies. 
+     * @param rentNumber : accordingly with the rent number and the
+     * @return : date
+     * @throws SQLException 
      */
     public String getReturnDate(String rentNumber) throws SQLException {
         int rentQuery = Integer.parseInt(rentNumber);
@@ -150,7 +184,5 @@ public class RentDAO {
             returnDate = resultSet.getString("return_date");
         }
         return returnDate;
-    }
-
-    
+    }   
 }
