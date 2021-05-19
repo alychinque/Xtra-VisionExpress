@@ -21,9 +21,6 @@ import view.MovieDescription;
 /**
  *
  * @author Alysson Chinque
- */
-/**
- * 
  * @author Maicon
  * Creating a class and instantiating some variables that will be used to display the movie description.
  */
@@ -33,9 +30,9 @@ public class MovieDescriptionController {
     private final MoviesCartDAO movieCartdao;
     private int moviesCart;
     private int sessionFromCart = 0;
+    
     /**
-     * 
-     * This function will try a connection with the database to get the movies information
+     * This is a constructor of the class that will try a connection with the database
      */
     public MovieDescriptionController(MovieDescription view) {
         this.view = view;
@@ -47,14 +44,16 @@ public class MovieDescriptionController {
         }
         movieCartdao = new MoviesCartDAO(conn);
     }
+    
     /**
-     * This function is instatiating the Main class, so it will bring you to the main page if you click back
+     * This function is instantiating the Main class, so it will bring you to the main page if you click back
      */
     public void backMain(int session) {
         Main main = new Main(session);
         main.setVisible(true);
         this.view.dispose();
     }
+    
     /**
      * This function will bring you to the cart.
      */
@@ -63,8 +62,8 @@ public class MovieDescriptionController {
         Cart cart = new Cart(session);
         cart.setVisible(true);
     }
+    
     /**
-     * 
      * Here is defined that you can`t have more than 4 movies into your cart.
      */
     public boolean checkCart(int session) {
@@ -79,7 +78,11 @@ public class MovieDescriptionController {
         return true;
     }
     
-
+    /**
+     * This method will try to add a movie into the cart
+     * @param session : current session
+     * @param idMovie : selected movie
+     */
     public void addCart(int session, int idMovie) {
 
         MovieDAO moviedao = new MovieDAO(conn);
@@ -100,7 +103,6 @@ public class MovieDescriptionController {
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Failed adding");
         }
-        
-    }
-    
+   
+    }  
 }
